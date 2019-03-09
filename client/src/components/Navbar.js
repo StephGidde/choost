@@ -1,30 +1,25 @@
-import React, { Component } from 'react';
-import '../App.css';
-
-
-
+import React, { Component } from "react";
+import "../App.css";
 
 class Navbar extends Component {
-    render() {
-        return (
-            <div>
-                <nav class="navbar">
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons">
-                                <a class="button is-primary">
-                                    <strong>Sign up</strong>
-                                </a>
-                                <a class="button is-light">
-                                    Log in
-						</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+  render() {
+    return (
+      <div className="navbar">
+        <nav className="navbar">
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                <a className="button is-white is-inverted is-outlined">
+                  <strong>Sign up</strong>
+                </a>
+                <a className="button is-outlined is-warning">Log in</a>
+              </div>
             </div>
-        );
-    }
+          </div>
+        </nav>
+      </div>
+    );
+  }
 }
 
 export default Navbar;
