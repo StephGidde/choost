@@ -1,33 +1,79 @@
-import React, { Component } from 'react';
-import './App.css';
-import Navbar from "./components/Navbar"
-import SearchBar from "./components/SearchBar"
-import Categories from "./components/Categories"
-
+import React, { Component } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Signup from "./components/auth/Signup";
+import Login from "./components/auth/Login";
+import AuthService from "./components/auth/auth-service";
+import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loggedInUser: null };
+    this.service = new AuthService();
+  }
+
+  fetchUser() {
+    if (this.state.loggedInUser === null) {
+      this.service
+        .loggedin()
+        .then(response => {
+          this.setState({
+            loggedInUser: response
+          });
+        })
+        .catch(err => {
+          this.setState({
+            loggedInUser: false
+          });
+        });
+    }
+  }
+
+  getTheUser = userObj => {
+    this.setState({
+      loggedInUser: userObj
+    });
+  };
+
+  getTheUser = userObj => {
+    this.setState({
+      loggedInUser: userObj
+    });
+  };
+
   render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <div class=" app-name title">CHOOST</div>
-        <SearchBar />
-        <div class="intro-container">
-          <span> or <br /> choose a category:</span>
+    this.fetchUser();
+    if (this.state.loggedInUser) {
+      return (
+        <div className="App">
+          <Navbar userInSession={this.state.loggedInUser} />
+          <Switch>
+            <Route exact path="/" render={() => <Home />} />
+          </Switch>
         </div>
-        <Categories />
-        <div class="breadcrumb user-playlist" >
-          <p>Your Playlist</p>
-          <ul>
-            <li><a href="#">Video 1</a></li>
-            <li><a href="#">Video 2</a></li>
-            <li><a href="#">Video 2</a></li>
-          </ul>
+      );
+    } else {
+      return (
+        <div className="App">
+          <Navbar userInSession={this.state.loggedInUser} />
+          <Switch>
+            <Route exact path="/" render={() => <Home />} />
+            <Route
+              exact
+              path="/signup"
+              render={() => <Signup getUser={this.getTheUser} />}
+            />
+            <Route
+              exact
+              path="/login"
+              render={() => <Login getUser={this.getTheUser} />}
+            />
+          </Switch>
         </div>
-
-
-      </div>
-    );
+      );
+    }
   }
 }
 

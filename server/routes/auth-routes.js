@@ -10,19 +10,21 @@ const User = require("../models/user-model");
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-
+  const email = req.body.email;
+  const playlistvideoids = req.body.playlistvideoids;
+  console.log("USERNAME" + username + password);
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
     return;
   }
 
-  if (password.length < 7) {
-    res.status(400).json({
-      message:
-        "Please make your password at least 8 characters long for security purposes."
-    });
-    return;
-  }
+  // if (password.length < 7) {
+  //   res.status(400).json({
+  //     message:
+  //       "Please make your password at least 8 characters long for security purposes."
+  //   });
+  //   return;
+  // }
 
   User.findOne({ username }, (err, foundUser) => {
     if (err) {
@@ -40,10 +42,13 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const aNewUser = new User({
       username: username,
-      password: hashPass
+      email: email,
+      password: hashPass,
+      playlistvideoids: playlistvideoids
     });
 
     aNewUser.save(err => {
+      console.log("A NEW USER" + aNewUser);
       if (err) {
         res
           .status(400)
@@ -55,6 +60,7 @@ authRoutes.post("/signup", (req, res, next) => {
       // .login() here is actually predefined passport method
       req.login(aNewUser, err => {
         if (err) {
+          console.log("ERROR" + err);
           res.status(500).json({ message: "Login after signup went bad." });
           return;
         }

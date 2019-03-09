@@ -1,81 +1,79 @@
-
-.app-name{
-	letter-spacing: 10px;
-	font-size:150px;
-	display:flex;
-	justify-content:center;
-	color:#22BEB6;
-	text-shadow: 2px 2px grey;
-	margin: 3% auto;
+.app-name {
+  letter-spacing: 10px;
+  font-size: 150px;
+  display: flex;
+  justify-content: center;
+  color: #22beb6;
+  text-shadow: 2px 2px grey;
+  margin: 3% auto;
 }
-.searchBar-container{
-	margin:3% auto;
-	display:flex;
-	justify-content:center;
+.searchBar-container {
+  margin: 3% auto;
+  display: flex;
+  justify-content: center;
 }
-.searchBar-container input{
-	width: 50%;
-	margin-right:3px;
-	color: #22BEB6;
-
+.searchBar-container input {
+  width: 50%;
+  margin-right: 3px;
+  color: #22beb6;
 }
-.searchBar-container a{
-	color: #22BEB6;
+.searchBar-container a {
+  color: #22beb6;
 }
 
-.searchBar-container span{
-	color: #22BEB6;
-	display:block;
+.searchBar-container span {
+  color: #22beb6;
+  display: block;
 }
 
-
-.intro-container{
-	text-align: center;
-	vertical-align: middle;
-	font-size:30px;
-	color:grey;
+.intro-container {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+  color: grey;
 }
 
 .categorie-container {
-
-	width:80%;
-	margin-left:10%;
+  width: 80%;
+  margin-left: 10%;
 }
 
-.categorie-container section{
-	text-align: center;
-	vertical-align: middle;
-	margin: 3% 1%;
-	height:150px;
-	color:#464646;
-	font-size:30px
+.categorie-container section {
+  text-align: center;
+  vertical-align: middle;
+  margin: 3% 1%;
+  height: 150px;
+  color: #464646;
+  font-size: 30px;
 }
 
-.categorie-container  :hover{
-opacity:0.8
+.categorie-container :hover {
+  opacity: 0.8;
 }
-.categorie-container section i{
-	font-size:70px;
-	color:#464646  ;
-	padding:3%;
-}
-
-
-#categorie-1{
-	background-color:#FF416C;
-}
-#categorie-2{
-	background-color:#89AAF2
-}
-#categorie-3{
-	background-color:#C496F9
-}
-#categorie-4{
-	background-color:#FFA17A
-}
-#categorie-5{
-	background-color:#F3EADA
+.categorie-container section i {
+  font-size: 70px;
+  color: #464646;
+  padding: 3%;
 }
 
+#categorie-1 {
+  background-color: #ff416c;
+}
+#categorie-2 {
+  background-color: #89aaf2;
+}
+#categorie-3 {
+  background-color: #c496f9;
+}
+#categorie-4 {
+  background-color: #ffa17a;
+}
+#categorie-5 {
+  background-color: #f3eada;
+}
 
-
+.signup-container input {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 10px;
+}
