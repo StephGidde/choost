@@ -1,21 +1,43 @@
+.buttons {
+  font-family: "Nunito", sans-serif;
+}
+
+.navbar nav,
+.navbar-item {
+  width: 100%;
+  background-color: #66ccfe;
+}
+
 .app-name {
-  letter-spacing: 10px;
-  font-size: 150px;
   display: flex;
   justify-content: center;
-  color: #22beb6;
-  text-shadow: 2px 2px grey;
   margin: 3% auto;
+  background-color: #66ccfe;
+  height: 450px;
+  width: 100%;
+  margin: 0 auto;
 }
+
+.app-name h1 {
+  color: #ffcb4f;
+  text-shadow: 1px 1px grey;
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 18px;
+  font-size: 8vw;
+  padding: 15vh;
+}
+
 .searchBar-container {
   margin: 3% auto;
   display: flex;
   justify-content: center;
+  font-family: "Nunito", sans-serif;
 }
 .searchBar-container input {
   width: 50%;
   margin-right: 3px;
   color: #22beb6;
+  font-family: "Nunito", sans-serif;
 }
 .searchBar-container a {
   color: #22beb6;
@@ -29,51 +51,93 @@
 .intro-container {
   text-align: center;
   vertical-align: middle;
-  font-size: 30px;
+  font-size: 25px;
   color: grey;
+  font-family: "Nunito", sans-serif;
 }
 
 .categorie-container {
-  width: 80%;
-  margin-left: 10%;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .categorie-container section {
   text-align: center;
-  vertical-align: middle;
   margin: 3% 1%;
   height: 150px;
-  color: #464646;
+  color: white;
   font-size: 30px;
+  font-family: "Nunito", sans-serif;
 }
 
 .categorie-container :hover {
-  opacity: 0.8;
+  /* opacity: 0.8; */
+  animation-name: stretch;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
 .categorie-container section i {
   font-size: 70px;
-  color: #464646;
+  color: white;
   padding: 3%;
 }
 
 #categorie-1 {
-  background-color: #ff416c;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/docu1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #categorie-2 {
-  background-color: #89aaf2;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/comedy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #categorie-3 {
-  background-color: #c496f9;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/fail.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #categorie-4 {
-  background-color: #ffa17a;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/popcorn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #categorie-5 {
-  background-color: #f3eada;
-}
-
-.signup-container input {
-  width: 30%;
-  margin-top: 50px;
-  margin-left: 10px;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/cat.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
