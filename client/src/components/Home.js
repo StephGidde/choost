@@ -7,7 +7,9 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <div class=" app-name title">CHOOST</div>
+        <div class=" app-name title">
+          <h1>CHOOST</h1>
+        </div>
         <SearchBar />
         <div class="intro-container">
           <span>

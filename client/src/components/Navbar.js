@@ -25,10 +25,13 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <div>
-          <nav class="navbar ">
-            <nav class="navbar-brand navbar-item">
-              <strong>LOGO</strong>
-            </nav>
+          <nav class="navbar">
+            <div class="navbar-brand">
+              <p>
+                <strong>LOGO</strong>
+              </p>
+            </div>
+
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
                 <a class="navbar-item" href="/">
@@ -36,8 +39,9 @@ class Navbar extends Component {
                 </a>
               </div>
             </div>
+
             <div class="navbar-end">
-              <div class="navbar-item ">
+              <div class="navbar-item">
                 <div class="buttons">
                   <a class="button is-light " href="/logout">
                     Log out
@@ -51,10 +55,11 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav class="navbar ">
-            <nav class="navbar-brand navbar-item">
+          <nav class="navbar">
+            <div class="navbar-brand navbar-item">
               <strong>LOGO</strong>
-            </nav>
+            </div>
+
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
                 <a class="navbar-item" href="/">
@@ -62,6 +67,7 @@ class Navbar extends Component {
                 </a>
               </div>
             </div>
+
             <div class="navbar-end">
               <div class="navbar-item ">
                 <div class="buttons">
