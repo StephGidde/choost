@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import AuthService from "./auth/auth-service";
 import { Link, Switch, Route } from "react-router-dom";
+import homeimg from "../images/Home-icon.png";
 
 class Navbar extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Navbar extends Component {
     this.service.logout().then(() => {
       this.setState({ loggedInUser: null });
       this.props.getUser(null);
+      console.log("STILL LOGGED IN: " + this.state.loggedInUser.username);
     });
   };
 
@@ -26,24 +28,27 @@ class Navbar extends Component {
       return (
         <div>
           <nav class="navbar">
-            <div class="navbar-brand">
-              <p>
-                <strong>LOGO</strong>
-              </p>
-            </div>
-
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item" href="/">
-                  Home
-                </a>
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="/">
+                    <img src={homeimg} alt="Home" width="30" height="30" />
+                  </a>
+                </div>
+                <span class="navbar-item">
+                  Hello {this.state.loggedInUser.username}
+                </span>
               </div>
             </div>
 
             <div class="navbar-end">
               <div class="navbar-item">
                 <div class="buttons">
-                  <a class="button is-light " href="/logout">
+                  <a
+                    class="button is-light "
+                    href="/"
+                    onClick={() => this.logoutUser()}
+                  >
                     Log out
                   </a>
                 </div>
@@ -56,15 +61,13 @@ class Navbar extends Component {
       return (
         <div>
           <nav class="navbar">
-            <div class="navbar-brand navbar-item">
-              <strong>LOGO</strong>
-            </div>
-
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item" href="/">
-                  Home
-                </a>
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="/">
+                    <img src={homeimg} alt="Home" width="30" height="30" />
+                  </a>
+                </div>
               </div>
             </div>
 

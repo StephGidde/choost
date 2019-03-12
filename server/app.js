@@ -13,6 +13,7 @@ const passport = require("passport");
 const MongoStore = require("connect-mongo")(session);
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/user-model");
+const bcrypt = require("bcryptjs");
 
 mongoose
   .connect("mongodb://localhost/choost-db", { useNewUrlParser: true })
@@ -78,13 +79,13 @@ passport.deserializeUser((id, cb) => {
 });
 
 passport.use(
-  new LocalStrategy((username, password, next) => {
-    User.findOne({ username }, (err, user) => {
+  new LocalStrategy({ usernameField: "email" }, (email, password, next) => {
+    User.findOne({ email }, (err, user) => {
       if (err) {
         return next(err);
       }
       if (!user) {
-        return next(null, false, { message: "Incorrect username" });
+        return next(null, false, { message: "Incorrect email" });
       }
       if (!bcrypt.compareSync(password, user.password)) {
         return next(null, false, { message: "Incorrect password" });
