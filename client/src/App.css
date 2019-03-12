@@ -143,3 +143,24 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.signup-container input {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 10px;
+  color: #22beb6;
+}
+
+.nav-hello-name {
+  margin-top: 2rem;
+  background-color: #66ccfe;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+.home-image {
+  width: 28px;
+  height: 18px;
+}
