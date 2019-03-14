@@ -4,7 +4,7 @@ import AuthService from "./auth/auth-service";
 // import { Link, Switch, Route } from "react-router-dom";
 import homeimg from "../images/Home-icon.png";
 
-className Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null };
@@ -60,7 +60,6 @@ className Navbar extends Component {
     } else {
       return (
         <div>
-<<<<<<< HEAD
           <nav className="navbar">
             <div id="navbarBasicExample" className="navbar-menu">
               <div className="navbar-start">
@@ -69,18 +68,6 @@ className Navbar extends Component {
                     <img src={homeimg} alt="Home" width="30" height="30" />
                   </a>
                 </div>
-=======
-          <nav className="navbar">
-            <div className="navbar-brand navbar-item">
-              <strong>LOGO</strong>
-            </div>
-
-            <div id="navbarBasicExample" className="navbar-menu">
-              <div className="navbar-start">
-                <a className="navbar-item" href="/">
-                  Home
-                </a>
->>>>>>> video-player
               </div>
             </div>
 
