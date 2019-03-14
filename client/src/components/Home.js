@@ -2,23 +2,47 @@ import React, { Component } from "react";
 import "../App.css";
 import SearchBar from "./SearchBar";
 import Categories from "./Categories";
+import Player from "./Player"
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      //  parameters that can be changed by the user
+      q: false
+    }
+  }
+
+  searchFunktion = (searchTerm) => {
+    console.log(searchTerm)
+    this.setState({
+      q: searchTerm
+    })
+  }
   render() {
+
+    if (this.state.q) {
+      return <Player keyword={this.state.q}/>
+    }
+
+
     return (
       <div className="App">
-        <div class=" app-name title">
+        <div className=" app-name title">
           <h1>CHOOST</h1>
         </div>
-        <SearchBar />
-        <div class="intro-container">
+        <SearchBar onSearch={this.searchFunktion} />
+        <div className="intro-container">
           <span>
             {" "}
             or <br /> choose a category:
           </span>
         </div>
         <Categories />
-        <div class="breadcrumb user-playlist">
+        {/* <Player keyword={this.state.q} /> */}
+
+
+        <div className="breadcrumb user-playlist">
           <p>Your Playlist</p>
           <ul>
             <li>

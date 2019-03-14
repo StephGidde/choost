@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "../App.css";
 import AuthService from "./auth/auth-service";
-import { Link, Switch, Route } from "react-router-dom";
+// import { Link, Switch, Route } from "react-router-dom";
 import homeimg from "../images/Home-icon.png";
 
-class Navbar extends Component {
+className Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null };
@@ -27,25 +27,25 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <div>
-          <nav class="navbar">
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="/">
+          <nav className="navbar">
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <div className="navbar-brand">
+                  <a className="navbar-item" href="/">
                     <img src={homeimg} alt="Home" width="30" height="30" />
                   </a>
                 </div>
-                <span class="navbar-item">
+                <span className="navbar-item">
                   Hello {this.state.loggedInUser.username}
                 </span>
               </div>
             </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
                   <a
-                    class="button is-light "
+                    className="button is-light "
                     href="/"
                     onClick={() => this.logoutUser()}
                   >
@@ -60,24 +60,37 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav class="navbar">
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="/">
+<<<<<<< HEAD
+          <nav className="navbar">
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <div className="navbar-brand">
+                  <a className="navbar-item" href="/">
                     <img src={homeimg} alt="Home" width="30" height="30" />
                   </a>
                 </div>
+=======
+          <nav className="navbar">
+            <div className="navbar-brand navbar-item">
+              <strong>LOGO</strong>
+            </div>
+
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <a className="navbar-item" href="/">
+                  Home
+                </a>
+>>>>>>> video-player
               </div>
             </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item ">
-                <div class="buttons">
-                  <a class="button is-primary " href="/signup">
+            <div className="navbar-end">
+              <div className="navbar-item ">
+                <div className="buttons">
+                  <a className="button is-primary " href="/signup">
                     <strong>Sign up</strong>
                   </a>
-                  <a class="button is-light" href="/login">
+                  <a className="button is-light" href="/login">
                     Log in
                   </a>
                 </div>
