@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "../App.css";
 import AuthService from "./auth/auth-service";
-import { Link, Switch, Route } from "react-router-dom";
+// import { Link, Switch, Route } from "react-router-dom";
+
+
 
 class Navbar extends Component {
   constructor(props) {
@@ -25,25 +27,25 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <div>
-          <nav class="navbar">
-            <div class="navbar-brand">
+          <nav className="navbar">
+            <div className="navbar-brand">
               <p>
                 <strong>LOGO</strong>
               </p>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a class="navbar-item" href="/">
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <a className="navbar-item" href="/">
                   Home
                 </a>
               </div>
             </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
-                  <a class="button is-light " href="/logout">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
+                  <a className="button is-light " href="/logout">
                     Log out
                   </a>
                 </div>
@@ -55,26 +57,26 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav class="navbar">
-            <div class="navbar-brand navbar-item">
+          <nav className="navbar">
+            <div className="navbar-brand navbar-item">
               <strong>LOGO</strong>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a class="navbar-item" href="/">
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <a className="navbar-item" href="/">
                   Home
                 </a>
               </div>
             </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item ">
-                <div class="buttons">
-                  <a class="button is-primary " href="/signup">
+            <div className="navbar-end">
+              <div className="navbar-item ">
+                <div className="buttons">
+                  <a className="button is-primary " href="/signup">
                     <strong>Sign up</strong>
                   </a>
-                  <a class="button is-light" href="/login">
+                  <a className="button is-light" href="/login">
                     Log in
                   </a>
                 </div>
