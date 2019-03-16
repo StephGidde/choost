@@ -29,7 +29,7 @@ class PlayerBar extends Component {
     window.open(sharer, "sharer", "width=626,height=436");
   }
 
-  nextVideo() {}
+  // nextVideo = () => this.props.randomizeVideos;
 
   render() {
     return (
@@ -55,7 +55,8 @@ class PlayerBar extends Component {
           <img
             src={nextVideoIMG}
             alt="next Video Button"
-            id="nextVideoIMG" /* onClick={this.nextVideo} */
+            id="nextVideoIMG"
+            onClick={() => this.props.randomVideo()}
           />
         </div>
       </div>
