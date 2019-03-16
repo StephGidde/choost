@@ -164,11 +164,35 @@
   height: 18px;
 }
 
+.wrapperVideo {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.video-player {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-top: 56.25%; /* 9 / 16 * 100 */
+}
+.video-player > iframe {
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  border: 0;
+}
+
 #PlayerBarContainer {
-  width: 60vw;
+  width: 70%;
   height: 70px;
   border: 1px solid black;
   background-color: white;
+  position: absolute;
+  top: 77%;
+  right: 15%;
 }
 
 #addToPlaylistIMG,
@@ -183,20 +207,10 @@
   float: left;
 }
 
+#sharingIMGTwitter {
+  height: 72px;
+}
+
 #nextVideoIMG {
   float: right;
-}
-.video-player {
-  width: 100%;
-  height: 0;
-  position: relative;
-  padding-top: 56.25%; /* 9 / 16 * 100 */
-}
-.video-player > iframe {
-  width: 70%;
-  height: 70%;
-  position: absolute;
-  top: 5%;
-  left: 15%;
-  border: 0;
 }
