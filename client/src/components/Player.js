@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import axios from "axios";
 import Spinner from "./Spinner";
+import PlayerBar from "./PlayerBar";
 require("dotenv").config();
 
 class Player extends Component {
@@ -15,7 +16,6 @@ class Player extends Component {
       isloading: true
     };
   }
-
 
     // componentWillReceiveProps(newProps) ComponentDidUpdate better!
 
@@ -52,8 +52,11 @@ class Player extends Component {
 
 <div>
         {this.state.isloading === true && <Spinner />}
-        <div class="video-player">
-          {this.state.videoId && <iframe title= "Video-Player" src={src} allowFullScreen />}
+        <div className="wrapperVideo">
+          <div class="video-player">
+            {this.state.videoId && <iframe  title= "Video-Player" src={src} allowFullScreen />}
+            <PlayerBar videoID={this.state.videoId} />
+          </div>
         </div>
       </div>
 
