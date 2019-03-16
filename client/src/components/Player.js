@@ -16,45 +16,50 @@ class Player extends Component {
     };
   }
 
-  // componentWillReceiveProps(newProps) ComponentDidUpdate better!
 
-  componentDidMount(props) {
-    axios
-      .get(`https://www.googleapis.com/youtube/v3/search`, {
-        params: {
-          part: "snippet", //by default
-          q: this.props.keyword,
-          videoDuration: this.state.videoDuration,
-          maxResults: "50",
-          videoEmbeddable: true, // search to only videos that can be embedded into a webpage
-          type: "video", //required by parameter "videoEmbeddable"
-          key: process.env.REACT_APP_YOUTUBE_API_KEY
-          // channelId: 'UCqmQ1b96-PNH4coqgHTuTlA',
-          //loading:false
-        }
-      })
-      .then(res => {
-        const randomVideo = Math.floor(Math.random() * 51);
+    // componentWillReceiveProps(newProps) ComponentDidUpdate better!
 
-        this.setState({ videoId: res.data.items[randomVideo].id.videoId });
-        this.setState({ isloading: false });
-      });
-  }
 
-  render() {
-    const src = `https://www.youtube.com/embed/${
-      this.state.videoId
-    }?modestbranding=1&color=white`;
+    componentDidMount(props) {
+        axios.get(`https://www.googleapis.com/youtube/v3/search`, {
+            params: {
+                
+                part: 'snippet', //by default
+                q: this.props.keyword,
+                videoDuration: this.state.videoDuration,
+                maxResults: "50",
+                videoEmbeddable: true, // search to only videos that can be embedded into a webpage
+                type: "video", //required by parameter "videoEmbeddable"
+                key: process.env.REACT_APP_YOUTUBE_API_KEY,
+                loading:true
+            }
+        })
+    
+    .then(res => {
+      const randomVideo = Math.floor(Math.random() * 51);
 
-    return (
-      <div>
+      this.setState({ videoId: res.data.items[randomVideo].id.videoId });
+      this.setState({ isloading: false });
+    });
+}
+
+
+    render() {
+
+        const src = `https://www.youtube.com/embed/${this.state.videoId}?modestbranding=1&color=white`
+
+        return (
+
+<div>
         {this.state.isloading === true && <Spinner />}
         <div class="video-player">
-          {this.state.videoId && <iframe src={src} allowFullScreen />}
+          {this.state.videoId && <iframe title= "Video-Player" src={src} allowFullScreen />}
         </div>
       </div>
-    );
-  }
+
+        );
+    }
+
 }
 
 export default Player;
