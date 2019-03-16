@@ -3,7 +3,7 @@ import "../App.css";
 
 const Spinner = () => {
   return (
-    <div class="lds-spinner">
+    <div className="lds-spinner spinner-container">
       <div />
       <div />
       <div />

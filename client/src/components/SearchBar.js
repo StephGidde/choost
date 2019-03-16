@@ -11,6 +11,7 @@ class SearchBar extends Component {
     let query = this.textInput.value;
     let languageFilter = this.dropLanguage.value
     let durationFilter = this.dropDuration.value
+    console.log(languageFilter)
 
     this.props.onSearch(query, languageFilter, durationFilter);
 
@@ -34,7 +35,7 @@ class SearchBar extends Component {
             <div className="control has-icons-left">
               <div className="select is-warning">
                 <select ref={(select) => this.dropLanguage = select}>
-                  <option value="eng">English</option>
+                  <option value="en">English</option>
                   <option value="de">German</option>
                 </select>
                 <div className="icon is-small is-left">

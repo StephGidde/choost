@@ -31,10 +31,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="signup-container">
+      <div className="signup-container">
         <form onSubmit={this.handleFormSubmit}>
           <input
-            class="input is-primary is-normal"
+            className="input is-primary is-normal"
             placeholder="Enter your email address"
             type="email"
             name="email"
@@ -43,7 +43,7 @@ class Login extends Component {
           />
           <br />
           <input
-            class="input is-primary is-normal"
+            className="input is-primary is-normal"
             placeholder="Enter your password"
             type="password"
             name="password"
@@ -52,7 +52,7 @@ class Login extends Component {
           />
           <br />
           <input
-            class="button is-normal is-primary "
+            className="button is-normal is-primary "
             type="submit"
             value="Login"
           />

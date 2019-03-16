@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import "../App.css";
 import SearchBar from "./SearchBar";
 import Categories from "./Categories";
-import Player from "./Player"
+import Player from "./Player";
 
 class Home extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       //  parameters that can be changed by the user
       q: false
-    }
+    };
   }
 
   searchFunction = (query, languageFilter, durationFilter) => {
@@ -21,12 +21,12 @@ class Home extends Component {
       videoDuration: durationFilter
     })
   }
-  render() {
+  
 
+  render() {
     if (this.state.q) {
       return <Player keyword={this.state.q} language={this.state.relevanceLanguage} duration={this.state.videoDuration} />
     }
-
 
     return (
       <div className="App">
@@ -40,9 +40,7 @@ class Home extends Component {
             or <br /> choose a category:
           </span>
         </div>
-        <Categories />
-        {/* <Player keyword={this.state.q} /> */}
-
+        <Categories onSearch={this.searchFunction} />
 
         <div className="breadcrumb user-playlist">
           <p>Your Playlist</p>
