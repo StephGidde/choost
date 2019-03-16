@@ -32,9 +32,11 @@
   margin: 3% auto;
   display: flex;
   justify-content: center;
+  
   font-family: "Nunito", sans-serif;
 }
 .searchBar-container input {
+  
   width: 50%;
   margin-right: 3px;
   color: #22beb6;
@@ -46,7 +48,11 @@
 
 .searchBar-container span {
   color: #22beb6;
-  display: block;
+  /* display: block; */
+}
+
+.searchBar-container select{
+  display:inline;
 }
 
 .intro-container {

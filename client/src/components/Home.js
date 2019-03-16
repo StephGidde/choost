@@ -13,16 +13,18 @@ class Home extends Component {
     }
   }
 
-  searchFunktion = (searchTerm) => {
-    console.log(searchTerm)
+  searchFunction = (query, languageFilter, durationFilter) => {
+
     this.setState({
-      q: searchTerm
+      q: query,
+      relevanceLanguage: languageFilter,
+      videoDuration: durationFilter
     })
   }
   render() {
 
     if (this.state.q) {
-      return <Player keyword={this.state.q}/>
+      return <Player keyword={this.state.q} language={this.state.relevanceLanguage} duration={this.state.videoDuration} />
     }
 
 
@@ -31,7 +33,7 @@ class Home extends Component {
         <div className=" app-name title">
           <h1>CHOOST</h1>
         </div>
-        <SearchBar onSearch={this.searchFunktion} />
+        <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
           <span>
             {" "}
