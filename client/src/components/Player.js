@@ -30,7 +30,6 @@ class Player extends Component {
           type: "video", //required by parameter "videoEmbeddable"
           key: process.env.REACT_APP_YOUTUBE_API_KEY
           // channelId: 'UCqmQ1b96-PNH4coqgHTuTlA',
-          //loading:false
         }
       })
       .then(res => {
