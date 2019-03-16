@@ -42,6 +42,29 @@ class Player extends Component {
       });
   }
 
+  randomizeVideos = () => {
+    axios
+      .get(`https://www.googleapis.com/youtube/v3/search`, {
+        params: {
+          //these parameters are definded by us, can't be changed by the user
+          part: "snippet", //by default
+          q: this.props.keyword,
+          videoDuration: this.state.videoDuration,
+          maxResults: "50",
+          videoEmbeddable: true, // search to only videos that can be embedded into a webpage
+          type: "video", //required by parameter "videoEmbeddable"
+          key: process.env.REACT_APP_YOUTUBE_API_KEY
+          // channelId: 'UCqmQ1b96-PNH4coqgHTuTlA',
+          //loading:false
+        }
+      })
+      .then(res => {
+        const randomVideo = Math.floor(Math.random() * 51);
+        this.setState({ videoId: res.data.items[randomVideo].id.videoId });
+        this.setState({ isloading: false });
+      });
+  };
+
   render() {
     const src = `https://www.youtube.com/embed/${
       this.state.videoId
@@ -51,9 +74,12 @@ class Player extends Component {
       <div>
         {this.state.isloading === true && <Spinner />}
         <div className="wrapperVideo">
-          <div class="video-player">
+          <div className="video-player">
             {this.state.videoId && <iframe src={src} allowFullScreen />}
-            <PlayerBar videoID={this.state.videoId} />
+            <PlayerBar
+              videoID={this.state.videoId}
+              randomVideo={this.randomizeVideos}
+            />
           </div>
         </div>
       </div>
