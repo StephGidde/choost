@@ -9,19 +9,20 @@ class Player extends Component {
         super(props)
         this.state = {
             // parameters for the search that can be changed by the user
-            videoDuration: "short",
-            // relevanceLanguage:EN,
-            videoId: false
+            videoDuration: "any", //short / medium / long / any
+            videoId: false,
+            relevanceLanguage:"de",
             //loading:true
         }
     }
 
     // componentWillReceiveProps(newProps) ComponentDidUpdate better!
 
+
     componentDidMount(props) {
         axios.get(`https://www.googleapis.com/youtube/v3/search`, {
             params: {
-                //these parameters are definded by us, can't be changed by the user
+                
                 part: 'snippet', //by default
                 q: this.props.keyword,
                 videoDuration: this.state.videoDuration,
@@ -34,7 +35,9 @@ class Player extends Component {
             }
         })
             .then((res) => {
-                this.setState({ videoId: res.data.items[0].id.videoId })
+                const randomVideo = Math.floor(Math.random() * 51)
+                
+                this.setState({ videoId: res.data.items[randomVideo].id.videoId })
                 
             })
 
@@ -54,9 +57,5 @@ class Player extends Component {
     }
 
 }
-
-
-// id="ytplayer" type="text/html" width="560" height="315"   frameBorder="0" 
-
 
 export default Player
