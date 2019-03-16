@@ -5,7 +5,6 @@
 .navbar nav,
 .navbar-item,
 .navbar-menu {
-  /* width: 100%; */
   background-color: #66ccfe;
 }
 
@@ -142,4 +141,27 @@
     url("./images/cat.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#PlayerBarContainer {
+  width: 60vw;
+  height: 70px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#addToPlaylistIMG,
+#sharingIMG,
+#nextVideoIMG {
+  height: 50px;
+  margin: 10px;
+}
+
+#addToPlaylistIMG,
+#sharingIMG {
+  float: left;
+}
+
+#nextVideoIMG {
+  float: right;
 }
