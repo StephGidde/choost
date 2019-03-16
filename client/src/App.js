@@ -8,7 +8,6 @@ import AuthService from "./components/auth/auth-service";
 import { Switch, Route } from "react-router-dom";
 import PlayerBar from "./components/PlayerBar";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -60,7 +59,6 @@ class App extends Component {
       return (
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
-
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route

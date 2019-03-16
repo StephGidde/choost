@@ -25,6 +25,7 @@ class SearchBar extends Component {
           <button className="searchbutton button is-large is-primary is-outlined">
             Search
         </button>
+        
         </form>
       </div>
 
