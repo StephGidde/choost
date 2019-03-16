@@ -164,11 +164,20 @@
   height: 18px;
 }
 
+.wrapperVideo {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 #PlayerBarContainer {
-  width: 60vw;
+  width: 70%;
   height: 70px;
   border: 1px solid black;
   background-color: white;
+  position: absolute;
+  top: 77%;
+  right: 15%;
 }
 
 #addToPlaylistIMG,
@@ -181,6 +190,10 @@
 #addToPlaylistIMG,
 #sharingIMG {
   float: left;
+}
+
+#sharingIMGTwitter {
+  height: 72px;
 }
 
 #nextVideoIMG {

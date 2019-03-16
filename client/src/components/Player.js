@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import axios from "axios";
 import Spinner from "./Spinner";
+import PlayerBar from "./PlayerBar";
 require("dotenv").config();
 
 class Player extends Component {
@@ -22,6 +23,7 @@ class Player extends Component {
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
+          //these parameters are definded by us, can't be changed by the user
           part: "snippet", //by default
           q: this.props.keyword,
           videoDuration: this.state.videoDuration,
@@ -35,7 +37,6 @@ class Player extends Component {
       })
       .then(res => {
         const randomVideo = Math.floor(Math.random() * 51);
-
         this.setState({ videoId: res.data.items[randomVideo].id.videoId });
         this.setState({ isloading: false });
       });
@@ -49,8 +50,11 @@ class Player extends Component {
     return (
       <div>
         {this.state.isloading === true && <Spinner />}
-        <div class="video-player">
-          {this.state.videoId && <iframe src={src} allowFullScreen />}
+        <div className="wrapperVideo">
+          <div class="video-player">
+            {this.state.videoId && <iframe src={src} allowFullScreen />}
+            <PlayerBar videoID={this.state.videoId} />
+          </div>
         </div>
       </div>
     );
