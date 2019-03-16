@@ -70,10 +70,6 @@ class Player extends Component {
       this.state.videoId
     }?modestbranding=1&color=white`;
 
-    const src = `https://www.youtube.com/embed/${
-      this.state.videoId
-    }?modestbranding=1&color=white`;
-
     return (
       <div>
         {this.state.isloading === true && <Spinner />}
