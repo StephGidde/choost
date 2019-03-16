@@ -9,14 +9,14 @@ class Player extends Component {
         super(props)
         this.state = {
             // parameters for the search that can be changed by the user
-            // q: "dog",
             videoDuration: "short",
             // relevanceLanguage:EN,
             videoId: false
+            //loading:true
         }
     }
 
-    // componentWillReceiveProps(newProps)
+    // componentWillReceiveProps(newProps) ComponentDidUpdate better!
 
     componentDidMount(props) {
         axios.get(`https://www.googleapis.com/youtube/v3/search`, {
@@ -30,6 +30,7 @@ class Player extends Component {
                 type: "video", //required by parameter "videoEmbeddable"
                 key: process.env.REACT_APP_YOUTUBE_API_KEY
                 // channelId: 'UCqmQ1b96-PNH4coqgHTuTlA',
+                //loading:false
             }
         })
             .then((res) => {
@@ -46,8 +47,8 @@ class Player extends Component {
 
         return (
 
-            <div id="video-container">
-                {this.state.videoId && <iframe id="ytplayer" type="text/html" width="560" height="315" src={src} frameBorder="0" allowFullScreen></iframe>}
+            <div class="video-player">
+                {this.state.videoId && <iframe  src={src} allowFullScreen></iframe>}
             </div>
         );
     }
@@ -55,7 +56,7 @@ class Player extends Component {
 }
 
 
-
+// id="ytplayer" type="text/html" width="560" height="315"   frameBorder="0" 
 
 
 export default Player
