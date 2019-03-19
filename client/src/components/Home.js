@@ -3,6 +3,8 @@ import "../App.css";
 import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import Player from "./Player";
+import SearchFilter from "./SearchFilter";
+
 
 class Home extends Component {
   constructor(props) {
@@ -13,15 +15,18 @@ class Home extends Component {
     };
   }
 
-  searchFunction = (query, languageFilter, durationFilter) => {
-
+  searchFunction = (query) => {
     this.setState({
       q: query,
+      
+    })
+  }
+   filterFunction = (languageFilter, durationFilter) => {
+    this.setState({
       relevanceLanguage: languageFilter,
       videoDuration: durationFilter
     })
   }
-  
 
   render() {
     if (this.state.q) {
@@ -34,13 +39,14 @@ class Home extends Component {
           <h1>CHOOST</h1>
         </div>
         <SearchBar onSearch={this.searchFunction} />
+        <SearchFilter onFilter={this.filterFunction} />
         <div className="intro-container">
           <span>
             {" "}
             or <br /> choose a category:
           </span>
         </div>
-        <Categories onSearch={this.searchFunction} />
+        <Categories onSearch={this.searchFunction}/>
 
         <div className="breadcrumb user-playlist">
           <p>Your Playlist</p>

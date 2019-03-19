@@ -1,50 +1,42 @@
 import React, { Component } from "react";
 import "../App.css";
-import Player from "./Player";
 
 class Categories extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   handleCat = event => {
     event.preventDefault();
     let query = "cat fun";
-    let languageFilter = "en"
-    let durationFilter = "any"
-    this.props.onSearch(query, languageFilter, durationFilter);
+
+    this.props.onSearch(query);
   };
 
   handleMovie = event => {
     event.preventDefault();
     let query = "kinockeck trailer";
-    let languageFilter = "en"
-    let durationFilter = "any"
-    this.props.onSearch(query, languageFilter, durationFilter);
+
+    this.props.onSearch(query);
   };
 
   handleFail = event => {
     event.preventDefault();
     let query = "fail";
-    let languageFilter = "en"
-    let durationFilter = "any"
-    this.props.onSearch(query, languageFilter, durationFilter);
+
+    this.props.onSearch(query);
   };
 
   handleComedy = event => {
     event.preventDefault();
     let query = "heute show böhmermann comedy";
-    let languageFilter = "en"
-    let durationFilter = "any"
-    this.props.onSearch(query, languageFilter, durationFilter);
+
+    this.props.onSearch(query);
   };
 
   handleDocu = event => {
     event.preventDefault();
     let query = "documentation bbc";
-    let languageFilter = "en"
-    let durationFilter = "any"
-    this.props.onSearch(query, languageFilter, durationFilter);
+
+    this.props.onSearch(query);
   };
 
   render() {
