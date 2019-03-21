@@ -15,7 +15,7 @@ class Categories extends Component {
 
   handleMovie = event => {
     event.preventDefault();
-    let query = "kinockeck trailer";
+    let query = "kinockeck dark phoenix 2019";
     this.props.onSearch(query);
   };
 
