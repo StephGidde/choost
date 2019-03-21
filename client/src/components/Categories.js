@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "../App.css";
 
 class Categories extends Component {
-
-
   handleCat = event => {
     event.preventDefault();
     let query = "cat fun";
@@ -40,7 +38,6 @@ class Categories extends Component {
   };
 
   render() {
-
     return (
       <div>
         <div className=" columns is-mobile categorie-container">
