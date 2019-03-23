@@ -59,22 +59,68 @@ let alreadyPlayedArray = [
   "49"
 ];
 
+let docuChannelsDE = [
+  "UC53bIpnef1pwAx69ERmmOLA",
+  "UCLLibJTCy3sXjHLVaDimnpQ",
+  "UCW39zufHfsuGgpLviKh297Q"
+];
+
+let docuChannelsEN = [
+  "UCcjoLhqu3nyOFmdqF17LeBQ",
+  "UC88lvyJe7aHZmcvzvubDFRg",
+  "UC16niRr50-MSBwiO3YDb3RA",
+  "UCu4XcDBdnZkV6-5z2f16M0g"
+];
+
+let comedyChannelsDE = [
+  "UCNNEMxGKV1LsKZRt4vaIbvw",
+  "UCFqcNI0NaAA21NS9W3ExCRg",
+  "UCa0Qo0fCynsqV9i7h1XSjGg"
+];
+
+let comedyChannelsEN = [
+  "UCqq3PZwp8Ob8_jN0esCunIw",
+  "UCUsN5ZwHx2kILm84-jPDeXw",
+  "UCMtFAi84ehTSYSE9XoHefig",
+  "UCi7GJNg51C3jgmYTUwqoUXA",
+  "UCCHk0tqatZibFoCfx-1yxxw",
+  " UCtw7q4SyOeoCwM1i_3x8lDg"
+];
+
 class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // parameters for the search that can be changed by the user
-      videoDuration: "any", //short / medium / long / any
       videoId: false,
-      relevanceLanguage: "de",
       isloading: true,
       results: {}
     };
   }
 
-  // componentWillReceiveProps(newProps) ComponentDidUpdate better!
-
   componentDidMount(props) {
+    let randomchannel = undefined;
+    if (this.props.language === "de" && this.props.categoryName === "docu") {
+      randomchannel = _.shuffle(docuChannelsDE)[0];
+    } else if (
+      this.props.language === "en" &&
+      this.props.categoryName === "docu"
+    ) {
+      randomchannel = _.shuffle(docuChannelsEN)[0];
+    } else if (
+      this.props.language === "de" &&
+      this.props.categoryName === "comedy"
+    ) {
+      randomchannel = _.shuffle(comedyChannelsDE)[0];
+    } else if (
+      this.props.language === "en" &&
+      this.props.categoryName === "comedy"
+    ) {
+      randomchannel = _.shuffle(comedyChannelsEN)[0];
+    }
+
+    console.log("ChannelId after if-statement:" + randomchannel);
+
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -86,21 +132,31 @@ class Player extends Component {
           type: "video", //required by parameter "videoEmbeddable"
           key: process.env.REACT_APP_YOUTUBE_API_KEY,
           loading: true,
-          relevanceLanguage: this.props.language
+          relevanceLanguage: this.props.language,
+          channelId: randomchannel
         }
       })
 
       .then(res => {
+        console.log("LANGUANGE:" + this.props.language);
+        console.log("The props channel ID:" + this.props.channelId);
+        console.log(
+          "The state category Name by props:" + this.props.categoryName
+        );
+        console.log("The state channel ID:" + this.state.channelId);
         const randomVideo = _.shuffle(alreadyPlayedArray)[0];
         alreadyPlayedArray = alreadyPlayedArray.filter(
-          item => item !== randomVideo
+          arrayItems => arrayItems !== randomVideo
         );
-        console.log(randomVideo);
+        // console.log(randomVideo);
         this.setState({ videoId: res.data.items[randomVideo].id.videoId });
         this.setState({ results: res.data });
         this.setState({ isloading: false });
-        console.log(this.state.results);
-        console.log(alreadyPlayedArray);
+        this.state.results.items.forEach(el =>
+          console.log(el.snippet.channelId)
+        );
+        // console.log(this.state.results);
+        // console.log(alreadyPlayedArray);
       });
   }
 
