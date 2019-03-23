@@ -5,7 +5,6 @@ class Categories extends Component {
   handleCat = event => {
     event.preventDefault();
     let query = "cat fun";
-
     this.props.onSearch(query);
   };
 
@@ -25,16 +24,18 @@ class Categories extends Component {
 
   handleComedy = event => {
     event.preventDefault();
-    let query = "heute show böhmermann comedy";
-
-    this.props.onSearch(query);
+    let query = "a";
+    let categoryName = "comedy";
+    let channelId = undefined;
+    this.props.onSearch(query, categoryName, channelId);
   };
 
   handleDocu = event => {
     event.preventDefault();
-    let query = "documentation bbc";
-
-    this.props.onSearch(query);
+    let query = "a";
+    let categoryName = "docu";
+    let channelId = undefined;
+    this.props.onSearch(query, categoryName, channelId);
   };
 
   render() {
