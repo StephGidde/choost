@@ -6,7 +6,7 @@ import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import AuthService from "./components/auth/auth-service";
 import { Switch, Route } from "react-router-dom";
-import PlayerBar from "./components/PlayerBar";
+import UserPlaylist from "./components/UserPlaylist";
 
 class App extends Component {
   constructor(props) {
@@ -30,13 +30,8 @@ class App extends Component {
           });
         });
     }
+    // console.log(this.state.loggedInUser);
   }
-
-  getTheUser = userObj => {
-    this.setState({
-      loggedInUser: userObj
-    });
-  };
 
   getTheUser = userObj => {
     this.setState({
@@ -51,8 +46,13 @@ class App extends Component {
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
           <Switch>
-            <Route exact path="/" render={() => <Home />} />
+            <Route
+              exact
+              path="/"
+              render={() => <Home userInSession={this.state.loggedInUser} />}
+            />
           </Switch>
+          {/* <UserPlaylist userInSession={this.state.loggedInUser} /> */}
         </div>
       );
     } else {
