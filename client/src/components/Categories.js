@@ -53,7 +53,7 @@ class Categories extends Component {
       q: q,
       categoryName: categoryName,
       categoryIcon: categoryIcon,
-      sections:this.state.sections.concat([{categoryIcon,categoryName,q}])
+      sections: this.state.sections.concat([{ categoryIcon, categoryName, q }])
     });
   };
   render() {
@@ -77,19 +77,18 @@ class Categories extends Component {
           {/* maps over section array and shows all sections */}
           {this.state.sections.map(section => (
             <section
-              className="box column category" 
+              className="box column category"
               // id = "categorie-1"
               // `categorie- ${section.categoryNr}`
               onClick={event => {
                 this.props.onSearch(section.q);
               }}
             >
-              <i className={section.categoryIcon} /> 
+              <i className={section.categoryIcon} />
               <br />
               {section.categoryName}
             </section>
           ))}
-
         </div>
       </div>
     );
