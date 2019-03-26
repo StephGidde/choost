@@ -4,7 +4,7 @@ import catspinner from "../images/BlueCat.gif";
 
 const Spinner = () => {
   return (
-    <div class="spinner-container">
+    <div className="spinner-container">
       <img src={catspinner} alt="Home" width="200" height="200" />
     </div>
   );

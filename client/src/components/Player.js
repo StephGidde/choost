@@ -68,7 +68,9 @@ class Player extends Component {
       videoId: false,
       relevanceLanguage: "de",
       isloading: true,
-      results: {}
+      results: {},
+      isRandom: false,
+      isPlaylist: false
     };
   }
 
@@ -95,12 +97,13 @@ class Player extends Component {
         alreadyPlayedArray = alreadyPlayedArray.filter(
           item => item !== randomVideo
         );
-        console.log(randomVideo);
+        // console.log(randomVideo);
         this.setState({ videoId: res.data.items[randomVideo].id.videoId });
         this.setState({ results: res.data });
         this.setState({ isloading: false });
-        console.log(this.state.results);
-        console.log(alreadyPlayedArray);
+        this.setState({ isRandom: true });
+        // console.log(this.state.results);
+        // console.log(alreadyPlayedArray);
       });
   }
 
@@ -116,8 +119,8 @@ class Player extends Component {
         ].id.videoId
       });
     }
-    console.log(alreadyPlayedArray);
-    console.log(randomVideo);
+    // console.log(alreadyPlayedArray);
+    // console.log(randomVideo);
     this.setState({
       videoId: this.state.results.items[randomVideo].id.videoId
     });
@@ -135,7 +138,11 @@ class Player extends Component {
             {this.state.videoId && (
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
-            <PlayerBar randomVideo={this.getNextVideo} />
+            <PlayerBar
+              videoID={this.state.videoId}
+              randomVideo={this.getNextVideo}
+              userInSession={this.props.userInSession}
+            />
           </div>
         </div>
       </div>
