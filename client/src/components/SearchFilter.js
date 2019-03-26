@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
 
-
 class SearchFilter extends Component {
 
     handleSearch = (event) => {
@@ -50,17 +49,11 @@ class SearchFilter extends Component {
                     </div>
                 </form>
             </div>
-        )
-    }
+          
+        
+      
+    );
+  }
 }
 
-
 export default SearchFilter;
-
-
-
-
-
-
-
-

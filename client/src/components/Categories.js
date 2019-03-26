@@ -57,7 +57,6 @@ class Categories extends Component {
     });
   };
   render() {
-
     return (
       <div>
         {/* will show the add Category Form */}

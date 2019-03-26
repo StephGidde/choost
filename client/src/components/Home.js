@@ -17,22 +17,32 @@ class Home extends Component {
     };
   }
 
-  searchFunction = (query) => {
+  searchFunction = (query, categoryName, channelId) => {
     this.setState({
       q: query,
-      
-    })
-  }
-   filterFunction = (languageFilter, durationFilter) => {
+      categoryName: categoryName,
+      channelId: channelId
+    });
+  };
+
+  filterFunction = (languageFilter, durationFilter) => {
     this.setState({
       relevanceLanguage: languageFilter,
       videoDuration: durationFilter
-    })
-  }
+    });
+  };
 
   render() {
     if (this.state.q) {
-      return <Player keyword={this.state.q} language={this.state.relevanceLanguage} duration={this.state.videoDuration} />
+      return (
+        <Player
+          keyword={this.state.q}
+          language={this.state.relevanceLanguage}
+          duration={this.state.videoDuration}
+          categoryName={this.state.categoryName}
+          channelId={this.state.channelId}
+        />
+      );
     }
 
     return (
@@ -50,7 +60,6 @@ class Home extends Component {
           </span>
         </div>
         <Categories onSearch={this.searchFunction} />
-        {/* addCategory={this.addCategoryFunction} */}
         <div className="breadcrumb user-playlist">
           <p>Your Playlist</p>
           <ul>
