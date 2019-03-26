@@ -4,88 +4,15 @@ import "../App.css";
 import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
+import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
+import docuChannelsDE from "../categorydata/docuChannelsDE.json";
+import docuChannelsEN from "../categorydata/docuChannelsEN.json";
+import comedyChannelsDE from "../categorydata/comedyChannelsDE.json";
+import comedyChannelsEN from "../categorydata/comedyChannelsEN.json";
+
 require("dotenv").config();
 
-let alreadyPlayedArray = [
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
-  "25",
-  "26",
-  "27",
-  "28",
-  "29",
-  "30",
-  "31",
-  "32",
-  "33",
-  "34",
-  "35",
-  "36",
-  "37",
-  "38",
-  "39",
-  "40",
-  "41",
-  "42",
-  "43",
-  "44",
-  "45",
-  "46",
-  "47",
-  "48",
-  "49"
-];
-
-let docuChannelsDE = [
-  "UC53bIpnef1pwAx69ERmmOLA",
-  "UCLLibJTCy3sXjHLVaDimnpQ",
-  "UCW39zufHfsuGgpLviKh297Q"
-];
-
-let docuChannelsEN = [
-  "UCcjoLhqu3nyOFmdqF17LeBQ",
-  "UC88lvyJe7aHZmcvzvubDFRg",
-  "UC16niRr50-MSBwiO3YDb3RA",
-  "UCu4XcDBdnZkV6-5z2f16M0g"
-];
-
-let comedyChannelsDE = [
-  "UCNNEMxGKV1LsKZRt4vaIbvw",
-  "UCFqcNI0NaAA21NS9W3ExCRg",
-  "UCa0Qo0fCynsqV9i7h1XSjGg"
-];
-
-let comedyChannelsEN = [
-  "UCqq3PZwp8Ob8_jN0esCunIw",
-  "UCUsN5ZwHx2kILm84-jPDeXw",
-  "UCMtFAi84ehTSYSE9XoHefig",
-  "UCi7GJNg51C3jgmYTUwqoUXA",
-  "UCCHk0tqatZibFoCfx-1yxxw",
-  " UCtw7q4SyOeoCwM1i_3x8lDg"
-];
+let alreadyPlayedCopy = alreadyPlayedArray;
 
 class Player extends Component {
   constructor(props) {
@@ -119,8 +46,6 @@ class Player extends Component {
       randomchannel = _.shuffle(comedyChannelsEN)[0];
     }
 
-    console.log("ChannelId after if-statement:" + randomchannel);
-
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -138,42 +63,27 @@ class Player extends Component {
       })
 
       .then(res => {
-        console.log("LANGUANGE:" + this.props.language);
-        console.log("The props channel ID:" + this.props.channelId);
-        console.log(
-          "The state category Name by props:" + this.props.categoryName
-        );
-        console.log("The state channel ID:" + this.state.channelId);
-        const randomVideo = _.shuffle(alreadyPlayedArray)[0];
-        alreadyPlayedArray = alreadyPlayedArray.filter(
+        const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
+        alreadyPlayedCopy = alreadyPlayedCopy.filter(
           arrayItems => arrayItems !== randomVideo
         );
-        // console.log(randomVideo);
         this.setState({ videoId: res.data.items[randomVideo].id.videoId });
         this.setState({ results: res.data });
         this.setState({ isloading: false });
-        this.state.results.items.forEach(el =>
-          console.log(el.snippet.channelId)
-        );
-        // console.log(this.state.results);
-        // console.log(alreadyPlayedArray);
+        this.setState({ channelId: randomchannel });
       });
   }
 
   getNextVideo = () => {
-    const randomVideo = _.shuffle(alreadyPlayedArray)[0];
-    alreadyPlayedArray = alreadyPlayedArray.filter(
-      item => item !== randomVideo
-    );
-    if (alreadyPlayedArray.length === 0) {
+    const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
+    alreadyPlayedCopy = alreadyPlayedCopy.filter(item => item !== randomVideo);
+    if (alreadyPlayedCopy.length === 0) {
       this.setState({
         videoId: this.state.results.items[
-          alreadyPlayedArray.push(Math.floor(Math.random() * 51))
+          alreadyPlayedCopy.push(Math.floor(Math.random() * 51))
         ].id.videoId
       });
     }
-    console.log(alreadyPlayedArray);
-    console.log(randomVideo);
     this.setState({
       videoId: this.state.results.items[randomVideo].id.videoId
     });
