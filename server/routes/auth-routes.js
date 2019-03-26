@@ -118,4 +118,20 @@ authRoutes.get("/loggedin", (req, res, next) => {
   res.status(403).json({ message: "Unauthorized" }); // Achtung: bei jedem Server-Neustart wird man ausgeloggt, wenn man nicht MongoStore oder CookieStore verwendet
 });
 
+// find User, then push the video ID into their fav videos array
+// authRoutes.post("/user_playlist", (req, res, next) => {
+//   console.log("i am in the backend", req.body.videoToAdd);
+//   console.log(req.user);
+
+// User.findOne({ username });
+// User.findById(req.user._id, function(err, user) {
+// if (!username) {
+//   return res.redirect("/");
+// } else {
+//   req.user.playlistvideoids.push("Eofta5EU5vg");
+// }
+// });
+
+// authRoutes.get("/user_playlist", (req, res, next) => {});
+
 module.exports = authRoutes;

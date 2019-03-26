@@ -21,13 +21,18 @@ class Player extends Component {
       // parameters for the search that can be changed by the user
       videoId: false,
       isloading: true,
-      results: {}
+      results: {},
+      isRandom: false,
+      isPlaylist: false
     };
   }
 
   componentDidMount(props) {
     let randomchannel = undefined;
-    if (this.props.language === "de" && this.props.categoryName === "Documentary") {
+    if (
+      this.props.language === "de" &&
+      this.props.categoryName === "Documentary"
+    ) {
       randomchannel = _.shuffle(docuChannelsDE)[0];
     } else if (
       this.props.language === "en" &&
@@ -101,7 +106,11 @@ class Player extends Component {
             {this.state.videoId && (
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
-            <PlayerBar randomVideo={this.getNextVideo} />
+            <PlayerBar
+              videoID={this.state.videoId}
+              randomVideo={this.getNextVideo}
+              userInSession={this.props.userInSession}
+            />
           </div>
         </div>
       </div>

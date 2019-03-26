@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import Player from "./Player";
 import SearchFilter from "./SearchFilter";
+import UserPlaylist from "./UserPlaylist";
+import PlaylistPlayer from "./PlaylistPlayer";
 
 class Home extends Component {
   constructor(props) {
@@ -12,7 +14,9 @@ class Home extends Component {
       //  parameters that can be changed by the user
       q: false,
       relevanceLanguage: "en",
-      videoDuration: "any"
+      videoDuration: "any",
+      isRandom: false,
+      isPlaylist: false
     };
   }
 
@@ -31,8 +35,16 @@ class Home extends Component {
     });
   };
 
+  playlisthandler = video => {
+    this.setState({
+      q: video,
+      isPlaylist: true,
+      isRandom: false
+    });
+  };
+
   render() {
-    if (this.state.q) {
+    if (this.state.q && this.state.isRandom) {
       return (
         <Player
           keyword={this.state.q}
@@ -40,6 +52,16 @@ class Home extends Component {
           duration={this.state.videoDuration}
           categoryName={this.state.categoryName}
           channelId={this.state.channelId}
+          userInSession={this.props.userInSession}
+        />
+      );
+    }
+
+    if (this.state.q && this.state.isPlaylist) {
+      return (
+        <PlaylistPlayer
+          videoID={this.state.q}
+          userInSession={this.state.user}
         />
       );
     }
@@ -56,20 +78,13 @@ class Home extends Component {
           <span> choose a category:</span>
         </div>
         <Categories onSearch={this.searchFunction} />
-        <div className="breadcrumb user-playlist">
-          <p>Your Playlist</p>
-          <ul>
-            <li>
-              <a href="#">Video 1</a>
-            </li>
-            <li>
-              <a href="#">Video 2</a>
-            </li>
-            <li>
-              <a href="#">Video 2</a>
-            </li>
-          </ul>
-        </div>
+
+        {this.props.userInSession && (
+          <UserPlaylist
+            userInSession={this.props.userInSession}
+            playlisthandler={this.playlisthandler}
+          />
+        )}
       </div>
     );
   }

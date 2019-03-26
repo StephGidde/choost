@@ -21,5 +21,44 @@ const userSchema = new Schema(
   }
 );
 
+userSchema.methods.updatePlaylist = function updatePlaylist(videoID) {
+  this.updateOne(
+    {
+      $addToSet: {
+        playlistvideoids: videoID
+      }
+    },
+    {
+      safe: true,
+      upsert: true
+    },
+    function(err) {
+      if (err) {
+        console.log("THIS IS AN ERROR", err);
+      }
+    }
+  );
+};
+
+userSchema.methods.deleteVideo = function deleteVideo(videoID) {
+  this.updateOne(
+    {
+      $pull: {
+        playlistvideoids: videoID
+      }
+    },
+    {
+      safe: true,
+      upsert: true
+    },
+    function(err) {
+      if (err) {
+        console.log("THIS IS AN ERROR", err);
+      }
+    }
+  );
+  console.log("this works");
+};
+
 const User = mongoose.model("User", userSchema);
 module.exports = User;
