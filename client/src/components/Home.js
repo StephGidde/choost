@@ -24,7 +24,8 @@ class Home extends Component {
     this.setState({
       q: query,
       categoryName: categoryName,
-      channelId: channelId
+      channelId: channelId,
+      isRandom: true
     });
   };
 
