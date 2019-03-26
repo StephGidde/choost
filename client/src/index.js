@@ -4,6 +4,11 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bulma/css/bulma.css";
+import "bulma-iconpicker" 
+// import "bulma/css/bulma.css.map";
+// import "bulma/css/bulma.min.css";
+
+
 
 import { BrowserRouter as Router } from "react-router-dom";
 

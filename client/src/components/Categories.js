@@ -1,90 +1,96 @@
 import React, { Component } from "react";
 import "../App.css";
+import AddCategory from "./AddCategory";
 
 class Categories extends Component {
-
-
-  handleCat = event => {
-    event.preventDefault();
-    let query = "cat fun";
-
-    this.props.onSearch(query);
+  constructor(props) {
+    super(props);
+    this.state = {
+      q: "",
+      show: false,
+      sections: [
+        {
+          categoryNr: "1",
+          categoryIcon: "fas fa-book",
+          categoryName: "Documentary",
+          q: "documentation bbc"
+        },
+        {
+          categoryNr: "2",
+          categoryIcon: "far fa-smile-beam",
+          categoryName: "Comedy",
+          q: "heute show böhmermann comedy"
+        },
+        {
+          categoryNr: "3",
+          categoryIcon: "fas fa-skull-crossbones",
+          categoryName: "Epic Fail",
+          q: "fail"
+        },
+        {
+          categoryNr: "4",
+          categoryIcon: "fas fa-film",
+          categoryName: "Movie Trailer",
+          q: "kinockeck trailer"
+        },
+        {
+          categoryNr: "5",
+          categoryIcon: "fas fa-cat",
+          categoryName: "Cats",
+          q: "cat fun"
+        }
+      ]
+    };
+  }
+  showAddCategory = event => {
+    this.setState({
+      show: this.state.show ? false : true
+    });
   };
 
-  handleMovie = event => {
-    event.preventDefault();
-    let query = "kinockeck trailer";
-
-    this.props.onSearch(query);
+  addCategory = (q, categoryName, categoryIcon) => {
+    this.setState({
+      q: q,
+      categoryName: categoryName,
+      categoryIcon: categoryIcon,
+      sections:this.state.sections.concat([{categoryIcon,categoryName,q}])
+    });
   };
-
-  handleFail = event => {
-    event.preventDefault();
-    let query = "fail";
-
-    this.props.onSearch(query);
-  };
-
-  handleComedy = event => {
-    event.preventDefault();
-    let query = "heute show böhmermann comedy";
-
-    this.props.onSearch(query);
-  };
-
-  handleDocu = event => {
-    event.preventDefault();
-    let query = "documentation bbc";
-
-    this.props.onSearch(query);
-  };
-
   render() {
 
     return (
       <div>
+        {/* will show the add Category Form */}
+        {this.state.show && <AddCategory addCategory={this.addCategory} />}
+
+        {/* add category tile */}
         <div className=" columns is-mobile categorie-container">
           <section
-            className="box column "
-            id="categorie-1"
-            onClick={this.handleDocu}
+            className="box column category"
+            // id="categorie-6"
+            onClick={this.showAddCategory}
           >
-            <i className="fas fa-book" /> <br />
-            Documentary
-          </section>
-          <section
-            className="box column"
-            id="categorie-2"
-            onClick={this.handleComedy}
-          >
-            <i className="far fa-smile-beam" /> <br />
-            Comedy
-          </section>
-          <section
-            className="box column"
-            id="categorie-3"
-            onClick={this.handleFail}
-          >
-            <i className="fas fa-skull-crossbones" /> <br />
-            Epic Fail
-          </section>
-          <section
-            className="box column"
-            id="categorie-4"
-            onClick={this.handleMovie}
-          >
-            <i className="fas fa-film" /> <br />
-            Movie Trailer
+            <i className="fas fa-plus" />
+            <br />
+            Add Category
           </section>
 
-          <section
-            className="box column"
-            id="categorie-5"
-            onClick={this.handleCat}
-          >
-            <i className="fas fa-cat" /> <br />
-            Cat Content
-          </section>
+          {/* maps over section array and shows all sections */}
+          {this.state.sections.map(section => (
+            <section
+              className="box column category" 
+              // id = "categorie-1"
+              // `categorie- ${section.categoryNr}`
+              onClick={event => {
+                this.props.onSearch(section.q);
+              }}
+            >
+              <i className={section.categoryIcon} /> 
+              <br />
+              {section.categoryName}
+            </section>
+          ))}
+
         </div>
       </div>
     );

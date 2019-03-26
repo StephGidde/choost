@@ -103,6 +103,14 @@
   padding: 3%;
 }
 
+.category{
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #categorie-1 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
@@ -148,6 +156,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#categorie-6 {
+  background-image: linear-gradient(
+    rgba(102, 204, 254, 0.3),
+    rgba(0, 0, 0, 0.3)
+  )}
 
 .signup-container input {
   width: 30%;
@@ -225,4 +238,31 @@
 .spinner-container {
   padding-top: 20%;
   padding-left: 45%;
+}
+
+/* AddCategory */
+.addCategory-container form{
+  width:20rem;
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+}
+
+
+.select-icon input{
+  display:none
+}
+
+.select-icon i {
+  font-size:30px;
+  letter-spacing: 1rem;
+  margin-bottom:1rem;
+  color: rgb(102,204,252)
+}
+.select-icon i:hover {
+  font-size:30px;
+  letter-spacing: 1rem;
+  margin-bottom:1rem;
+  color: grey;
 }

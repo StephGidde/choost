@@ -16,7 +16,7 @@ class SearchFilter extends Component {
 
         return (
             <div className="searchBar-container">
-                <form onSubmit={this.handleSearch}>
+                <form onChange={this.handleSearch}>
                     {/* Language */}
                     <div className="field">
                         <div className="control has-icons-left">

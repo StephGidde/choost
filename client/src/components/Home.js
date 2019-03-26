@@ -4,14 +4,16 @@ import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import Player from "./Player";
 import SearchFilter from "./SearchFilter";
-
+import bulmaDivider from "bulma-divider"
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       //  parameters that can be changed by the user
-      q: false
+      q: false,
+      relevanceLanguage: "en",
+      videoDuration: "any"
     };
   }
 
@@ -38,16 +40,17 @@ class Home extends Component {
         <div className=" app-name title">
           <h1>CHOOST</h1>
         </div>
-        <SearchBar onSearch={this.searchFunction} />
         <SearchFilter onFilter={this.filterFunction} />
+        <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
+            <div className="is-divider" data-content="OR"></div>
           <span>
             {" "}
-            or <br /> choose a category:
+           choose a category:
           </span>
         </div>
-        <Categories onSearch={this.searchFunction}/>
-
+        <Categories onSearch={this.searchFunction} />
+        {/* addCategory={this.addCategoryFunction} */}
         <div className="breadcrumb user-playlist">
           <p>Your Playlist</p>
           <ul>
