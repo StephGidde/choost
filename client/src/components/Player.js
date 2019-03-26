@@ -27,21 +27,21 @@ class Player extends Component {
 
   componentDidMount(props) {
     let randomchannel = undefined;
-    if (this.props.language === "de" && this.props.categoryName === "docu") {
+    if (this.props.language === "de" && this.props.categoryName === "Documentary") {
       randomchannel = _.shuffle(docuChannelsDE)[0];
     } else if (
       this.props.language === "en" &&
-      this.props.categoryName === "docu"
+      this.props.categoryName === "Documentary"
     ) {
       randomchannel = _.shuffle(docuChannelsEN)[0];
     } else if (
       this.props.language === "de" &&
-      this.props.categoryName === "comedy"
+      this.props.categoryName === "Comedy"
     ) {
       randomchannel = _.shuffle(comedyChannelsDE)[0];
     } else if (
       this.props.language === "en" &&
-      this.props.categoryName === "comedy"
+      this.props.categoryName === "Comedy"
     ) {
       randomchannel = _.shuffle(comedyChannelsEN)[0];
     }

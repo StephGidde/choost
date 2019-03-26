@@ -4,7 +4,6 @@ import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import Player from "./Player";
 import SearchFilter from "./SearchFilter";
-import bulmaDivider from "bulma-divider"
 
 class Home extends Component {
   constructor(props) {
