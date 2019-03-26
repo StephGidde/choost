@@ -13,13 +13,13 @@ class Categories extends Component {
           categoryNr: "1",
           categoryIcon: "fas fa-book",
           categoryName: "Documentary",
-          q: "documentation bbc"
+          q: "a"
         },
         {
           categoryNr: "2",
           categoryIcon: "far fa-smile-beam",
           categoryName: "Comedy",
-          q: "heute show böhmermann comedy"
+          q: "a"
         },
         {
           categoryNr: "3",
@@ -81,7 +81,7 @@ class Categories extends Component {
               // id = "categorie-1"
               // `categorie- ${section.categoryNr}`
               onClick={event => {
-                this.props.onSearch(section.q);
+                this.props.onSearch(section.q, section.categoryName);
               }}
             >
               <i className={section.categoryIcon} />

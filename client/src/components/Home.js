@@ -52,11 +52,8 @@ class Home extends Component {
         <SearchFilter onFilter={this.filterFunction} />
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
-            <div className="is-divider" data-content="OR"></div>
-          <span>
-            {" "}
-           choose a category:
-          </span>
+          <div className="is-divider" data-content="OR" />
+          <span> choose a category:</span>
         </div>
         <Categories onSearch={this.searchFunction} />
         <div className="breadcrumb user-playlist">
