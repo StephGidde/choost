@@ -38,6 +38,12 @@ class Categories extends Component {
           categoryIcon: "fas fa-cat",
           categoryName: "Cats",
           q: "cat fun"
+        },
+        {
+          categoryNr: "6",
+          categoryIcon: "fas fa-heartbeat",
+          categoryName: "Workout",
+          q: "workout"
         }
       ]
     };

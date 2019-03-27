@@ -9,6 +9,7 @@ import docuChannelsDE from "../categorydata/docuChannelsDE.json";
 import docuChannelsEN from "../categorydata/docuChannelsEN.json";
 import comedyChannelsDE from "../categorydata/comedyChannelsDE.json";
 import comedyChannelsEN from "../categorydata/comedyChannelsEN.json";
+import fitnessChannels from "../categorydata/fitnessChannels.json";
 
 require("dotenv").config();
 
@@ -29,6 +30,7 @@ class Player extends Component {
 
   componentDidMount(props) {
     let randomchannel = undefined;
+    let setDuration = this.props.duration;
     if (
       this.props.language === "de" &&
       this.props.categoryName === "Documentary"
@@ -49,6 +51,9 @@ class Player extends Component {
       this.props.categoryName === "Comedy"
     ) {
       randomchannel = _.shuffle(comedyChannelsEN)[0];
+    } else if (this.props.categoryName === "Workout") {
+      randomchannel = _.shuffle(fitnessChannels)[0];
+      setDuration = "any";
     }
 
     axios
@@ -56,7 +61,7 @@ class Player extends Component {
         params: {
           part: "snippet", //by default
           q: this.props.keyword,
-          videoDuration: this.props.duration,
+          videoDuration: setDuration,
           maxResults: "50",
           videoEmbeddable: true, // search to only videos that can be embedded into a webpage
           type: "video", //required by parameter "videoEmbeddable"
