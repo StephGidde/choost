@@ -10,6 +10,7 @@ import docuChannelsEN from "../categorydata/docuChannelsEN.json";
 import comedyChannelsDE from "../categorydata/comedyChannelsDE.json";
 import comedyChannelsEN from "../categorydata/comedyChannelsEN.json";
 import fitnessChannels from "../categorydata/fitnessChannels.json";
+import yogaChannels from "../categorydata/yogaChannels.json";
 
 require("dotenv").config();
 
@@ -31,6 +32,7 @@ class Player extends Component {
   componentDidMount(props) {
     let randomchannel = undefined;
     let setDuration = this.props.duration;
+    let setLanguage = this.props.language;
     if (
       this.props.language === "de" &&
       this.props.categoryName === "Documentary"
@@ -54,6 +56,10 @@ class Player extends Component {
     } else if (this.props.categoryName === "Workout") {
       randomchannel = _.shuffle(fitnessChannels)[0];
       setDuration = "any";
+    } else if (this.props.categoryName === "Yoga") {
+      randomchannel = _.shuffle(yogaChannels)[0];
+      setDuration = "any";
+      setLanguage = "";
     }
 
     axios
