@@ -6,6 +6,8 @@ import Player from "./Player";
 import SearchFilter from "./SearchFilter";
 import UserPlaylist from "./UserPlaylist";
 import PlaylistPlayer from "./PlaylistPlayer";
+import bulmaDivider from "bulma-divider"
+
 
 class Home extends Component {
   constructor(props) {

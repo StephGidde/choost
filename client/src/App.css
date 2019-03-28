@@ -114,7 +114,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-1 {
+.category-1 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
       rgba(0, 0, 0, 0.3)
@@ -123,7 +123,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-2 {
+.category-2 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
       rgba(0, 0, 0, 0.3)
@@ -132,7 +132,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-3 {
+.category-3 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
       rgba(0, 0, 0, 0.3)
@@ -141,7 +141,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-4 {
+.category-4 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
       rgba(0, 0, 0, 0.3)
@@ -150,7 +150,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-5 {
+.category-5 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
       rgba(0, 0, 0, 0.3)
@@ -159,7 +159,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#categorie-6 {
+.category-6 {
   background-image: linear-gradient(
     rgba(102, 204, 254, 0.3),
     rgba(0, 0, 0, 0.3)
@@ -200,7 +200,7 @@
   border-radius: 10px;
   background-color: white;
   position: absolute;
-  top: 77%;
+  top: 72%;
   right: 15%;
 }
 
@@ -258,7 +258,7 @@
   width: 70%;
   height: 70%;
   position: absolute;
-  top: 5%;
+  top: 1%;
   left: 15%;
   border: 0;
 }
@@ -269,13 +269,13 @@
 }
 
 /* AddCategory */
-.addCategory-container form {
+/* .addCategory-container form {
   width: 20rem;
   background-image: linear-gradient(
     rgba(102, 204, 254, 0.3),
     rgba(0, 0, 0, 0.3)
   );
-}
+} */
 
 .select-icon input {
   display: none;
@@ -288,6 +288,19 @@
   color: rgb(102, 204, 252);
 }
 .select-icon i:hover {
+  font-size: 30px;
+  letter-spacing: 1rem;
+  margin-bottom: 1rem;
+  color: grey;
+}
+/* .select-icon  input:checked {
+  font-size: 30px;
+  letter-spacing: 1rem;
+  margin-bottom: 1rem;
+  color: grey;
+} */
+
+.selectedIcon{
   font-size: 30px;
   letter-spacing: 1rem;
   margin-bottom: 1rem;

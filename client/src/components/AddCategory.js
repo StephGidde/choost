@@ -6,7 +6,7 @@ class AddCategory extends Component {
     super(props);
     this.state = {
       show: true,
-      selectedOption: "",
+      showIcon:true,
       icons: [
         "fas fa-dog",
         "fas fa-male",
@@ -48,9 +48,17 @@ class AddCategory extends Component {
     });
   };
 
-  handleOptionChange = changeEvent => {
+  changeIconColor=event=>{
     this.setState({
-      selectedOption: changeEvent.target.value
+      showIcon:false
+      
+    })
+    
+  }
+  handleOptionChange = changeEvent => {
+    
+    this.setState({
+      selectedOption: changeEvent.target.value,
     });
   };
 
@@ -77,6 +85,7 @@ class AddCategory extends Component {
                   className="input is-medium is-warning"
                   type="text"
                   placeholder="Enter a Category Name"
+                  required
                 /></div>
                 </div>
                 {/* Search */}
@@ -89,6 +98,7 @@ class AddCategory extends Component {
                   className="input is-medium is-warning"
                   type="text"
                   placeholder="Enter as many keywords as you like"
+                  required
                 />
                 </div>
                 </div>
@@ -96,24 +106,24 @@ class AddCategory extends Component {
                 <div className="field">
                 <label className="label is-medium">Choose an Icon</label>
 
-                <div class="control" onChange={this.handleOptionChange}>
+                <div class="control" onClick={this.changeIconColor} onChange={this.handleOptionChange}>
+                    
                     {this.state.icons.map(icon => (
                      
                      <label className="select-icon radio" for={icon}>
-                        <input
+                        <input 
                           name="select-icon"
                           type="radio"
                           id={icon}
                           value={icon}
                         />
-                        <i className={icon} />
+                        <i className = {this.state.showIcon ? {icon} : `selectedIcon ${icon}`}/>
+                        
                       </label>
                     ))}
-                  {/* </label> */}
                 </div>
                 </div>
               
-            {/* </div> */}
           </section>
           <footer className="modal-card-foot">
             <button className="button is-success" onClick={this.addCategory}>
