@@ -15,7 +15,7 @@ class Categories extends Component {
           categoryName: "Documentary",
           q: "a",
           // q: "documentation bbc",
-          image:"../images/docu1.jpg",
+          image: "../images/docu1.jpg"
         },
         {
           categoryNr: "2",
@@ -46,6 +46,12 @@ class Categories extends Component {
           categoryIcon: "fas fa-heartbeat",
           categoryName: "Workout",
           q: "workout"
+        },
+        {
+          categoryNr: "7",
+          categoryIcon: "fas fa-spa",
+          categoryName: "Yoga",
+          q: "a"
         }
       ]
     };
@@ -61,18 +67,20 @@ class Categories extends Component {
       q: q,
       categoryName: categoryName,
       categoryIcon: categoryIcon,
-      sections:this.state.sections.concat([{categoryIcon,categoryName,q}]),
-      showAddCategoryForm:false
+      sections: this.state.sections.concat([{ categoryIcon, categoryName, q }]),
+      showAddCategoryForm: false
     });
   };
   render() {
     return (
       <div>
         {/* will show the add Category Form */}
-        {this.state.showAddCategoryForm && <AddCategory addCategory={this.addCategory} />}
+        {this.state.showAddCategoryForm && (
+          <AddCategory addCategory={this.addCategory} />
+        )}
 
         {/* add category tile */}
-        <div className=" columns is-mobile categorie-container">
+        <div className="is-mobile categorie-container">
           <section
             className="box column category"
             // id="categorie-6"
@@ -85,9 +93,8 @@ class Categories extends Component {
 
           {/* maps over section array and shows all sections */}
           {this.state.sections.map(section => (
-           
             <section
-              className={`box column category category-${section.categoryNr}` }
+              className={`box column category category-${section.categoryNr}`}
               onClick={event => {
                 this.props.onSearch(section.q, section.categoryName);
               }}

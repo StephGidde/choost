@@ -6,8 +6,7 @@ import Player from "./Player";
 import SearchFilter from "./SearchFilter";
 import UserPlaylist from "./UserPlaylist";
 import PlaylistPlayer from "./PlaylistPlayer";
-import bulmaDivider from "bulma-divider"
-
+import bulmaDivider from "bulma-divider";
 
 class Home extends Component {
   constructor(props) {
@@ -78,7 +77,7 @@ class Home extends Component {
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
           <div className="is-divider" data-content="OR" />
-          <span> choose a category:</span>
+          <div className="category-title-container">Choose a category:</div>
         </div>
         <Categories onSearch={this.searchFunction} />
 
