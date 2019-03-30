@@ -8,9 +8,9 @@ import axios from "axios";
 import swal from "sweetalert";
 
 class PlayerBar extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   addToPlaylist = event => {
     event.preventDefault();

@@ -77,7 +77,7 @@ class Player extends Component {
       setDuration = "any";
       setLanguage = "";
     }
-
+    console.log("RANDOM CHANNEL", randomchannel);
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -89,7 +89,7 @@ class Player extends Component {
           type: "video", //required by parameter "videoEmbeddable"
           key: process.env.REACT_APP_YOUTUBE_API_KEY,
           loading: true,
-          relevanceLanguage: this.props.language,
+          relevanceLanguage: setLanguage,
           channelId: randomchannel
         }
       })

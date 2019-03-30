@@ -84,7 +84,7 @@
   }
 }
 
-.categorie-container section {
+.categorie-container button {
   text-align: center;
   margin-top: -0.5%;
   margin-right: 1.5%;
@@ -116,7 +116,7 @@
   }
 }
 
-.categorie-container section i {
+.categorie-container button i {
   font-size: 70px;
   color: white;
   padding: 3%;
