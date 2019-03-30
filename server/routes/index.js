@@ -11,8 +11,15 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   let user = req.body.user;
   let video = req.body.videoToAdd;
+
+  let q=req.body.q
+  let categoryName= req.body.categoryName
+  let categoryIcon=req.body.categoryIcon
+
+
   User.findById(user._id).then(FoundUser => {
     FoundUser.updatePlaylist(video);
+    FoundUser.updateCategoryList(q,categoryName,categoryIcon);
   });
 });
 

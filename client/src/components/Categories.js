@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import "../App.css";
 import AddCategory from "./AddCategory";
+import AuthService from "./auth/auth-service";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: this.props.userInSession,
       q: "",
       showAddCategoryForm: false,
+      //userCategories:this.props.userInSession.categories,
+      loading:true,
       sections: [
         {
           categoryNr: "1",
@@ -55,7 +59,16 @@ class Categories extends Component {
         }
       ]
     };
+    this.service = new AuthService();
   }
+
+  // componentWillMount(){
+
+  //   this.setState({
+  //     loading:false,
+  //     userCategories:this.props.userInSession.categories,
+  //   })
+  // }
   showAddCategory = event => {
     this.setState({
       showAddCategoryForm: this.state.show ? false : true
@@ -72,11 +85,15 @@ class Categories extends Component {
     });
   };
   render() {
+    console.log(this.props.userInSession)
     return (
       <div>
         {/* will show the add Category Form */}
         {this.state.showAddCategoryForm && (
-          <AddCategory addCategory={this.addCategory} />
+          <AddCategory
+            addCategory={this.addCategory}
+            userInSession={this.props.userInSession}
+          />
         )}
 
         {/* add category tile */}
@@ -90,11 +107,25 @@ class Categories extends Component {
             <br />
             Add Category
           </section>
+          {/* Categories that come from us */}
 
           {/* maps over section array and shows all sections */}
           {this.state.sections.map(section => (
             <section
               className={`box column category category-${section.categoryNr}`}
+              onClick={event => {
+                this.props.onSearch(section.q, section.categoryName);
+              }}
+            >
+              <i className={section.categoryIcon} />
+              <br />
+              {section.categoryName}
+            </section>
+          ))}
+          {/* Categories that come from the user */}
+          { this.props.userInSession && this.props.userInSession.categories.map(section => (
+            <section
+              className= "box column category"
               onClick={event => {
                 this.props.onSearch(section.q, section.categoryName);
               }}

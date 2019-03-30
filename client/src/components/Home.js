@@ -79,7 +79,7 @@ class Home extends Component {
           <div className="is-divider" data-content="OR" />
           <div className="category-title-container">Choose a category:</div>
         </div>
-        <Categories onSearch={this.searchFunction} />
+        <Categories onSearch={this.searchFunction} userInSession={this.props.userInSession}/>
 
         {this.props.userInSession && (
           <UserPlaylist
