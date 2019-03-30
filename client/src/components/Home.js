@@ -79,7 +79,8 @@ class Home extends Component {
           <div className="is-divider" data-content="OR" />
           <div className="category-title-container">Choose a category:</div>
         </div>
-        <Categories onSearch={this.searchFunction} userInSession={this.props.userInSession}/>
+        {/* key makes sure component is completely rerendered once user is available */}
+        <Categories onSearch={this.searchFunction} userInSession={this.props.userInSession} key={this.props.userInSession ? this.props.userInSession._id : '0'}/>
 
         {this.props.userInSession && (
           <UserPlaylist
