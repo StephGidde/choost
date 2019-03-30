@@ -10,7 +10,9 @@ import docuChannelsEN from "../categorydata/docuChannelsEN.json";
 import comedyChannelsDE from "../categorydata/comedyChannelsDE.json";
 import comedyChannelsEN from "../categorydata/comedyChannelsEN.json";
 import fitnessChannels from "../categorydata/fitnessChannels.json";
-import yogaChannels from "../categorydata/yogaChannels.json";
+import yogaChannelsEN from "../categorydata/yogaChannelsEN.json";
+import yogaChannelsDE from "../categorydata/yogaChannelsDE.json";
+import cookingChannels from "../categorydata/cookingChannels.json";
 
 require("dotenv").config();
 
@@ -56,8 +58,22 @@ class Player extends Component {
     } else if (this.props.categoryName === "Workout") {
       randomchannel = _.shuffle(fitnessChannels)[0];
       setDuration = "any";
-    } else if (this.props.categoryName === "Yoga") {
-      randomchannel = _.shuffle(yogaChannels)[0];
+    } else if (
+      this.props.language === "de" &&
+      this.props.categoryName === "Yoga"
+    ) {
+      randomchannel = _.shuffle(yogaChannelsDE)[0];
+      setDuration = "any";
+      setLanguage = "de";
+    } else if (
+      this.props.language === "en" &&
+      this.props.categoryName === "Yoga"
+    ) {
+      randomchannel = _.shuffle(yogaChannelsEN)[0];
+      setDuration = "any";
+      setLanguage = "de";
+    } else if (this.props.categoryName === "Cooking") {
+      randomchannel = _.shuffle(cookingChannels)[0];
       setDuration = "any";
       setLanguage = "";
     }

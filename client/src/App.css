@@ -192,7 +192,17 @@
     ),
     url("./images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+}
+
+.category-8 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/cooking.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .signup-container input {

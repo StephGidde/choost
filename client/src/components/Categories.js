@@ -51,6 +51,12 @@ class Categories extends Component {
           categoryNr: "7",
           categoryIcon: "fas fa-spa",
           categoryName: "Yoga",
+          q: "yoga"
+        },
+        {
+          categoryNr: "8",
+          categoryIcon: "fas fa-carrot",
+          categoryName: "Cooking",
           q: "a"
         }
       ]
