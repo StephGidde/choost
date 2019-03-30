@@ -5,7 +5,8 @@ import axios from "axios";
 class AuthService {
   constructor() {
     let service = axios.create({
-      baseURL: process.env.REACT_APP_API_URL || "mongodb://localhost/choost-db",
+      baseURL:
+        process.env.REACT_APP_API_URL + "api" || "http://localhost:5000/api",
       withCredentials: true
     });
     this.service = service;

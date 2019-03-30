@@ -41,7 +41,8 @@ class UserPlaylist extends Component {
       e => e !== videoToDelete
     );
     axios.post(
-      process.env.MONGODB_URI || "http://localhost:5000/user_playlist",
+      (process.env.REACT_APP_API_URL || "http://localhost:5000/") +
+        "user_playlist",
       {
         videoToDelete,
         user
