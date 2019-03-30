@@ -336,6 +336,10 @@
   color: grey;
 }
 
+.playlist {
+  margin: 5vw;
+}
+
 .playlistVideo {
   display: inline-block;
   margin: 10px;
@@ -348,6 +352,10 @@
 
 .playlistHeading {
   font-family: "Nunito", sans-serif;
-  font-size: 3vh;
-  margin-top: 15px;
+  font-size: 5vh;
+  margin-top: 100px;
+}
+
+.videoThumbnails {
+  height: 8vw;
 }
