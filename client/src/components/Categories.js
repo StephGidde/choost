@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../App.css";
 import AddCategory from "./AddCategory";
 import AuthService from "./auth/auth-service";
+import axios from "axios";
+import swal from "sweetalert";
+
 
 class Categories extends Component {
   constructor(props) {
@@ -10,7 +13,7 @@ class Categories extends Component {
       user: this.props.userInSession,
       q: "",
       showAddCategoryForm: false,
-      //userCategories:this.props.userInSession.categories,
+      userCategories: this.props.userInSession ? this.props.userInSession.categories : [],
       loading:true,
       sections: [
         {
@@ -62,13 +65,13 @@ class Categories extends Component {
     this.service = new AuthService();
   }
 
-  // componentWillMount(){
+  // componentDidMount()
+  // {this.setState((props)=>({
+  //   userCategories:this.props.userInSession.categories
+  // })
+  // )}
 
-  //   this.setState({
-  //     loading:false,
-  //     userCategories:this.props.userInSession.categories,
-  //   })
-  // }
+
   showAddCategory = event => {
     this.setState({
       showAddCategoryForm: this.state.show ? false : true
@@ -80,12 +83,31 @@ class Categories extends Component {
       q: q,
       categoryName: categoryName,
       categoryIcon: categoryIcon,
-      sections: this.state.sections.concat([{ categoryIcon, categoryName, q }]),
+      userCategories: this.state.userCategories.concat([{ categoryIcon, categoryName, q }]),
       showAddCategoryForm: false
     });
   };
+
+  deleteCategory = event => {
+    console.log(event.target.id)
+    
+    const user = this.props.userInSession;
+    let categoryToDelete = event.target.id;
+    let filteredCategories = this.state.userCategories.filter(
+      e => e.q !== categoryToDelete
+    );
+    axios.post("http://localhost:5000/user_playlist", {
+      categoryToDelete,
+      user
+    });
+    this.setState({
+      userCategories: filteredCategories
+    });
+    swal({ title: "Category Removed", icon: "success" });
+  };
+
   render() {
-    console.log(this.props.userInSession)
+   
     return (
       <div>
         {/* will show the add Category Form */}
@@ -110,9 +132,10 @@ class Categories extends Component {
           {/* Categories that come from us */}
 
           {/* maps over section array and shows all sections */}
-          {this.state.sections.map(section => (
+          {this.state.sections.map((section,index) => (
             <section
-              className={`box column category category-${section.categoryNr}`}
+            key={index}  
+            className={`box column category category-${section.categoryNr}`}
               onClick={event => {
                 this.props.onSearch(section.q, section.categoryName);
               }}
@@ -123,17 +146,26 @@ class Categories extends Component {
             </section>
           ))}
           {/* Categories that come from the user */}
-          { this.props.userInSession && this.props.userInSession.categories.map(section => (
-            <section
-              className= "box column category"
+          {this.props.userInSession && this.state.userCategories.map((section,index) => (
+            <div><section
+            key={index}  
+            className= "box column category"
               onClick={event => {
+                console.log(section._id)
                 this.props.onSearch(section.q, section.categoryName);
               }}
-            >
+            > 
               <i className={section.categoryIcon} />
               <br />
               {section.categoryName}
             </section>
+            <button
+            id={section.q}
+            className="button is-light is-small is-danger deleteCategory"
+            onClick={this.deleteCategory}
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button></div>
           ))}
         </div>
       </div>

@@ -309,6 +309,9 @@
 .select-icon input {
   display: none;
 }
+.selectedIcon input{
+  display:none;
+}
 
 .select-icon i {
   font-size: 30px;
@@ -359,4 +362,8 @@
 
 .videoThumbnails {
   height: 8vw;
+}
+.deleteCategory :hover{
+  color:pink;
+  
 }
