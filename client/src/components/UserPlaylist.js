@@ -63,23 +63,23 @@ class UserPlaylist extends Component {
 
     if (this.state.user) {
       return (
-        <div>
+        <div className="playlist is-mobile ">
           <div className="playlistHeading">
-            <h4>This is your playlist</h4>
+            <h1>Your playlist</h1>
           </div>
           {this.state.playlistvideos.map((video, index) => (
             <div key={index} className="playlistVideo">
-              <p>{index + 1}</p>
               <img
+                class="videoThumbnails"
                 alt="thumbnail"
                 id={video}
-                src={`https://i.ytimg.com/vi/${video}/default.jpg`}
+                src={`https://i.ytimg.com/vi/${video}/mqdefault.jpg`}
                 // onClick={this.loadPlaylistvideo}
                 onClick={() => this.props.playlisthandler(video)}
               />
               <button
                 id={video}
-                className="button is-light"
+                className="button is-light is-small is-danger deleteVideo"
                 onClick={this.deletePlaylistVideo}
               >
                 Delete Video
