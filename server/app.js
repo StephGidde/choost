@@ -16,7 +16,9 @@ const User = require("./models/user-model");
 const bcrypt = require("bcryptjs");
 
 mongoose
-  .connect("mongodb://localhost/choost-db", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/choost-db", {
+    useNewUrlParser: true
+  })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`

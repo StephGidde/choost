@@ -40,10 +40,13 @@ class UserPlaylist extends Component {
     let filteredVideos = this.state.playlistvideos.filter(
       e => e !== videoToDelete
     );
-    axios.post("http://localhost:5000/user_playlist", {
-      videoToDelete,
-      user
-    });
+    axios.post(
+      process.env.MONGODB_URI || "http://localhost:5000/user_playlist",
+      {
+        videoToDelete,
+        user
+      }
+    );
     this.setState({
       playlistvideos: filteredVideos
     });
