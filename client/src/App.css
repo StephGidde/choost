@@ -316,6 +316,13 @@
   margin-bottom: 1rem;
   color: rgb(102, 204, 252);
 }
+.selectedIcon i{
+  font-size: 30px;
+  letter-spacing: 1rem;
+  margin-bottom: 1rem;
+  color: grey;
+}
+
 .select-icon i:hover {
   font-size: 30px;
   letter-spacing: 1rem;
@@ -329,12 +336,6 @@
   color: grey;
 } */
 
-.selectedIcon {
-  font-size: 30px;
-  letter-spacing: 1rem;
-  margin-bottom: 1rem;
-  color: grey;
-}
 
 .playlist {
   margin: 5vw;

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "../App.css";
+import swal from "sweetalert";
+import axios from "axios";
 
 class AddCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
       show: true,
-      showIcon:true,
+      showIcon:false,
       icons: [
         "fas fa-dog",
         "fas fa-male",
@@ -32,6 +34,9 @@ class AddCategory extends Component {
       ]
     };
   }
+
+
+  
   addCategory = event => {
     console.log("this is addcategory");
     event.preventDefault();
@@ -39,6 +44,14 @@ class AddCategory extends Component {
     let categoryName = this.searchInput.value;
     let categoryIcon = this.state.selectedOption;
     this.props.addCategory(q, categoryName, categoryIcon);
+    
+    let user = this.props.userInSession;
+    swal({ title: "Added to Your Categories!", icon: "success" });
+    
+    axios
+    .post("http://localhost:5000/", { q,categoryName,categoryIcon, user })
+    .then(res => console.log("i am response from frontend", res));
+
     this.closeWindow();
   };
 
@@ -50,7 +63,7 @@ class AddCategory extends Component {
 
   changeIconColor=event=>{
     this.setState({
-      showIcon:false
+      showIcon:this.state.showIcon? false:true
       
     })
     
@@ -106,18 +119,19 @@ class AddCategory extends Component {
                 <div className="field">
                 <label className="label is-medium">Choose an Icon</label>
 
-                <div class="control" onClick={this.changeIconColor} onChange={this.handleOptionChange}>
+                <div class="control"  onChange={this.handleOptionChange}>
                     
                     {this.state.icons.map(icon => (
                      
                      <label className="select-icon radio" for={icon}>
                         <input 
+                          onClick={this.changeIconColor}
                           name="select-icon"
                           type="radio"
                           id={icon}
                           value={icon}
                         />
-                        <i className = {this.state.showIcon ? {icon} : `selectedIcon ${icon}`}/>
+                        <i className = {this.state.showIcon ? icon : `selectedIcon ${icon}`}/>
                         
                       </label>
                     ))}

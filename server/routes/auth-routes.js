@@ -12,6 +12,7 @@ authRoutes.post("/signup", (req, res, next) => {
   const password = req.body.password;
   const email = req.body.email;
   const playlistvideoids = req.body.playlistvideoids;
+  const categories = req.body.categories
   console.log("USERNAME" + username + password);
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
@@ -44,7 +45,8 @@ authRoutes.post("/signup", (req, res, next) => {
       username: username,
       email: email,
       password: hashPass,
-      playlistvideoids: playlistvideoids
+      playlistvideoids: playlistvideoids,
+      categories:categories
     });
 
     aNewUser.save(err => {

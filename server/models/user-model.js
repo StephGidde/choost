@@ -6,7 +6,14 @@ const userSchema = new Schema(
     username: String,
     email: String,
     password: String,
-    playlistvideoids: []
+    playlistvideoids: [],
+    categories: [
+      {
+        categoryIcon: "",
+        categoryName: "",
+        q: "",
+      }],
+
   },
   {
     timestamps: true,
@@ -20,6 +27,29 @@ const userSchema = new Schema(
     }
   }
 );
+
+userSchema.methods.updateCategoryList = function updateCategoryList(q,categoryName,categoryIcon) {
+  this.updateOne(
+    {
+      $addToSet: {
+        categories: {
+        q: q,
+        categoryIcon: categoryIcon,
+        categoryName:categoryName
+      }
+      }
+    },
+    {
+      safe: true,
+      upsert: true
+    },
+    function(err) {
+      if (err) {
+        console.log("THIS IS AN ERROR", err);
+      }
+    }
+  );
+};
 
 userSchema.methods.updatePlaylist = function updatePlaylist(videoID) {
   this.updateOne(
