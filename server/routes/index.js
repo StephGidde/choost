@@ -24,4 +24,8 @@ router.post("/user_playlist", (req, res, next) => {
   });
 });
 
+router.get("/player", (req, res, next) => {
+  console.log(req);
+});
+
 module.exports = router;

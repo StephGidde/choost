@@ -17,10 +17,10 @@ class PlayerBar extends Component {
     swal({ title: "Added to playlist!", icon: "success" });
     const videoToAdd = this.props.videoID;
     const user = this.props.userInSession;
-    axios
-      .post("http://localhost:5000/", { videoToAdd, user })
-      .then(res => console.log("i am response from frontend", res));
-    // axios.post("http://localhost:5000/api/user_playlist", { videoToAdd });
+    axios.post(process.env.MONGODB_URI || "http://localhost:5000/", {
+      videoToAdd,
+      user
+    });
     // .then(res => console.log("i am response from frontend", res));
   };
 

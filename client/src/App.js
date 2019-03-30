@@ -7,6 +7,7 @@ import Login from "./components/auth/Login";
 import AuthService from "./components/auth/auth-service";
 import { Switch, Route } from "react-router-dom";
 import UserPlaylist from "./components/UserPlaylist";
+import Player from "./components/Player";
 
 class App extends Component {
   constructor(props) {
@@ -44,21 +45,25 @@ class App extends Component {
     if (this.state.loggedInUser) {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} />
+          {/* <Navbar userInSession={this.state.loggedInUser} /> */}
           <Switch>
             <Route
               exact
               path="/"
               render={() => <Home userInSession={this.state.loggedInUser} />}
             />
+            <Route
+              exact
+              path="/player"
+              render={() => <Player userInSession={this.state.loggedInUser} />}
+            />
           </Switch>
-          {/* <UserPlaylist userInSession={this.state.loggedInUser} /> */}
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} />
+          {/* <Navbar userInSession={this.state.loggedInUser} /> */}
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route
@@ -70,6 +75,11 @@ class App extends Component {
               exact
               path="/login"
               render={() => <Login getUser={this.getTheUser} />}
+            />
+            <Route
+              exact
+              path="/player"
+              render={() => <Player userInSession={this.state.loggedInUser} />}
             />
           </Switch>
         </div>

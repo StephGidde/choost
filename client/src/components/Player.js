@@ -4,6 +4,7 @@ import "../App.css";
 import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
+import Navbar from "./Navbar";
 import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
 import docuChannelsDE from "../categorydata/docuChannelsDE.json";
 import docuChannelsEN from "../categorydata/docuChannelsEN.json";
@@ -111,6 +112,7 @@ class Player extends Component {
     }?modestbranding=1&color=white`;
     return (
       <div>
+        <Navbar />
         {this.state.isloading === true && <Spinner />}
         <div className="wrapperVideo">
           <div className="video-player">
