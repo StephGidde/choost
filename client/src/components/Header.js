@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../Header.css";
-import Navbar from "./Navbar";
 
 class Header extends React.Component {
   componentDidMount() {
@@ -21,7 +20,6 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
         <div id="wrapper">
           <header id="app-header">
             <div className="container clearfix">

@@ -7,7 +7,6 @@ import SearchFilter from "./SearchFilter";
 import UserPlaylist from "./UserPlaylist";
 import PlaylistPlayer from "./PlaylistPlayer";
 import bulmaDivider from "bulma-divider";
-import $ from "jquery";
 import Header from "./Header";
 
 class Home extends Component {
@@ -75,7 +74,9 @@ class Home extends Component {
         {/* <div className=" app-name title">
           <h1>CHOOST</h1>
         </div> */}
-        <Header />
+        {(this.state.isRandom === false || this.state.isPlaylist === false) && (
+          <Header />
+        )}
         <SearchFilter onFilter={this.filterFunction} />
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
