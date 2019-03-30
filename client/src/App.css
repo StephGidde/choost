@@ -84,7 +84,7 @@
   }
 }
 
-.categorie-container section {
+.categorie-container button {
   text-align: center;
   margin-top: -0.5%;
   margin-right: 1.5%;
@@ -116,7 +116,7 @@
   }
 }
 
-.categorie-container section i {
+.categorie-container button i {
   font-size: 70px;
   color: white;
   padding: 3%;
@@ -192,7 +192,17 @@
     ),
     url("./images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+}
+
+.category-8 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/cooking.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .signup-container input {

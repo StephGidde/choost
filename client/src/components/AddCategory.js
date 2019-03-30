@@ -39,10 +39,9 @@ class AddCategory extends Component {
     event.preventDefault();
     let q = this.nameInput.value;
     let categoryName = this.searchInput.value;
-    let categoryIcon = this.state.selectedOption;    
+    let categoryIcon = this.state.selectedOption;
 
     let user = this.props.userInSession;
-    
 
     axios
       .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
@@ -56,6 +55,7 @@ class AddCategory extends Component {
   };
 
   closeWindow = event => {
+    this.props.closeWindow();
     this.setState({
       show: this.state.show ? false : true
     });
