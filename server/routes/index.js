@@ -20,14 +20,21 @@ router.post("/", (req, res, next) => {
   User.findById(user._id).then(FoundUser => {
     FoundUser.updatePlaylist(video);
     FoundUser.updateCategoryList(q,categoryName,categoryIcon);
+    // TODO: this should wait for the updatePlaylist & updateCategoryList methods to finish
+    res.json(user)
   });
 });
 
 router.post("/user_playlist", (req, res, next) => {
   let user = req.body.user;
   let video = req.body.videoToDelete;
+  let categoryQuery = req.body.categoryToDelete
+
   User.findById(user._id).then(FoundUser => {
     FoundUser.deleteVideo(video);
+    FoundUser.deleteCategory(categoryQuery);
+    // TODO: this should wait for the deleteVideo & deleteCategoryList methods to finish
+    res.json(user)
   });
 });
 
