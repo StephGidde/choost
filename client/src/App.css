@@ -115,6 +115,11 @@
     transform: scale(1.2);
   }
 }
+.deleteCategory{
+  font-size:10px;
+  position: absolute;
+  z-index: 1;
+}
 
 .categorie-container section i {
   font-size: 70px;
@@ -363,7 +368,4 @@
 .videoThumbnails {
   height: 8vw;
 }
-.deleteCategory :hover{
-  color:pink;
-  
-}
+

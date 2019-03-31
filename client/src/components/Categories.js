@@ -5,7 +5,6 @@ import AuthService from "./auth/auth-service";
 import axios from "axios";
 import swal from "sweetalert";
 
-
 class Categories extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +12,10 @@ class Categories extends Component {
       user: this.props.userInSession,
       q: "",
       showAddCategoryForm: false,
-      userCategories: this.props.userInSession ? this.props.userInSession.categories : [],
-      loading:true,
+      userCategories: this.props.userInSession
+        ? this.props.userInSession.categories
+        : [],
+      loading: true,
       sections: [
         {
           categoryNr: "1",
@@ -71,7 +72,6 @@ class Categories extends Component {
   // })
   // )}
 
-
   showAddCategory = event => {
     this.setState({
       showAddCategoryForm: this.state.show ? false : true
@@ -83,14 +83,16 @@ class Categories extends Component {
       q: q,
       categoryName: categoryName,
       categoryIcon: categoryIcon,
-      userCategories: this.state.userCategories.concat([{ categoryIcon, categoryName, q }]),
+      userCategories: this.state.userCategories.concat([
+        { categoryIcon, categoryName, q }
+      ]),
       showAddCategoryForm: false
     });
   };
 
   deleteCategory = event => {
-    console.log(event.target.id)
-    
+    console.log(event.target.id);
+
     const user = this.props.userInSession;
     let categoryToDelete = event.target.id;
     let filteredCategories = this.state.userCategories.filter(
@@ -107,7 +109,6 @@ class Categories extends Component {
   };
 
   render() {
-   
     return (
       <div>
         {/* will show the add Category Form */}
@@ -132,10 +133,10 @@ class Categories extends Component {
           {/* Categories that come from us */}
 
           {/* maps over section array and shows all sections */}
-          {this.state.sections.map((section,index) => (
+          {this.state.sections.map((section, index) => (
             <section
-            key={index}  
-            className={`box column category category-${section.categoryNr}`}
+              key={index}
+              className={`box column category category-${section.categoryNr}`}
               onClick={event => {
                 this.props.onSearch(section.q, section.categoryName);
               }}
@@ -146,27 +147,31 @@ class Categories extends Component {
             </section>
           ))}
           {/* Categories that come from the user */}
-          {this.props.userInSession && this.state.userCategories.map((section,index) => (
-            <div><section
-            key={index}  
-            className= "box column category"
-              onClick={event => {
-                console.log(section._id)
-                this.props.onSearch(section.q, section.categoryName);
-              }}
-            > 
-              <i className={section.categoryIcon} />
-              <br />
-              {section.categoryName}
-            </section>
-            <button
-            id={section.q}
-            className="button is-light is-small is-danger deleteCategory"
-            onClick={this.deleteCategory}
-          >
-            <i class="fas fa-trash-alt"></i>
-          </button></div>
-          ))}
+          {this.props.userInSession &&
+            this.state.userCategories.map((section, index) => (
+              <div>
+                <section
+                  key={index}
+                  className="box column category"
+                  onClick={event => {
+                    this.props.onSearch(section.q, section.categoryName);
+                  }}
+                >
+                <button
+                    id={section.q}
+                    className="button is-light is-small is-danger deleteCategory "
+                    onClick={this.deleteCategory}
+                  >
+                    <i class="fas fa-trash-alt" />
+                  </button>
+                  <i className={section.categoryIcon} />
+                  <br />
+                  {section.categoryName}
+               
+                </section>
+                
+              </div>
+            ))}
         </div>
       </div>
     );
