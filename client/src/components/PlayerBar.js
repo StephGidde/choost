@@ -17,7 +17,7 @@ class PlayerBar extends Component {
   }
   showAddCategory = event => {
     this.setState({
-      showAddCategoryForm: this.state.show ? false : true
+      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
     });
   };
 
@@ -56,6 +56,7 @@ class PlayerBar extends Component {
                   keyword={this.props.keyword}
                     addCategory={this.addCategory}
                     userInSession={this.props.userInSession}
+                    makeFormAppear={this.showAddCategory}
                   /> )}
         <div id="PlayerBarContainer">
           <img
@@ -85,7 +86,6 @@ class PlayerBar extends Component {
             className=" pointer button is-rounded"
             onClick={this.showAddCategory}
           >
-            {/* <i className="fas fa-plus" /> */}
             Save Search
           </button>
 

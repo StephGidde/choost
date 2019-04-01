@@ -81,7 +81,7 @@ class Categories extends Component {
 
   showAddCategory = event => {
     this.setState({
-      showAddCategoryForm: this.state.show ? false : true
+      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
     });
   };
 
@@ -123,6 +123,8 @@ class Categories extends Component {
           <AddCategory
             addCategory={this.addCategory}
             userInSession={this.props.userInSession}
+            makeFormAppear={this.showAddCategory}
+
           />
         )}
 
