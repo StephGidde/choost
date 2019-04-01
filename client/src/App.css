@@ -197,7 +197,7 @@
     ),
     url("./images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .category-8 {
@@ -207,7 +207,25 @@
     ),
     url("./images/cooking.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+}
+.category-9 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.category-10 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/tech.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .signup-container input {
@@ -383,5 +401,14 @@
 }
 .safe-search{
   height:50px;
+  color:#6DF6BA !important
 
+}
+.searchbutton{
+  border-color:#6DF6BA !important
+
+}
+.searchbutton :hover{
+  color:#6DF6BA !important
+  
 }
