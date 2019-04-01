@@ -8,9 +8,9 @@ import axios from "axios";
 import swal from "sweetalert";
 
 class PlayerBar extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   addToPlaylist = event => {
     event.preventDefault();
@@ -18,7 +18,10 @@ class PlayerBar extends Component {
     const videoToAdd = this.props.videoID;
     const user = this.props.userInSession;
     axios
-      .post("http://localhost:5000/", { videoToAdd, user })
+      .post(process.env.REACT_APP_API_URL || "http://localhost:5000/", {
+        videoToAdd,
+        user
+      })
       .then(res => console.log("i am response from frontend", res));
     // axios.post("http://localhost:5000/api/user_playlist", { videoToAdd });
     // .then(res => console.log("i am response from frontend", res));

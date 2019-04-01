@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import AuthService from "./auth-service";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
 
 class Login extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class Login extends Component {
       .then(response => {
         this.setState({ email: "", password: "" });
         this.props.getUser(response);
+        this.props.history.push("/");
       })
       .catch(error => console.log(error));
   };
@@ -67,4 +68,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

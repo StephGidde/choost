@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import AuthService from "./auth-service";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
 
 class Signup extends Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class Signup extends Component {
   };
 
   render() {
+    console.log("mmmm", this.props);
     return (
       <div className="signup-container">
         <form onSubmit={this.handleFormSubmit}>
@@ -82,4 +83,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

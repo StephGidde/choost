@@ -21,11 +21,10 @@ class Home extends Component {
     };
   }
 
-  searchFunction = (query, categoryName, channelId) => {
+  searchFunction = (query, categoryName) => {
     this.setState({
       q: query,
       categoryName: categoryName,
-      channelId: channelId,
       isRandom: true
     });
   };
@@ -53,7 +52,7 @@ class Home extends Component {
           language={this.state.relevanceLanguage}
           duration={this.state.videoDuration}
           categoryName={this.state.categoryName}
-          channelId={this.state.channelId}
+          // channelId={this.state.channelId}
           userInSession={this.props.userInSession}
         />
       );
