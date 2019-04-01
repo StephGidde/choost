@@ -84,7 +84,7 @@
   }
 }
 
-.categorie-container button {
+.categorie-container section {
   text-align: center;
   margin-top: -0.5%;
   margin-right: 1.5%;
@@ -116,7 +116,7 @@
   }
 }
 
-.categorie-container button i {
+.categorie-container section i {
   font-size: 70px;
   color: white;
   padding: 3%;
@@ -192,7 +192,7 @@
     ),
     url("./images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .category-8 {
@@ -202,7 +202,7 @@
     ),
     url("./images/cooking.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .signup-container input {
@@ -319,8 +319,8 @@
 .select-icon input {
   display: none;
 }
-.selectedIcon input{
-  display:none;
+.selectedIcon input {
+  display: none;
 }
 
 .select-icon i {
@@ -329,7 +329,7 @@
   margin-bottom: 1rem;
   color: rgb(102, 204, 252);
 }
-.selectedIcon i{
+.selectedIcon i {
   font-size: 30px;
   letter-spacing: 1rem;
   margin-bottom: 1rem;
@@ -348,7 +348,6 @@
   margin-bottom: 1rem;
   color: grey;
 } */
-
 
 .playlist {
   margin: 5vw;
@@ -373,7 +372,6 @@
 .videoThumbnails {
   height: 8vw;
 }
-.deleteCategory :hover{
-  color:pink;
-  
+.deleteCategory :hover {
+  color: pink;
 }
