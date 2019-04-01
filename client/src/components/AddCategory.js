@@ -55,7 +55,6 @@ class AddCategory extends Component {
   };
 
   closeWindow = event => {
-    this.props.closeWindow();
     this.setState({
       show: this.state.show ? false : true
     });

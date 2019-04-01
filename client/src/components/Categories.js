@@ -22,49 +22,44 @@ class Categories extends Component {
           categoryIcon: "fas fa-book",
           categoryName: "Documentary",
           q: "a",
-          showpopup: true
+          // q: "documentation bbc",
+          image: "../images/docu1.jpg"
         },
         {
           categoryNr: "2",
           categoryIcon: "far fa-smile-beam",
           categoryName: "Comedy",
-          q: "a",
-          showpopup: false
+          q: "a"
         },
         {
           categoryNr: "3",
           categoryIcon: "fas fa-skull-crossbones",
           categoryName: "Epic Fail",
-          q: "fail",
-          showpopup: false
+          q: "fail"
         },
         {
           categoryNr: "4",
           categoryIcon: "fas fa-film",
           categoryName: "Movie Trailer",
-          q: "kinockeck trailer",
-          showpopup: false
+          q: "kinockeck trailer"
         },
         {
           categoryNr: "5",
           categoryIcon: "fas fa-cat",
           categoryName: "Cats",
-          q: "cat fun",
-          showpopup: false
+          q: "cat fun"
         },
         {
           categoryNr: "6",
           categoryIcon: "fas fa-heartbeat",
           categoryName: "Workout",
-          q: "workout",
-          showpopup: false
+          q: "workout"
         },
         {
           categoryNr: "7",
           categoryIcon: "fas fa-spa",
           categoryName: "Yoga",
-          q: "yoga",
-          showpopup: false
+          q: "a"
         },
         {
           categoryNr: "8",
@@ -86,7 +81,7 @@ class Categories extends Component {
 
   showAddCategory = event => {
     this.setState({
-      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
+      showAddCategoryForm: this.state.show ? false : true
     });
   };
 
@@ -120,14 +115,6 @@ class Categories extends Component {
     swal({ title: "Category Removed", icon: "success" });
   };
 
-  goToPlayer = event => {
-    event.preventDefault();
-    let section = this.state.sections.filter(el => {
-      return el.categoryName === event.target.value;
-    });
-    return this.props.onSearch(section[0].q, event.target.value);
-  };
-
   render() {
     return (
       <div>
@@ -136,13 +123,12 @@ class Categories extends Component {
           <AddCategory
             addCategory={this.addCategory}
             userInSession={this.props.userInSession}
-            closeWindow={this.showAddCategory}
           />
         )}
 
         {/* add category tile */}
         <div className="is-mobile categorie-container">
-          <button
+          <section
             className="box column category"
             // id="categorie-6"
             onClick={this.showAddCategory}
@@ -150,23 +136,22 @@ class Categories extends Component {
             <i className="fas fa-plus" />
             <br />
             Add Category
-          </button>
+          </section>
+          {/* Categories that come from us */}
 
           {/* maps over section array and shows all sections */}
-          {this.state.sections.map((section, i) => (
-            <button
-              key={i}
-              value={section.categoryName}
+          {this.state.sections.map((section, index) => (
+            <section
+              key={index}
               className={`box column category category-${section.categoryNr}`}
-              onClick={this.goToPlayer}
+              onClick={event => {
+                this.props.onSearch(section.q, section.categoryName);
+              }}
             >
-              <i
-                className={section.categoryIcon}
-                style={{ pointerEvents: "none", cursor: "default" }}
-              />
+              <i className={section.categoryIcon} />
               <br />
               {section.categoryName}
-            </button>
+            </section>
           ))}
           {/* Categories that come from the user */}
           {this.props.userInSession &&
