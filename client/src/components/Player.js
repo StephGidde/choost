@@ -134,6 +134,7 @@ class Player extends Component {
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
             <PlayerBar
+            keyword= {this.props.keyword}
               videoID={this.state.videoId}
               randomVideo={this.getNextVideo}
               userInSession={this.props.userInSession}

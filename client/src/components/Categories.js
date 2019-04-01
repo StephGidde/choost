@@ -161,24 +161,6 @@ class Categories extends Component {
                   key={index}
                   className="box column category"
                   onClick={event => {
-<<<<<<< HEAD
-                    this.props.onSearch(section.q, section.categoryName);
-                  }}
-                >
-                <button
-                    id={section.q}
-                    className="button is-light is-small is-danger deleteCategory "
-                    onClick={this.deleteCategory}
-                  >
-                    <i class="fas fa-trash-alt" />
-                  </button>
-                  <i className={section.categoryIcon} />
-                  <br />
-                  {section.categoryName}
-               
-                </section>
-                
-=======
                     console.log(section._id);
                     this.props.onSearch(section.q, section.categoryName);
                   }}
@@ -194,7 +176,6 @@ class Categories extends Component {
                 >
                   <i class="fas fa-trash-alt" />
                 </button>
->>>>>>> a8b19c4de9e5ebbb8dc9757944faeadafb5fad40
               </div>
             ))}
         </div>

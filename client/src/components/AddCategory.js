@@ -46,7 +46,6 @@ class AddCategory extends Component {
     axios
       .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
       .then(res => {
-        console.log("i am response from frontend", res);
         this.props.addCategory(q, categoryName, categoryIcon);
         swal({ title: "Added to Your Categories!", icon: "success" });
       });
@@ -107,6 +106,7 @@ class AddCategory extends Component {
                   className="input is-medium is-warning"
                   type="text"
                   placeholder="Enter as many keywords as you like"
+                 value={this.props.keyword? this.props.keyword: ""}
                   required
                 />
               </div>

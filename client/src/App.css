@@ -250,7 +250,8 @@
 
 #addToPlaylistIMG,
 #sharingIMG,
-#nextVideoIMG {
+#nextVideoIMG,
+#saveSearch {
   height: 50px;
   margin: 10px;
 }
@@ -377,10 +378,10 @@
 .videoThumbnails {
   height: 8vw;
 }
-<<<<<<< HEAD
-
-=======
 .deleteCategory :hover {
   color: pink;
 }
->>>>>>> a8b19c4de9e5ebbb8dc9757944faeadafb5fad40
+.safe-search{
+  height:50px;
+
+}
