@@ -7,6 +7,7 @@ import SearchFilter from "./SearchFilter";
 import UserPlaylist from "./UserPlaylist";
 import PlaylistPlayer from "./PlaylistPlayer";
 import bulmaDivider from "bulma-divider";
+import Footer from "./Footer";
 
 class Home extends Component {
   constructor(props) {
@@ -79,7 +80,10 @@ class Home extends Component {
           <div className="is-divider" data-content="OR" />
           <div className="category-title-container">Choose a category:</div>
         </div>
-        <Categories onSearch={this.searchFunction} userInSession={this.props.userInSession}/>
+        <Categories
+          onSearch={this.searchFunction}
+          userInSession={this.props.userInSession}
+        />
 
         {this.props.userInSession && (
           <UserPlaylist
@@ -87,6 +91,7 @@ class Home extends Component {
             playlisthandler={this.playlisthandler}
           />
         )}
+        <Footer />
       </div>
     );
   }
