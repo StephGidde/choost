@@ -117,17 +117,18 @@ class AddCategory extends Component {
               <label className="label is-medium">Choose an Icon</label>
 
               <div class="control" onChange={this.handleOptionChange}>
-                {this.state.icons.map(icon => (
+                {this.state.icons.map((icon,index) => (
                   <label
-                    onChange={this.changeIconColor}
-                    className={
-                      this.state.showIcon
-                        ? "selectedIcon radio"
-                        : "select-icon radio"
-                    }
-                    for={icon}
+                  key={index}
+                  className={
+                    this.state.showIcon
+                    ? "selectedIcon radio"
+                    : "select-icon radio"
+                  }
+                  for={icon}
                   >
                     <input
+                      onChange={this.changeIconColor}
                       name="select-icon"
                       type="radio"
                       id={icon}
@@ -141,10 +142,10 @@ class AddCategory extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success" onClick={(e)=>{ this.addCategory(e); this.props.makeFormAppear(e)}}>
+            <button className=" searchbutton button is-primary is-outlined" onClick={(e)=>{ this.addCategory(e); this.props.makeFormAppear(e)}}>
               Save changes
             </button>
-            <button className="button" onClick={this.closeWindow}>
+            <button className="button" onClick={(e)=>{ this.closeWindow(e); this.props.makeFormAppear(e)}}>
               Cancel
             </button>
           </footer>

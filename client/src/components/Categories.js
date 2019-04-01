@@ -67,6 +67,20 @@ class Categories extends Component {
           categoryName: "Cooking",
           q: "a",
           showpopup: false
+        },
+        {
+          categoryNr: "9",
+          categoryIcon: "fas fa-car",
+          categoryName: "Cars",
+          q: "a",
+          showpopup: false
+        },
+        {
+          categoryNr: "10",
+          categoryIcon: "fas fa-cogs",
+          categoryName: "Tech",
+          q: "a",
+          showpopup: false
         }
       ]
     };
