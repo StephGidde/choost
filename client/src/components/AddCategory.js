@@ -51,6 +51,7 @@ class AddCategory extends Component {
       });
 
     this.closeWindow();
+
   };
 
   closeWindow = event => {
@@ -140,7 +141,7 @@ class AddCategory extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success" onClick={this.addCategory}>
+            <button className="button is-success" onClick={(e)=>{ this.addCategory(e); this.props.makeFormAppear(e)}}>
               Save changes
             </button>
             <button className="button" onClick={this.closeWindow}>
