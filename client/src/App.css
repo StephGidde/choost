@@ -34,7 +34,7 @@
 .app-name {
   animation-name: header-animation;
   animation-duration: 0.6s;
-  animation-delay: 5s;
+  animation-delay: 2s;
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: forwards;
