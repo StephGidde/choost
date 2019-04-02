@@ -455,10 +455,60 @@
 
 .about-heading {
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 3vw;
   margin-bottom: 3vh;
 }
 
 .about-descr {
   line-height: 3;
+  font-size: 1.5vw;
+}
+
+.wrapper-about {
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.team-member {
+  width: 30%;
+  margin-right: 2%;
+  height: 100%;
+  background-color: #66ccfe;
+  /* opacity: 0.5; */
+  box-shadow: 4px 4px #d3d3d3;
+  border-radius: 3px;
+}
+
+.team-name,
+.team-name > a {
+  text-align: center;
+  margin-top: 18vh;
+  font-size: 5vh;
+  color: #ffcb4f;
+  text-shadow: 1px 1px grey;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.linkedin {
+  height: 4vh;
+}
+
+.sarah:hover {
+  background-image: url("./images/sarah.jpg");
+  background-size: cover;
+}
+
+.axel:hover {
+  background-image: url("./images/axel.png");
+  background-size: cover;
+}
+
+.steph:hover {
+  background-image: url("./images/steph.png");
+  background-size: cover;
 }
