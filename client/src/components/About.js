@@ -15,7 +15,10 @@ const About = () => {
       <div className="wrapper-about">
         <div className="team-member axel">
           <p className="team-name">
-            <a href="https://www.linkedin.com/in/axel-heinz-0389548/">
+            <a
+              href="https://www.linkedin.com/in/axel-heinz-0389548/"
+              target="_blank"
+            >
               AXEL HEINZ
               <br />
               <img className="linkedin" src={linkedin} alt="linkedin-logo" />
@@ -24,7 +27,10 @@ const About = () => {
         </div>
         <div className="team-member sarah">
           <p className="team-name">
-            <a href="https://www.linkedin.com/in/sarah-d-88013314b/">
+            <a
+              href="https://www.linkedin.com/in/sarah-d-88013314b/"
+              target="_blank"
+            >
               SARAH DRÖSE
               <br />
               <img className="linkedin" src={linkedin} alt="linkedin-logo" />
@@ -33,7 +39,10 @@ const About = () => {
         </div>
         <div className="team-member steph">
           <p className="team-name">
-            <a href="https://www.linkedin.com/in/stephaniegidde/">
+            <a
+              href="https://www.linkedin.com/in/stephaniegidde/"
+              target="_blank"
+            >
               STEPHANIE GIDDE
               <br />
               <img className="linkedin" src={linkedin} alt="linkedin-logo" />

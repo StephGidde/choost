@@ -245,6 +245,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.category-13 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/diy.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .signup-container input {
   width: 30%;
