@@ -162,6 +162,7 @@ class Categories extends Component {
             className="box column category"
             // id="categorie-6"
             onClick={this.showAddCategory}
+            disabled
           >
             <i className="fas fa-plus" />
             <br />
