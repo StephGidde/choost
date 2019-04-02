@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 // import { Link } from "react-router-dom";
+import linkedin from "../images/linkedin.png";
 
 const About = () => {
   return (
@@ -11,23 +12,35 @@ const About = () => {
         Course 2018/2019. <br />
         We are:
       </p>
-      <ul className="about-names">
-        <li>
-          <a href="https://www.linkedin.com/in/axel-heinz-0389548/">
-            Axel Heinz
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/sarah-d-88013314b/">
-            Sarah Dröse
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/stephaniegidde/">
-            Stephanie Gidde
-          </a>
-        </li>
-      </ul>
+      <div className="wrapper-about">
+        <div className="team-member axel">
+          <p className="team-name">
+            <a href="https://www.linkedin.com/in/axel-heinz-0389548/">
+              AXEL HEINZ
+              <br />
+              <img className="linkedin" src={linkedin} alt="linkedin-logo" />
+            </a>
+          </p>
+        </div>
+        <div className="team-member sarah">
+          <p className="team-name">
+            <a href="https://www.linkedin.com/in/sarah-d-88013314b/">
+              SARAH DRÖSE
+              <br />
+              <img className="linkedin" src={linkedin} alt="linkedin-logo" />
+            </a>
+          </p>
+        </div>
+        <div className="team-member steph">
+          <p className="team-name">
+            <a href="https://www.linkedin.com/in/stephaniegidde/">
+              STEPHANIE GIDDE
+              <br />
+              <img className="linkedin" src={linkedin} alt="linkedin-logo" />
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
