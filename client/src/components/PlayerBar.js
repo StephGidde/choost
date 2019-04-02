@@ -6,11 +6,20 @@ import twitterIMG from "../images/twitter.png";
 import addToPlaylistIMG from "../images/add.png";
 import axios from "axios";
 import swal from "sweetalert";
+import AddCategory from "./AddCategory"
 
 class PlayerBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { 
+      showAddCategoryForm: false 
+    };
+  }
+  showAddCategory = event => {
+    this.setState({
+      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
+    });
+  };
 
   addToPlaylist = event => {
     event.preventDefault();
@@ -38,10 +47,17 @@ class PlayerBar extends Component {
     var sharer = "http://twitter.com/share?&url=" + shareURL;
     window.open(sharer, "sharer", "width=626,height=436");
   }
-
+  
   render() {
     return (
       <div>
+        {this.state.showAddCategoryForm && (
+                  <AddCategory
+                  keyword={this.props.keyword}
+                    addCategory={this.addCategory}
+                    userInSession={this.props.userInSession}
+                    makeFormAppear={this.showAddCategory}
+                  /> )}
         <div id="PlayerBarContainer">
           <img
             src={addToPlaylistIMG}
@@ -64,6 +80,15 @@ class PlayerBar extends Component {
             className="pointer"
             onClick={() => this.shareVideoTwitter()}
           />
+       
+          <button
+            id="saveSearch"
+            className=" pointer button is-rounded"
+            onClick={this.showAddCategory}
+          >
+            Save Search
+          </button>
+
           <img
             src={nextVideoIMG}
             alt="next Video Button"

@@ -115,6 +115,11 @@
     transform: scale(1.2);
   }
 }
+.deleteCategory{
+  font-size:10px;
+  position: absolute;
+  z-index: 1;
+}
 
 .categorie-container section i {
   font-size: 70px;
@@ -192,7 +197,7 @@
     ),
     url("./images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .category-8 {
@@ -202,7 +207,25 @@
     ),
     url("./images/cooking.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+}
+.category-9 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.category-10 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/tech.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .signup-container input {
@@ -245,7 +268,8 @@
 
 #addToPlaylistIMG,
 #sharingIMG,
-#nextVideoIMG {
+#nextVideoIMG,
+#saveSearch {
   height: 50px;
   margin: 10px;
 }
@@ -374,4 +398,17 @@
 }
 .deleteCategory :hover {
   color: pink;
+}
+.safe-search{
+  height:50px;
+  color:#6DF6BA !important
+
+}
+.searchbutton{
+  border-color:#6DF6BA !important
+
+}
+.searchbutton :hover{
+  color:#6DF6BA !important
+  
 }

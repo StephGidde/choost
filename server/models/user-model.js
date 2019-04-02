@@ -74,7 +74,8 @@ userSchema.methods.deleteVideo = function deleteVideo(videoID) {
   this.updateOne(
     {
       $pull: {
-        playlistvideoids: videoID
+        playlistvideoids: videoID,
+
       }
     },
     {
@@ -89,6 +90,32 @@ userSchema.methods.deleteVideo = function deleteVideo(videoID) {
   );
   console.log("this works");
 };
+
+userSchema.methods.deleteCategory = function deleteCategory(categoryQuery) {
+  console.log("deleting " + categoryQuery)
+  this.updateOne(
+    {
+      $pull: {
+        categories: {
+          q: categoryQuery
+        }
+        
+      }
+    },
+    {
+      safe: true,
+      upsert: true
+    },
+    function(err) {
+      if (err) {
+        console.log("THIS IS AN ERROR", err);
+      }
+    }
+  );
+  console.log("this works");
+};
+
+
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

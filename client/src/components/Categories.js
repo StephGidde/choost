@@ -67,6 +67,20 @@ class Categories extends Component {
           categoryName: "Cooking",
           q: "a",
           showpopup: false
+        },
+        {
+          categoryNr: "9",
+          categoryIcon: "fas fa-car",
+          categoryName: "Cars",
+          q: "a",
+          showpopup: false
+        },
+        {
+          categoryNr: "10",
+          categoryIcon: "fas fa-cogs",
+          categoryName: "Tech",
+          q: "a",
+          showpopup: false
         }
       ]
     };
@@ -81,7 +95,7 @@ class Categories extends Component {
 
   showAddCategory = event => {
     this.setState({
-      showAddCategoryForm: this.state.show ? false : true
+      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
     });
   };
 
@@ -123,6 +137,8 @@ class Categories extends Component {
           <AddCategory
             addCategory={this.addCategory}
             userInSession={this.props.userInSession}
+            makeFormAppear={this.showAddCategory}
+
           />
         )}
 

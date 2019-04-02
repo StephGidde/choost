@@ -46,12 +46,12 @@ class AddCategory extends Component {
     axios
       .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
       .then(res => {
-        console.log("i am response from frontend", res);
         this.props.addCategory(q, categoryName, categoryIcon);
         swal({ title: "Added to Your Categories!", icon: "success" });
       });
 
     this.closeWindow();
+
   };
 
   closeWindow = event => {
@@ -107,6 +107,7 @@ class AddCategory extends Component {
                   className="input is-medium is-warning"
                   type="text"
                   placeholder="Enter as many keywords as you like"
+                 value={this.props.keyword? this.props.keyword: ""}
                   required
                 />
               </div>
@@ -116,17 +117,18 @@ class AddCategory extends Component {
               <label className="label is-medium">Choose an Icon</label>
 
               <div class="control" onChange={this.handleOptionChange}>
-                {this.state.icons.map(icon => (
+                {this.state.icons.map((icon,index) => (
                   <label
-                    onChange={this.changeIconColor}
-                    className={
-                      this.state.showIcon
-                        ? "selectedIcon radio"
-                        : "select-icon radio"
-                    }
-                    for={icon}
+                  key={index}
+                  className={
+                    this.state.showIcon
+                    ? "selectedIcon radio"
+                    : "select-icon radio"
+                  }
+                  for={icon}
                   >
                     <input
+                      onChange={this.changeIconColor}
                       name="select-icon"
                       type="radio"
                       id={icon}
@@ -140,10 +142,10 @@ class AddCategory extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success" onClick={this.addCategory}>
+            <button className=" searchbutton button is-primary is-outlined" onClick={(e)=>{ this.addCategory(e); this.props.makeFormAppear(e)}}>
               Save changes
             </button>
-            <button className="button" onClick={this.closeWindow}>
+            <button className="button" onClick={(e)=>{ this.closeWindow(e); this.props.makeFormAppear(e)}}>
               Cancel
             </button>
           </footer>
