@@ -70,16 +70,19 @@ class Home extends Component {
 
     return (
       <div className="App">
-        <div className=" app-name title">
+        {/* <div className=" app-name title">
           <h1>CHOOST</h1>
-        </div>
+        </div> */}
         <SearchFilter onFilter={this.filterFunction} />
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
           <div className="is-divider" data-content="OR" />
           <div className="category-title-container">Choose a category:</div>
         </div>
-        <Categories onSearch={this.searchFunction} userInSession={this.props.userInSession}/>
+        <Categories
+          onSearch={this.searchFunction}
+          userInSession={this.props.userInSession}
+        />
 
         {this.props.userInSession && (
           <UserPlaylist

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Header from "./components/Header";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import AuthService from "./components/auth/auth-service";
@@ -45,6 +46,7 @@ class App extends Component {
       return (
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
+          <Header />
           <Switch>
             <Route
               exact
@@ -59,6 +61,7 @@ class App extends Component {
       return (
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} />
+          <Header />
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route
