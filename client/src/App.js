@@ -53,6 +53,7 @@ class App extends Component {
               path="/"
               render={() => <Home userInSession={this.state.loggedInUser} />}
             />
+            <Route exact path="/about" render={() => <About />} />
           </Switch>
         </div>
       );
