@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
 import _ from "lodash";
-// import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
 require("dotenv").config();

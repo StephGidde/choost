@@ -115,8 +115,8 @@
     transform: scale(1.2);
   }
 }
-.deleteCategory{
-  font-size:10px;
+.deleteCategory {
+  font-size: 10px;
   position: absolute;
   z-index: 1;
 }
@@ -417,16 +417,48 @@
 .deleteCategory :hover {
   color: pink;
 }
-.safe-search{
-  height:50px;
-  color:#6DF6BA !important
-
+.safe-search {
+  height: 50px;
+  color: #6df6ba !important;
 }
-.searchbutton{
-  border-color:#6DF6BA !important
-
+.searchbutton {
+  border-color: #6df6ba !important;
 }
-.searchbutton :hover{
-  color:#6DF6BA !important
-  
+.searchbutton :hover {
+  color: #6df6ba !important;
+}
+
+.app-footer {
+  margin-top: 5vh;
+  height: 10vh;
+  width: 100%;
+  background-color: #1bece1;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  padding: 4vh;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.app-footer-link {
+  color: white;
+}
+
+.app-footer p:hover {
+  color: black;
+}
+
+.about {
+  margin: 5vw;
+  font-family: "Nunito", sans-serif;
+}
+
+.about-heading {
+  font-weight: bold;
+  font-size: 5vw;
+  margin-bottom: 3vh;
+}
+
+.about-descr {
+  line-height: 3;
 }
