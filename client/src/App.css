@@ -227,6 +227,24 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.category-11 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/music.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.category-12 {
+  background-image: linear-gradient(
+      rgba(102, 204, 254, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./images/beauty.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .signup-container input {
   width: 30%;

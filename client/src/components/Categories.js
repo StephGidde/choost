@@ -81,6 +81,20 @@ class Categories extends Component {
           categoryName: "Tech",
           q: "a",
           showpopup: false
+        },
+        {
+          categoryNr: "11",
+          categoryIcon: "fas fa-headphones",
+          categoryName: "Music",
+          q: "BBCMusic npr bbcradio1",
+          showpopup: false
+        },
+        {
+          categoryNr: "12",
+          categoryIcon: "far fa-gem",
+          categoryName: "Beauty",
+          q: "make up tutorial",
+          showpopup: false
         }
       ]
     };
