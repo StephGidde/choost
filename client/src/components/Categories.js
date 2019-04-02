@@ -95,6 +95,13 @@ class Categories extends Component {
           categoryName: "Beauty",
           q: "make up tutorial",
           showpopup: false
+        },
+        {
+          categoryNr: "13",
+          categoryIcon: "fas fa-cut",
+          categoryName: "DIY",
+          q: "makerist",
+          showpopup: false
         }
       ]
     };
@@ -152,7 +159,6 @@ class Categories extends Component {
             addCategory={this.addCategory}
             userInSession={this.props.userInSession}
             makeFormAppear={this.showAddCategory}
-
           />
         )}
 

@@ -18,7 +18,6 @@ import carChannelsEN from "../categorydata/carChannelsEN.json";
 import techChannelsDE from "../categorydata/techChannelsDE.json";
 import techChannelsEN from "../categorydata/techChannelsEN.json";
 
-
 require("dotenv").config();
 
 let alreadyPlayedCopy = alreadyPlayedArray;
@@ -82,10 +81,7 @@ class Player extends Component {
       setDuration = "any";
       setLanguage = "";
     }
-    if (
-      this.props.language === "de" &&
-      this.props.categoryName === "Cars"
-    ) {
+    if (this.props.language === "de" && this.props.categoryName === "Cars") {
       randomchannel = _.shuffle(carChannelsDE)[0];
     } else if (
       this.props.language === "en" &&
@@ -93,10 +89,7 @@ class Player extends Component {
     ) {
       randomchannel = _.shuffle(carChannelsEN)[0];
     }
-    if (
-      this.props.language === "de" &&
-      this.props.categoryName === "Tech"
-    ) {
+    if (this.props.language === "de" && this.props.categoryName === "Tech") {
       randomchannel = _.shuffle(techChannelsDE)[0];
     } else if (
       this.props.language === "en" &&
@@ -104,8 +97,6 @@ class Player extends Component {
     ) {
       randomchannel = _.shuffle(techChannelsEN)[0];
     }
-
-
 
     console.log("RANDOM CHANNEL", randomchannel);
     axios
@@ -164,7 +155,7 @@ class Player extends Component {
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
             <PlayerBar
-            keyword= {this.props.keyword}
+              keyword={this.props.keyword}
               videoID={this.state.videoId}
               randomVideo={this.getNextVideo}
               userInSession={this.props.userInSession}
