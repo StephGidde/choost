@@ -22,7 +22,11 @@ class Login extends Component {
         this.props.getUser(response);
         this.props.history.push("/");
       })
-      .catch(error => console.log(error));
+      .catch(error =>
+        this.setState({
+          errormessage: error.response.data.message
+        })
+      );
   };
 
   handleChange = event => {
@@ -35,7 +39,7 @@ class Login extends Component {
       <div className="signup-container">
         <form onSubmit={this.handleFormSubmit}>
           <input
-            className="input is-primary is-normal"
+            className="input is-primary is-normal is-warning"
             placeholder="Enter your email address"
             type="email"
             name="email"
@@ -44,22 +48,22 @@ class Login extends Component {
           />
           <br />
           <input
-            className="input is-primary is-normal"
+            className="input is-primary is-normal is-warning"
             placeholder="Enter your password"
             type="password"
             name="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
-          <br />
+          <div className="has-text-danger ">{this.state.errormessage}</div>
           <input
-            className="button is-normal is-primary "
+            className="button is-normal is-primary is-outlined"
             type="submit"
             value="Login"
           />
         </form>
-        <p>
-          <br />
+        <br />
+        <p className="p-have-account-message">
           Don't have account?
           <Link to={"/signup"}> Signup</Link>
         </p>

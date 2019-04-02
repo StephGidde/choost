@@ -87,10 +87,14 @@ passport.use(
         return next(err);
       }
       if (!user) {
-        return next(null, false, { message: "Incorrect email" });
+        return next(null, false, {
+          message: "User not found, please check spelling"
+        });
       }
       if (!bcrypt.compareSync(password, user.password)) {
-        return next(null, false, { message: "Incorrect password" });
+        return next(null, false, {
+          message: "Password does not match, please check spelling"
+        });
       }
 
       return next(null, user);

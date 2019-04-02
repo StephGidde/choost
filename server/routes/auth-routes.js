@@ -12,7 +12,7 @@ authRoutes.post("/signup", (req, res, next) => {
   const password = req.body.password;
   const email = req.body.email;
   const playlistvideoids = req.body.playlistvideoids;
-  const categories = req.body.categories
+  const categories = req.body.categories;
   console.log("USERNAME" + username + password);
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
@@ -29,12 +29,14 @@ authRoutes.post("/signup", (req, res, next) => {
 
   User.findOne({ username }, (err, foundUser) => {
     if (err) {
-      res.status(500).json({ message: "Username check went bad." });
+      res.status(500).json({ message: "User not found, please try again" });
       return;
     }
 
     if (foundUser) {
-      res.status(400).json({ message: "Username taken. Choose another one." });
+      res
+        .status(400)
+        .json({ message: "Username already taken., please try again" });
       return;
     }
 
@@ -46,15 +48,13 @@ authRoutes.post("/signup", (req, res, next) => {
       email: email,
       password: hashPass,
       playlistvideoids: playlistvideoids,
-      categories:categories
+      categories: categories
     });
 
     aNewUser.save(err => {
       console.log("A NEW USER" + aNewUser);
       if (err) {
-        res
-          .status(400)
-          .json({ message: "Saving user to database went wrong." });
+        res.status(400).json({ message: "Saving user to database went wrong" });
         return;
       }
 
@@ -63,7 +63,7 @@ authRoutes.post("/signup", (req, res, next) => {
       req.login(aNewUser, err => {
         if (err) {
           console.log("ERROR" + err);
-          res.status(500).json({ message: "Login after signup went bad." });
+          res.status(500).json({ message: "Login went wrong, try again" });
           return;
         }
 
@@ -107,7 +107,7 @@ authRoutes.post("/login", (req, res, next) => {
 authRoutes.post("/logout", (req, res, next) => {
   // req.logout() is defined by passport
   req.logout();
-  res.status(200).json({ message: "Log out success!" });
+  res.status(200).json({ message: "Log out successful" });
 });
 
 //  if there is a session that has a user associated with it, return this associated user
