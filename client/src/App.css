@@ -2,10 +2,24 @@
   font-family: "Nunito", sans-serif;
 }
 
+.navbar {
+  background-color: #66ccfe !important;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+}
+
 .navbar nav,
 .navbar-item,
 .navbar-menu {
   background-color: #66ccfe;
+  position: fixed;
+}
+
+.navbar-end {
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 .app-name {
@@ -23,18 +37,25 @@
   color: #ffcb4f;
   text-shadow: 1px 1px grey;
   font-family: "Nunito", sans-serif;
-  letter-spacing: 18px;
+  letter-spacing: 1.5vw;
   font-size: 8vw;
-  padding: 15vh;
+  margin-top: 17vh;
 }
 
 .searchBar-container {
   margin: 3% auto;
   display: flex;
   justify-content: center;
-
   font-family: "Nunito", sans-serif;
 }
+
+.searchBar-container-parameters {
+  margin-top: 32em;
+  display: flex;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+}
+
 .searchBar-container input {
   width: 50%;
   margin-right: 3px;
@@ -50,9 +71,11 @@
   /* display: block; */
 }
 
-.searchBar-container select {
+.searchBar-container-parameters select {
   display: inline;
 }
+
+/* categories start here  */
 
 .intro-container {
   text-align: center;
@@ -342,6 +365,7 @@
   height: 0;
   position: relative;
   padding-top: 56.25%; /* 9 / 16 * 100 */
+  margin-top: 50px;
 }
 
 .video-player > iframe {

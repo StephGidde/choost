@@ -6,13 +6,13 @@ import twitterIMG from "../images/twitter.png";
 import addToPlaylistIMG from "../images/add.png";
 import axios from "axios";
 import swal from "sweetalert";
-import AddCategory from "./AddCategory"
+import AddCategory from "./AddCategory";
 
 class PlayerBar extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      showAddCategoryForm: false 
+    this.state = {
+      showAddCategoryForm: false
     };
   }
   showAddCategory = event => {
@@ -32,8 +32,6 @@ class PlayerBar extends Component {
         user
       })
       .then(res => console.log("i am response from frontend", res));
-    // axios.post("http://localhost:5000/api/user_playlist", { videoToAdd });
-    // .then(res => console.log("i am response from frontend", res));
   };
 
   shareVideoFB() {
@@ -47,17 +45,18 @@ class PlayerBar extends Component {
     var sharer = "http://twitter.com/share?&url=" + shareURL;
     window.open(sharer, "sharer", "width=626,height=436");
   }
-  
+
   render() {
     return (
       <div>
         {this.state.showAddCategoryForm && (
-                  <AddCategory
-                  keyword={this.props.keyword}
-                    addCategory={this.addCategory}
-                    userInSession={this.props.userInSession}
-                    makeFormAppear={this.showAddCategory}
-                  /> )}
+          <AddCategory
+            keyword={this.props.keyword}
+            addCategory={this.addCategory}
+            userInSession={this.props.userInSession}
+            makeFormAppear={this.showAddCategory}
+          />
+        )}
         <div id="PlayerBarContainer">
           <img
             src={addToPlaylistIMG}
@@ -80,7 +79,7 @@ class PlayerBar extends Component {
             className="pointer"
             onClick={() => this.shareVideoTwitter()}
           />
-       
+
           <button
             id="saveSearch"
             className=" pointer button is-rounded"
