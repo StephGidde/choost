@@ -23,17 +23,6 @@ class UserPlaylist extends Component {
     });
   };
 
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     this.props.userInSession.playlistvideoids !==
-  //     prevProps.userInSession.playlistvideoids
-  //   ) {
-  //     this.setState({
-  //       user: this.props.userInSession
-  //     });
-  //   }
-  // }
-
   deletePlaylistVideo = event => {
     const user = this.props.userInSession;
     let videoToDelete = event.target.id;

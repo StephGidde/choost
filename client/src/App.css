@@ -144,6 +144,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .category-2 {
   background-image: linear-gradient(
       rgba(102, 204, 254, 0.3),
@@ -473,6 +474,53 @@
   align-items: flex-start;
 }
 
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .about {
+    margin: 2vw;
+  }
+
+  .about-heading {
+    margin-bottom: 1vh;
+  }
+
+  .about-descr {
+    width: 40vw;
+    line-height: 2;
+  }
+
+  .wrapper-about {
+    width: 40vw;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .team-member {
+    width: 100% !important;
+    margin: 5vw !important;
+    background-color: #66ccfe;
+    box-shadow: 4px 4px #d3d3d3;
+    border-radius: 3px;
+  }
+
+  .team-name,
+  .team-name > a {
+    text-align: center;
+    margin-top: 0;
+    font-size: 10px;
+    color: #ffcb4f;
+    text-shadow: 1px 1px grey;
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  .linkedin {
+    height: 4vh;
+  }
+}
+
 .team-member {
   width: 30%;
   margin-right: 2%;
@@ -487,7 +535,7 @@
 .team-name > a {
   text-align: center;
   margin-top: 18vh;
-  font-size: 5vh;
+  font-size: 2vw;
   color: #ffcb4f;
   text-shadow: 1px 1px grey;
   letter-spacing: 2px;
