@@ -61,10 +61,12 @@ class AddCategory extends Component {
   };
 
   changeIconColor = event => {
-    console.log("hi");
-    this.setState({
-      showIcon: this.state.showIcon ? false : true
-    });
+  let mir =event.target.style.color = "grey";
+
+   
+    // this.setState({
+    //   showIcon: this.state.showIcon ? false : true
+    // });
   };
   handleOptionChange = changeEvent => {
     this.setState({
@@ -120,11 +122,8 @@ class AddCategory extends Component {
                 {this.state.icons.map((icon,index) => (
                   <label
                   key={index}
-                  className={
-                    this.state.showIcon
-                    ? "selectedIcon radio"
-                    : "select-icon radio"
-                  }
+                  className= "select-icon radio"
+                  
                   for={icon}
                   >
                     <input
@@ -134,7 +133,7 @@ class AddCategory extends Component {
                       id={icon}
                       value={icon}
                     />
-                    <i className={icon} />
+                    <i className={`${icon}`} onClick={this.changeIconColor} />
                     {/* {this.state.showIcon ? icon : `selectedIcon ${icon}`}/> */}
                   </label>
                 ))}
