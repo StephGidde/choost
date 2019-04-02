@@ -52,18 +52,13 @@ class App extends Component {
               path="/"
               render={() => <Home userInSession={this.state.loggedInUser} />}
             />
-            {/* <Route
-              exact
-              path="/player"
-              render={() => <Player userInSession={this.state.loggedInUser} />}
-            /> */}
           </Switch>
         </div>
       );
     } else {
       return (
         <div className="App">
-          {/* <Navbar userInSession={this.state.loggedInUser} /> */}
+          <Navbar userInSession={this.state.loggedInUser} />
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route
@@ -76,11 +71,6 @@ class App extends Component {
               path="/login"
               render={() => <Login getUser={this.getTheUser} />}
             />
-            {/* <Route
-              exact
-              path="/player"
-              render={() => <Player userInSession={this.state.loggedInUser} />}
-            /> */}
           </Switch>
         </div>
       );

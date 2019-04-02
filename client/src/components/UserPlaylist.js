@@ -44,7 +44,6 @@ class UserPlaylist extends Component {
 
   render() {
     if (this.state.q) {
-      // return <Player videoId={this.state.q} />;
       return (
         <PlaylistPlayer
           videoID={this.state.q}

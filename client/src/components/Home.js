@@ -18,7 +18,8 @@ class Home extends Component {
       relevanceLanguage: "en",
       videoDuration: "any",
       isRandom: false,
-      isPlaylist: false
+      isPlaylist: false,
+      home: true
     };
   }
 
@@ -27,7 +28,8 @@ class Home extends Component {
       q: query,
       categoryName: categoryName,
       channelId: channelId,
-      isRandom: true
+      isRandom: true,
+      home: false
     });
   };
 
@@ -42,7 +44,8 @@ class Home extends Component {
     this.setState({
       q: video,
       isPlaylist: true,
-      isRandom: false
+      isRandom: false,
+      home: false
     });
   };
 
@@ -71,12 +74,7 @@ class Home extends Component {
 
     return (
       <div className="App">
-        {/* <div className=" app-name title">
-          <h1>CHOOST</h1>
-        </div> */}
-        {(this.state.isRandom === false || this.state.isPlaylist === false) && (
-          <Header />
-        )}
+        <Header />
         <SearchFilter onFilter={this.filterFunction} />
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">
@@ -84,7 +82,6 @@ class Home extends Component {
           <div className="category-title-container">Choose a category:</div>
         </div>
         <Categories onSearch={this.searchFunction} />
-
         {this.props.userInSession && (
           <UserPlaylist
             userInSession={this.props.userInSession}

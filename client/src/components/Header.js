@@ -1,7 +1,7 @@
-import * as React from "react";
+import React, { Component } from "react";
 import "../Header.css";
 
-class Header extends React.Component {
+class Header extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.resizeHeaderOnScroll);
   }
@@ -15,6 +15,10 @@ class Header extends React.Component {
     } else {
       headerEl.classList.remove("smaller");
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.resizeHeaderOnScroll);
   }
 
   render() {
