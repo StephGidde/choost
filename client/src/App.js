@@ -8,6 +8,7 @@ import Login from "./components/auth/Login";
 import AuthService from "./components/auth/auth-service";
 import { Switch, Route } from "react-router-dom";
 import UserPlaylist from "./components/UserPlaylist";
+import Player from "./components/Player";
 
 class App extends Component {
   constructor(props) {
@@ -52,8 +53,8 @@ class App extends Component {
               path="/"
               render={() => <Home userInSession={this.state.loggedInUser} />}
             />
+            <Route exact path="/about" render={() => <About />} />
           </Switch>
-          {/* <UserPlaylist userInSession={this.state.loggedInUser} /> */}
         </div>
       );
     } else {

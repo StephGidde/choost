@@ -8,6 +8,7 @@ import UserPlaylist from "./UserPlaylist";
 import PlaylistPlayer from "./PlaylistPlayer";
 import bulmaDivider from "bulma-divider";
 import Footer from "./Footer";
+import Header from "./Header";
 
 class Home extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class Home extends Component {
       relevanceLanguage: "en",
       videoDuration: "any",
       isRandom: false,
-      isPlaylist: false
+      isPlaylist: false,
+      home: true
     };
   }
 
@@ -41,7 +43,8 @@ class Home extends Component {
     this.setState({
       q: video,
       isPlaylist: true,
-      isRandom: false
+      isRandom: false,
+      home: false
     });
   };
 
@@ -70,9 +73,7 @@ class Home extends Component {
 
     return (
       <div className="App">
-        <div className=" app-name title">
-          <h1>CHOOST</h1>
-        </div>
+        <Header />
         <SearchFilter onFilter={this.filterFunction} />
         <SearchBar onSearch={this.searchFunction} />
         <div className="intro-container">

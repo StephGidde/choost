@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import "../App.css";
+import "../Header.css";
 import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
+import Navbar from "./Navbar";
+import Header from "./Header";
 import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
 import docuChannelsDE from "../categorydata/docuChannelsDE.json";
 import docuChannelsEN from "../categorydata/docuChannelsEN.json";
@@ -146,14 +149,17 @@ class Player extends Component {
     const src = `https://www.youtube.com/embed/${
       this.state.videoId
     }?modestbranding=1&color=white`;
+
     return (
       <div>
+        <Navbar />
         {this.state.isloading === true && <Spinner />}
         <div className="wrapperVideo">
           <div className="video-player">
             {this.state.videoId && (
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
+
             <PlayerBar
               keyword={this.props.keyword}
               videoID={this.state.videoId}

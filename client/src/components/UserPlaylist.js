@@ -23,17 +23,6 @@ class UserPlaylist extends Component {
     });
   };
 
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     this.props.userInSession.playlistvideoids !==
-  //     prevProps.userInSession.playlistvideoids
-  //   ) {
-  //     this.setState({
-  //       user: this.props.userInSession
-  //     });
-  //   }
-  // }
-
   deletePlaylistVideo = event => {
     const user = this.props.userInSession;
     let videoToDelete = event.target.id;
@@ -56,7 +45,6 @@ class UserPlaylist extends Component {
 
   render() {
     if (this.state.q) {
-      // return <Player videoId={this.state.q} />;
       return (
         <PlaylistPlayer
           videoID={this.state.q}
@@ -86,7 +74,7 @@ class UserPlaylist extends Component {
                 className="button is-light is-small is-danger deleteVideo"
                 onClick={this.deletePlaylistVideo}
               >
-                Delete Video
+                Delete
               </button>
             </div>
           ))}
