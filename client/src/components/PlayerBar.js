@@ -12,7 +12,10 @@ class PlayerBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddCategoryForm: false
+      showAddCategoryForm: false,
+      userCategories: this.props.userInSession
+        ? this.props.userInSession.categories
+        : [],
     };
   }
   showAddCategory = event => {
@@ -45,7 +48,19 @@ class PlayerBar extends Component {
     var sharer = "http://twitter.com/share?&url=" + shareURL;
     window.open(sharer, "sharer", "width=626,height=436");
   }
+  addCategory = (q, categoryName, categoryIcon) => {
+    this.setState({
+      q: q,
+      categoryName: categoryName,
+      categoryIcon: categoryIcon,
+      userCategories: this.state.userCategories.concat([
+        { categoryIcon, categoryName, q }
+      ]),
+      showAddCategoryForm: false
+    });
+  };
 
+  
   render() {
     return (
       <div>
