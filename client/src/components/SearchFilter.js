@@ -19,7 +19,7 @@ class SearchFilter extends Component {
           {/* Language */}
           <div className="field searchFilter-form-itemLang">
             <div className="control has-icons-left">
-              <div className="select ">
+              <div className="select is-warning ">
                 <select ref={select => (this.dropLanguage = select)}>
                   <option value="en">English</option>
                   <option value="de">German</option>
@@ -33,7 +33,7 @@ class SearchFilter extends Component {
           {/* Video Length */}
           <div className="field ">
             <div className="control has-icons-left">
-              <div className="select ">
+              <div className="select is-warning">
                 <select ref={select => (this.dropDuration = select)}>
                   <option value="any">Any</option>
                   <option value="short">Short 4 Minutes</option>

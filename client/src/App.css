@@ -419,13 +419,13 @@
 }
 
 #PlayerBarContainer {
-  width: 70%;
+  width: 80%;
   height: 70px;
   border: 1px solid #ffcb4f;
   border-radius: 10px;
   background-color: white;
   position: absolute;
-  top: 72%;
+  top: 105%;
   right: 15%;
 }
 
@@ -478,15 +478,15 @@
   height: 0;
   position: relative;
   padding-top: 56.25%; /* 9 / 16 * 100 */
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .video-player > iframe {
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 1%;
-  left: 15%;
+  padding: 1%;
   border: 0;
 }
 
