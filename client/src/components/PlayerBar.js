@@ -25,6 +25,8 @@ class PlayerBar extends Component {
   };
 
   addToPlaylist = event => {
+
+    if(this.props.userInSession){
     event.preventDefault();
     swal({ title: "Added to playlist!", icon: "success" });
     const videoToAdd = this.props.videoID;
@@ -34,7 +36,12 @@ class PlayerBar extends Component {
         videoToAdd,
         user
       })
-      .then(res => console.log("i am response from frontend", res));
+      .then(res => console.log("i am response from frontend", res));}
+      else{
+
+        swal({ title: "You need to have a user account!", icon: "warning" });
+
+      }
   };
 
   shareVideoFB() {
