@@ -74,8 +74,11 @@ class Home extends Component {
     return (
       <div className="App">
         <Header />
-        <SearchFilter onFilter={this.filterFunction} />
-        <SearchBar onSearch={this.searchFunction} />
+
+        <div>
+          <SearchBar onSearch={this.searchFunction} />
+          <SearchFilter onFilter={this.filterFunction} />
+        </div>
         <div className="intro-container">
           <div className="is-divider" data-content="OR" />
           <div className="category-title-container">Choose a category:</div>

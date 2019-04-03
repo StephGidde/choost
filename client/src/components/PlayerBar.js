@@ -12,7 +12,10 @@ class PlayerBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddCategoryForm: false
+      showAddCategoryForm: false,
+      userCategories: this.props.userInSession
+        ? this.props.userInSession.categories
+        : [],
     };
   }
   showAddCategory = event => {
@@ -22,6 +25,8 @@ class PlayerBar extends Component {
   };
 
   addToPlaylist = event => {
+
+    if(this.props.userInSession){
     event.preventDefault();
     swal({ title: "Added to playlist!", icon: "success" });
     const videoToAdd = this.props.videoID;
@@ -31,7 +36,12 @@ class PlayerBar extends Component {
         videoToAdd,
         user
       })
-      .then(res => console.log("i am response from frontend", res));
+      .then(res => console.log("i am response from frontend", res));}
+      else{
+
+        swal({ title: "You need to have a user account!", icon: "warning" });
+
+      }
   };
 
   shareVideoFB() {
@@ -45,7 +55,19 @@ class PlayerBar extends Component {
     var sharer = "http://twitter.com/share?&url=" + shareURL;
     window.open(sharer, "sharer", "width=626,height=436");
   }
+  addCategory = (q, categoryName, categoryIcon) => {
+    this.setState({
+      q: q,
+      categoryName: categoryName,
+      categoryIcon: categoryIcon,
+      userCategories: this.state.userCategories.concat([
+        { categoryIcon, categoryName, q }
+      ]),
+      showAddCategoryForm: false
+    });
+  };
 
+  
   render() {
     return (
       <div>

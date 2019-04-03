@@ -37,21 +37,29 @@ class AddCategory extends Component {
 
   addCategory = event => {
     event.preventDefault();
-    let q = this.nameInput.value;
-    let categoryName = this.searchInput.value;
+    let q = this.searchInput.value;
+    // this.searchInput.value
+    let categoryName = this.nameInput.value;
     let categoryIcon = this.state.selectedOption;
 
     let user = this.props.userInSession;
 
-    axios
-      .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
-      .then(res => {
-        this.props.addCategory(q, categoryName, categoryIcon);
-        swal({ title: "Added to Your Categories!", icon: "success" });
+    if (q && categoryName) {
+      this.props.makeFormAppear();
+      axios
+        .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
+        .then(res => {
+          this.props.addCategory(q, categoryName, categoryIcon);
+          swal({ title: "Added to Your Categories!", icon: "success" });
+        });
+
+      // this.closeWindow();
+    } else {
+      swal({ title: "Fields can not be empty!", icon: "warning" });
+      this.setState({
+        show: true
       });
-
-    this.closeWindow();
-
+    }
   };
 
   closeWindow = event => {
@@ -61,9 +69,8 @@ class AddCategory extends Component {
   };
 
   changeIconColor = event => {
-  let mir =event.target.style.color = "grey";
+    let mir = (event.target.style.color = "grey");
 
-   
     // this.setState({
     //   showIcon: this.state.showIcon ? false : true
     // });
@@ -75,6 +82,7 @@ class AddCategory extends Component {
   };
 
   render() {
+    // let searchValue =this.props.keyword? this.props.keyword
     return (
       <div
         className={
@@ -99,18 +107,18 @@ class AddCategory extends Component {
                   required
                 />
               </div>
+              <div className="has-text-danger ">{this.state.errormessage}</div>
             </div>
             {/* Search */}
             <div className="field">
               <label className="label is-medium">Search</label>
               <div className="control">
                 <input
+                  // value= {searchValue}
                   ref={input => (this.searchInput = input)}
                   className="input is-medium is-warning"
                   type="text"
                   placeholder="Enter as many keywords as you like"
-                 value={this.props.keyword? this.props.keyword: ""}
-                  required
                 />
               </div>
             </div>
@@ -119,13 +127,8 @@ class AddCategory extends Component {
               <label className="label is-medium">Choose an Icon</label>
 
               <div class="control" onChange={this.handleOptionChange}>
-                {this.state.icons.map((icon,index) => (
-                  <label
-                  key={index}
-                  className= "select-icon radio"
-                  
-                  for={icon}
-                  >
+                {this.state.icons.map((icon, index) => (
+                  <label key={index} className="select-icon radio" for={icon}>
                     <input
                       onChange={this.changeIconColor}
                       name="select-icon"
@@ -141,10 +144,21 @@ class AddCategory extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className=" searchbutton button is-primary is-outlined" onClick={(e)=>{ this.addCategory(e); this.props.makeFormAppear(e)}}>
+            <button
+              className=" searchbutton button is-primary is-outlined"
+              onClick={e => {
+                this.addCategory(e);
+              }}
+            >
               Save changes
             </button>
-            <button className="button" onClick={(e)=>{ this.closeWindow(e); this.props.makeFormAppear(e)}}>
+            <button
+              className="button"
+              onClick={e => {
+                this.closeWindow(e);
+                this.props.makeFormAppear(e);
+              }}
+            >
               Cancel
             </button>
           </footer>
