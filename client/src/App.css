@@ -44,39 +44,56 @@
 
 .searchBar-container {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 34em;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: nowrap;
   font-family: "Nunito", sans-serif;
+  z-index: 3;
 }
 
 .form-search {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
   min-width: 90% !important;
 }
 
 .searchBar-container-parameters {
-  margin-top: 32em;
+  font-family: "Nunito", sans-serif;
+}
+
+.searchFilter-form-container {
+  margin-top: 10px;
+
+  min-width: 90% !important;
   display: flex;
   justify-content: center;
-  font-family: "Nunito", sans-serif;
+  flex-wrap: nowrap;
+}
+
+.searchFilter-form-itemLang {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .searchBar-container input {
   width: 60%;
+  max-width: 500px;
   margin-right: 10px;
   color: #22beb6;
   font-family: "Nunito", sans-serif;
-  font-size: 1.3rem !important;
-  height: 4rem !important;
+  font-size: 1.5rem !important;
+  height: 4.5rem !important;
 }
 
 .searchbutton {
   margin-top: 0% !important;
   width: 20%;
+  max-width: 200px;
   font-family: "Nunito", sans-serif;
   font-size: 1.3rem !important;
-  height: 4rem !important;
+  height: 4.5rem !important;
 }
 
 @media (max-width: 700px) {
@@ -86,8 +103,8 @@
     margin-left: 0%;
     color: #22beb6;
     font-family: "Nunito", sans-serif;
-    font-size: 0.9em !important;
-    height: 3rem !important;
+    font-size: 0.8em !important;
+    height: 3.5rem !important;
   }
 }
 
@@ -97,7 +114,18 @@
     width: 20%;
     font-family: "Nunito", sans-serif;
     font-size: 0.9rem !important;
-    height: 3rem !important;
+    height: 3.5rem !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .searchFilter-form-container {
+    margin-top: 10px;
+
+    min-width: 60% !important;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -125,7 +153,7 @@
 }
 
 .category-title-container {
-  margin: 5%;
+  margin: 2%;
 }
 
 .categorie-container {

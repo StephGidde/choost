@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import AuthService from "./auth/auth-service";
-import Player from "./Player";
+
 import PlaylistPlayer from "./PlaylistPlayer";
 import axios from "axios";
 import swal from "sweetalert";
