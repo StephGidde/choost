@@ -115,12 +115,19 @@ class Categories extends Component {
   // )}
 
   showAddCategory = event => {
-    this.setState({
+    if(this.props.userInSession)
+    {this.setState({
       showAddCategoryForm: this.state.showAddCategoryForm ? false : true
-    });
-  };
+    });}
+    else{
+      swal({ title: "You need to have a user account!", icon: "warning" });
 
-  addCategory = (q, categoryName, categoryIcon) => {
+    }
+  }
+
+
+addCategory = (q, categoryName, categoryIcon) => {
+
     this.setState({
       q: q,
       categoryName: categoryName,
@@ -157,8 +164,8 @@ class Categories extends Component {
         {this.state.showAddCategoryForm && (
           <AddCategory
             addCategory={this.addCategory}
-            userInSession={this.props.userInSession}
             makeFormAppear={this.showAddCategory}
+            userInSession={this.props.userInSession}
           />
         )}
 
@@ -211,7 +218,7 @@ class Categories extends Component {
                   className="button is-light is-small is-danger deleteCategory"
                   onClick={this.deleteCategory}
                 >
-                  <i class="fas fa-trash-alt" />
+                  <i className="fas fa-trash-alt" />
                 </button>
               </div>
             ))}
