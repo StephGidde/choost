@@ -6,7 +6,7 @@ import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
 import Navbar from "./Navbar";
-import Header from "./Header";
+
 import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
 import docuChannelsDE from "../categorydata/docuChannelsDE.json";
 import docuChannelsEN from "../categorydata/docuChannelsEN.json";

@@ -18,9 +18,7 @@ class SearchBar extends Component {
             type="text"
             placeholder="Enter a keyword to get a random video"
           />
-          <button className=" searchbutton button is-primary is-outlined">
-            Search
-          </button>
+          <button className=" searchbutton button is-primary ">Search</button>
         </form>
       </div>
     );

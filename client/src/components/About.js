@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 // import { Link } from "react-router-dom";
 import linkedin from "../images/linkedin.png";
 
@@ -18,6 +17,7 @@ const About = () => {
             <a
               href="https://www.linkedin.com/in/axel-heinz-0389548/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               AXEL HEINZ
               <br />
@@ -30,6 +30,7 @@ const About = () => {
             <a
               href="https://www.linkedin.com/in/sarah-d-88013314b/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               SARAH DRÖSE
               <br />
@@ -42,6 +43,7 @@ const About = () => {
             <a
               href="https://www.linkedin.com/in/stephaniegidde/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               STEPHANIE GIDDE
               <br />
