@@ -25,11 +25,11 @@ class Header extends Component {
     return (
       <div>
         <div id="wrapper">
-          <header id="app-header">
+          <div id="app-header">
             <div className="container clearfix">
               <h1 id="logo">CHOOST</h1>
             </div>
-          </header>
+          </div>
         </div>
       </div>
     );

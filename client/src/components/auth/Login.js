@@ -64,7 +64,7 @@ class Login extends Component {
         </form>
         <br />
         <p className="p-have-account-message">
-          Don't have account?
+          Don't have an account?
           <Link to={"/signup"}> Signup</Link>
         </p>
       </div>
