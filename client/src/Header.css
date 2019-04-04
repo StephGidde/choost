@@ -48,6 +48,19 @@
   line-height: 55px;
 }
 
+.container p {
+  color: white;
+  text-shadow: 1px 1px grey;
+  font-family: "Nunito", sans-serif;
+  margin-top: 5vh;
+  text-align: center;
+  letter-spacing: 0.1vw;
+}
+
+.container p.disappear {
+  visibility: hidden;
+}
+
 #app-header {
   width: 100%;
   height: 400px;

@@ -115,19 +115,23 @@ class Categories extends Component {
   // )}
 
   showAddCategory = event => {
-    if(this.props.userInSession)
-    {this.setState({
-      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
-    });}
-    else{
-      swal({ title: "You need to have a user account!", icon: "warning" });
-
+    if (this.props.userInSession) {
+      this.setState({
+        showAddCategoryForm: this.state.showAddCategoryForm ? false : true
+      });
+    } else {
+      swal({
+        title: "You need to have a user account to do that.",
+        text: "Would you like to sign up?",
+        icon: "warning",
+        button: "Yes, sign me up!"
+      }).then(function() {
+        window.location.href = "/signup";
+      });
     }
-  }
+  };
 
-
-addCategory = (q, categoryName, categoryIcon) => {
-
+  addCategory = (q, categoryName, categoryIcon) => {
     this.setState({
       q: q,
       categoryName: categoryName,
@@ -201,25 +205,25 @@ addCategory = (q, categoryName, categoryIcon) => {
           {this.props.userInSession &&
             this.state.userCategories.map((section, index) => (
               // <div className= "user-category">
-                <section
-                  key={index}
-                  className="box column category"
-                  onClick={event => {
-                    console.log(section._id);
-                    this.props.onSearch(section.q, section.categoryName);
-                  }}
-                >
-                <button 
+              <section
+                key={index}
+                className="box column category"
+                onClick={event => {
+                  console.log(section._id);
+                  this.props.onSearch(section.q, section.categoryName);
+                }}
+              >
+                <button
                   id={section.q}
                   className="button is-light is-small delete-button"
                   onClick={this.deleteCategory}
                 >
                   <i className="fas fa-trash-alt" />
                 </button>
-                  <i className={section.categoryIcon} />
-                  <br />
-                  {section.categoryName}
-                </section>
+                <i className={section.categoryIcon} />
+                <br />
+                {section.categoryName}
+              </section>
               // </div>
             ))}
         </div>

@@ -15,39 +15,46 @@ class PlayerBar extends Component {
       showAddCategoryForm: false,
       userCategories: this.props.userInSession
         ? this.props.userInSession.categories
-        : [],
+        : []
     };
   }
-  showAddCategory = event => {
-    if(this.props.userInSession)
-      
-      {this.setState({
-      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
-    });}
-    else{
-      swal({ title: "You need to have a user account!", icon: "warning" });
 
+  errorUserAcc = () => {
+    swal({
+      title: "You need to have a user account to do that.",
+      text: "Would you like to sign up?",
+      icon: "warning",
+      button: "Yes, sign me up!"
+    }).then(function() {
+      window.location.href = "/signup";
+    });
+  };
+
+  showAddCategory = event => {
+    if (this.props.userInSession) {
+      this.setState({
+        showAddCategoryForm: this.state.showAddCategoryForm ? false : true
+      });
+    } else {
+      this.errorUserAcc();
     }
   };
 
   addToPlaylist = event => {
-
-    if(this.props.userInSession){
-    event.preventDefault();
-    swal({ title: "Added to playlist!", icon: "success" });
-    const videoToAdd = this.props.videoID;
-    const user = this.props.userInSession;
-    axios
-      .post(process.env.REACT_APP_API_URL || "http://localhost:5000/", {
-        videoToAdd,
-        user
-      })
-      .then(res => console.log("i am response from frontend", res));}
-      else{
-
-        swal({ title: "You need to have a user account!", icon: "warning" });
-
-      }
+    if (this.props.userInSession) {
+      event.preventDefault();
+      swal({ title: "Added to playlist!", icon: "success" });
+      const videoToAdd = this.props.videoID;
+      const user = this.props.userInSession;
+      axios
+        .post(process.env.REACT_APP_API_URL || "http://localhost:5000/", {
+          videoToAdd,
+          user
+        })
+        .then(res => console.log("i am response from frontend", res));
+    } else {
+      this.errorUserAcc();
+    }
   };
 
   shareVideoFB() {
@@ -73,7 +80,6 @@ class PlayerBar extends Component {
     });
   };
 
-  
   render() {
     return (
       <div>
