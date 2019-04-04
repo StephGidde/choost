@@ -20,9 +20,9 @@ class Header extends Component {
       slogan.classList.add("disappear");
     } else {
       headerEl.classList.remove("smaller");
-      choostName.classList.remove("shown");
-      helloUsername.classList.remove("shown");
-      slogan.classList.remove("disappear");
+      // choostName.classList.remove("shown");
+      // helloUsername.classList.remove("shown");
+      // slogan.classList.remove("disappear");
     }
   }
 
