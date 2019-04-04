@@ -123,8 +123,8 @@ class Player extends Component {
         );
         this.setState({ videoId: res.data.items[randomVideo].id.videoId });
         this.setState({ results: res.data });
-        this.setState({ isloading: false });
         this.setState({ channelId: randomchannel });
+        this.setState({ isloading: false });
       });
   }
 
@@ -148,9 +148,11 @@ class Player extends Component {
       this.state.videoId
     }?modestbranding=1&color=white`;
 
+
     return (
       <div>
         <Navbar />
+        {/* {this.state.isloading && (<div className="pageloader is-active"><span class="title">Loading...</span></div>)} */}
         {this.state.isloading === true && <Spinner />}
         <div className="wrapperVideo">
           <div className="video-player">
