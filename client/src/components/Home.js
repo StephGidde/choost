@@ -9,6 +9,10 @@ import PlaylistPlayer from "./PlaylistPlayer";
 import bulmaDivider from "bulma-divider";
 import Footer from "./Footer";
 import Header from "./Header";
+import swal from "sweetalert";
+import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
+
+
 
 class Home extends Component {
   constructor(props) {
@@ -48,6 +52,19 @@ class Home extends Component {
     });
   };
 
+  // rename to videoError
+  checkVideo = (videoID) => {
+
+
+    swal({ title: "This is not a valid search", icon: "warning" })
+    this.setState({ q: false })
+
+
+  }
+
+
+
+  // watch videos the choost way
   render() {
     if (this.state.q && this.state.isRandom) {
       return (
@@ -58,12 +75,14 @@ class Home extends Component {
           categoryName={this.state.categoryName}
           // channelId={this.state.channelId}
           userInSession={this.props.userInSession}
+          checkVideo={this.checkVideo}
         />
       );
     }
 
     if (this.state.q && this.state.isPlaylist) {
       return (
+       
         <PlaylistPlayer
           videoID={this.state.q}
           userInSession={this.state.user}
@@ -71,8 +90,10 @@ class Home extends Component {
       );
     }
 
+    // key makes sure component is completely rerendered once user is available
     return (
       <div className="App">
+       
         <Header />
 
         <div>
@@ -89,7 +110,6 @@ class Home extends Component {
           userInSession={this.props.userInSession}
           key={this.props.userInSession ? this.props.userInSession._id : "0"}
         />
-
         {this.props.userInSession && (
           <UserPlaylist
             userInSession={this.props.userInSession}

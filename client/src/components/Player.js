@@ -5,7 +5,9 @@ import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
 import Navbar from "./Navbar";
+
 import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
+import alreadyPlayedArray1 from "../categorydata/alreadyPlayedArray.1.json";
 import docuChannelsDE from "../categorydata/docuChannelsDE.json";
 import docuChannelsEN from "../categorydata/docuChannelsEN.json";
 import comedyChannelsDE from "../categorydata/comedyChannelsDE.json";
@@ -21,7 +23,6 @@ import techChannelsEN from "../categorydata/techChannelsEN.json";
 
 require("dotenv").config();
 
-let alreadyPlayedCopy = alreadyPlayedArray;
 
 class Player extends Component {
   constructor(props) {
@@ -34,9 +35,23 @@ class Player extends Component {
       isRandom: false,
       isPlaylist: false
     };
+    
   }
+  
+  
+  
+  componentDidMount() {
+    this.getNewVideos()
+  }
+  
+  getNewVideos = () => {
+    let alreadyPlayedCopy = this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray
+    let maxResults = "";
+    {
+      this.props.keyword == "a" ? (maxResults = 50) : (maxResults = 50);
+    }
+    console.log("Die Results:" + maxResults);
 
-  componentDidMount(props) {
     let randomchannel = undefined;
     let setDuration = this.props.duration;
     let setLanguage = this.props.language;
@@ -100,14 +115,15 @@ class Player extends Component {
     }
 
     console.log("RANDOM CHANNEL", randomchannel);
+
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
           part: "snippet", //by default
           q: this.props.keyword,
           videoDuration: setDuration,
-          maxResults: "50",
-          videoEmbeddable: true, // search to only videos that can be embedded into a webpage
+          maxResults: maxResults,
+          videoEmbeddable: true, // search only videos that can be embedded into a webpage
           type: "video", //required by parameter "videoEmbeddable"
           key: process.env.REACT_APP_YOUTUBE_API_KEY,
           loading: true,
@@ -115,8 +131,8 @@ class Player extends Component {
           channelId: randomchannel
         }
       })
-
       .then(res => {
+
         const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
         alreadyPlayedCopy = alreadyPlayedCopy.filter(
           arrayItems => arrayItems !== randomVideo
@@ -125,10 +141,18 @@ class Player extends Component {
         this.setState({ results: res.data });
         this.setState({ channelId: randomchannel });
         this.setState({ isloading: false });
-      });
-  }
 
+        
+
+        // else {this.props.checkVideo(this.state.videoId)}
+      })
+      .catch(error => { console.log("error", error);this.props.checkVideo(this.state.videoId) })
+      
+  }
+  // this.props.checkVideo(this.state.videoId); 
   getNextVideo = () => {
+    let alreadyPlayedCopy = this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray
+
     const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
     alreadyPlayedCopy = alreadyPlayedCopy.filter(item => item !== randomVideo);
     if (alreadyPlayedCopy.length === 0) {
@@ -146,7 +170,7 @@ class Player extends Component {
   render() {
     const src = `https://www.youtube.com/embed/${
       this.state.videoId
-    }?modestbranding=1&color=white`;
+      }?modestbranding=1&color=white`;
 
 
     return (
@@ -159,11 +183,12 @@ class Player extends Component {
             {this.state.videoId && (
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
-
+            <button onClick={this.getNewVideos}>test</button>
             <PlayerBar
               keyword={this.props.keyword}
               videoID={this.state.videoId}
               randomVideo={this.getNextVideo}
+              newVideo={this.getNewVideos}
               userInSession={this.props.userInSession}
             />
           </div>

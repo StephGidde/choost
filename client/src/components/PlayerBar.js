@@ -123,7 +123,11 @@ class PlayerBar extends Component {
             alt="next Video Button"
             id="nextVideoIMG"
             className="pointer"
-            onClick={this.props.randomVideo}
+            onClick={
+              this.props.keyword === "a"
+                ? this.props.newVideo
+                : this.props.randomVideo
+            }
           />
         </div>
       </div>

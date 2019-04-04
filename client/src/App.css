@@ -672,7 +672,8 @@ margin-top: 0% !important
 }
 
 .delete-button i{
-  z-index:1;
+  text-shadow: 1px 1px grey;
+  /* z-index:1; */
   /* display:none !important; */
     font-size:20px !important;
     color:#ffcb4f !important;

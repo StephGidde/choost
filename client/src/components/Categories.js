@@ -53,7 +53,7 @@ class Categories extends Component {
           categoryNr: "6",
           categoryIcon: "fas fa-heartbeat",
           categoryName: "Workout",
-          q: "workout"
+          q: "workout sport"
         },
         {
           categoryNr: "7",
@@ -115,18 +115,19 @@ class Categories extends Component {
   // )}
 
   showAddCategory = event => {
-    if(this.props.userInSession)
-    {this.setState({
-      showAddCategoryForm: this.state.showAddCategoryForm ? false : true
-    });}
-    else{
+    if (this.props.userInSession) {
+      this.setState({
+        showAddCategoryForm: this.state.showAddCategoryForm ? false : true
+      });
+    }
+    else {
       swal({ title: "You need to have a user account!", icon: "warning" });
 
     }
   }
 
 
-addCategory = (q, categoryName, categoryIcon) => {
+  addCategory = (q, categoryName, categoryIcon) => {
 
     this.setState({
       q: q,
@@ -141,10 +142,10 @@ addCategory = (q, categoryName, categoryIcon) => {
 
   deleteCategory = event => {
     event.stopPropagation()
-    console.log(event.target.id);
+    console.log(event.currentTarget.id);
 
     const user = this.props.userInSession;
-    let categoryToDelete = event.target.id;
+    let categoryToDelete = event.currentTarget.id;
     let filteredCategories = this.state.userCategories.filter(
       e => e.q !== categoryToDelete
     );
@@ -157,6 +158,8 @@ addCategory = (q, categoryName, categoryIcon) => {
     });
     swal({ title: "Category Removed", icon: "success" });
   };
+
+
 
   render() {
     return (
@@ -202,25 +205,26 @@ addCategory = (q, categoryName, categoryIcon) => {
           {this.props.userInSession &&
             this.state.userCategories.map((section, index) => (
               // <div className= "user-category">
-                <section
-                  key={index}
-                  className="box column category"
-                  onClick={event => {
-                    console.log(section._id);
-                    this.props.onSearch(section.q, section.categoryName);
-                  }}
-                >
-                <button 
+              <section
+                key={index}
+                className="box column category"
+                onClick={event => {
+                  // console.log(section._id);
+                  this.props.onSearch(section.q, section.categoryName);
+                }}
+              >
+                <button
                   id={section.q}
                   className="button is-light is-small delete-button"
                   onClick={this.deleteCategory}
                 >
+
                   <i className="fas fa-trash-alt" />
                 </button>
-                  <i className={section.categoryIcon} />
-                  <br />
-                  {section.categoryName}
-                </section>
+                <i className={section.categoryIcon} />
+                <br />
+                {section.categoryName}
+              </section>
               // </div>
             ))}
         </div>
