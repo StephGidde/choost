@@ -82,9 +82,11 @@ class PlayerBar extends Component {
             keyword={this.props.keyword}
             addCategory={this.addCategory}
             userInSession={this.props.userInSession}
-            makeFormAppear={this.showAddCategory}
-          />
-        )}
+           makeFormAppear={this.showAddCategory}
+            />
+            )
+        
+        }
         <div id="PlayerBarContainer">
           <img
             src={addToPlaylistIMG}
@@ -108,13 +110,13 @@ class PlayerBar extends Component {
             onClick={() => this.shareVideoTwitter()}
           />
 
-          <button
+{this.props.keyword!=="a"&& (<button
             id="saveSearch"
             className=" pointer button is-rounded"
             onClick={this.showAddCategory}
           >
             Save Search
-          </button>
+          </button>)}
 
           <img
             src={nextVideoIMG}

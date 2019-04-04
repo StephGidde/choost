@@ -82,7 +82,7 @@ class AddCategory extends Component {
   };
 
   render() {
-    // let searchValue =this.props.keyword? this.props.keyword
+    
     return (
       <div
         className={
@@ -107,14 +107,13 @@ class AddCategory extends Component {
                   required
                 />
               </div>
-              <div className="has-text-danger ">{this.state.errormessage}</div>
             </div>
             {/* Search */}
             <div className="field">
               <label className="label is-medium">Search</label>
               <div className="control">
                 <input
-                  // value= {searchValue}
+                  value= {this.props.keyword? this.props.keyword:null}
                   ref={input => (this.searchInput = input)}
                   className="input is-medium is-warning"
                   type="text"

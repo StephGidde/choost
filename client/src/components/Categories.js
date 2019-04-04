@@ -140,6 +140,7 @@ addCategory = (q, categoryName, categoryIcon) => {
   };
 
   deleteCategory = event => {
+    event.stopPropagation()
     console.log(event.target.id);
 
     const user = this.props.userInSession;
