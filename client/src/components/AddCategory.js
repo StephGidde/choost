@@ -47,7 +47,12 @@ class AddCategory extends Component {
     if (q && categoryName) {
       this.props.makeFormAppear();
       axios
-        .post("http://localhost:5000/", { q, categoryName, categoryIcon, user })
+        .post(process.env.REACT_APP_API_URL || "http://localhost:5000/", {
+          q,
+          categoryName,
+          categoryIcon,
+          user
+        })
         .then(res => {
           this.props.addCategory(q, categoryName, categoryIcon);
           swal({ title: "Added to Your Categories!", icon: "success" });
@@ -69,8 +74,7 @@ class AddCategory extends Component {
   };
 
   changeIconColor = event => {
-    let mir = (event.target.style.color = "grey");
-
+    // let mir = (event.target.style.color = "grey");
     // this.setState({
     //   showIcon: this.state.showIcon ? false : true
     // });

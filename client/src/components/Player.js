@@ -172,11 +172,8 @@ class Player extends Component {
       this.state.videoId
       }?modestbranding=1&color=white`;
 
-
     return (
       <div>
-        <Navbar />
-        {/* {this.state.isloading && (<div className="pageloader is-active"><span class="title">Loading...</span></div>)} */}
         {this.state.isloading === true && <Spinner />}
         <div className="wrapperVideo">
           <div className="video-player">

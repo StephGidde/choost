@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../App.css";
 import AuthService from "./auth-service";
 import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
+import Footer from "../FooterSignup";
 
 class Signup extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Signup extends Component {
     console.log("mmmm", this.props);
     return (
       <div className="signup-container">
+        <p className="login-signup-title">Signup, friend!</p>
         <form onSubmit={this.handleFormSubmit}>
           <input
             className="input is-primary is-normal is-warning"
@@ -71,10 +73,12 @@ class Signup extends Component {
             onChange={e => this.handleChange(e)}
           />
 
-          <div className="has-text-danger ">{this.state.errormessage}</div>
+          <div className="has-text-danger less-margin-top">
+            {this.state.errormessage}
+          </div>
 
           <input
-            className="button is-normal is-primary is-outlined "
+            className="button is-normal is-primary  "
             type="submit"
             value="Signup"
           />
@@ -84,6 +88,7 @@ class Signup extends Component {
           Do you already have an account?
           <Link to={"/login"}> Login</Link>
         </p>
+        <Footer />
       </div>
     );
   }

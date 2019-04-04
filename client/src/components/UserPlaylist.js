@@ -53,9 +53,9 @@ class UserPlaylist extends Component {
       );
     }
 
-    if (this.state.user) {
+    if (this.state.user && this.state.playlistvideos.length > 0) {
       return (
-        <div className="playlist is-mobile ">
+        <div className="playlist">
           <div className="playlistHeading">
             <h1>Your playlist</h1>
           </div>
@@ -76,8 +76,26 @@ class UserPlaylist extends Component {
               >
                 Delete
               </button>
+              {/* <button
+                id={video}
+                className="button is-light is-small is-danger deleteVideo"
+                onClick={this.deletePlaylistVideo}
+              >
+                <i className="fas fa-trash-alt" />
+              </button> */}
             </div>
           ))}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div className="playlist is-mobile">
+            <div className="playlistHeading">
+              <h1>Your playlist is still empty</h1>
+              <p>Let's add some videos!</p>
+            </div>
+          </div>
         </div>
       );
     }
