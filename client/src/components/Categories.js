@@ -200,7 +200,7 @@ addCategory = (q, categoryName, categoryIcon) => {
           {/* Categories that come from the user */}
           {this.props.userInSession &&
             this.state.userCategories.map((section, index) => (
-              <div>
+              // <div className= "user-category">
                 <section
                   key={index}
                   className="box column category"
@@ -209,18 +209,18 @@ addCategory = (q, categoryName, categoryIcon) => {
                     this.props.onSearch(section.q, section.categoryName);
                   }}
                 >
-                  <i className={section.categoryIcon} />
-                  <br />
-                  {section.categoryName}
-                </section>
-                <button
+                <button 
                   id={section.q}
-                  className="button is-light is-small is-danger deleteCategory"
+                  className="button is-light is-small delete-button"
                   onClick={this.deleteCategory}
                 >
                   <i className="fas fa-trash-alt" />
                 </button>
-              </div>
+                  <i className={section.categoryIcon} />
+                  <br />
+                  {section.categoryName}
+                </section>
+              // </div>
             ))}
         </div>
       </div>

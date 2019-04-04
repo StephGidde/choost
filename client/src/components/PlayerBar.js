@@ -19,9 +19,15 @@ class PlayerBar extends Component {
     };
   }
   showAddCategory = event => {
-    this.setState({
+    if(this.props.userInSession)
+      
+      {this.setState({
       showAddCategoryForm: this.state.showAddCategoryForm ? false : true
-    });
+    });}
+    else{
+      swal({ title: "You need to have a user account!", icon: "warning" });
+
+    }
   };
 
   addToPlaylist = event => {
