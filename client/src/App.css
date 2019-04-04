@@ -4,7 +4,7 @@
 }
 
 .button {
-  height: 2.5vw !important;
+  height: 2.5vw;
 }
 
 .button strong,
@@ -12,16 +12,16 @@ a {
   font-size: 1vw !important;
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .button {
-    height: 5vw !important;
+    height: 15vw !important;
   }
 
   .button strong,
   a {
     font-size: 3vw !important;
   }
-}
+} */
 
 .navbar {
   background-color: #66ccfe !important;
@@ -429,7 +429,7 @@ a {
     font-size: 1rem;
     width: 63%;
     max-width: 350px;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 15%;
     color: #22beb6;
   }
@@ -441,6 +441,10 @@ a {
     margin-top: 5%;
     font-size: 0.7rem;
   }
+}
+
+.is-signup-login {
+  padding: 0px !important;
 }
 
 .p-have-account-message {
@@ -585,8 +589,8 @@ a {
 }
 
 .spinner-container {
-  padding-top: 20%;
-  padding-left: 28%;
+  margin-top: 120px;
+  margin-left: 38%;
 }
 
 /* AddCategory */
@@ -680,6 +684,20 @@ a {
   color: #6df6ba !important;
 }
 
+.app-footer-signup-login {
+  /* margin-top: 5vh; */
+  height: 10vh;
+  width: 100%;
+  background-color: #66ccfe;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  padding: 4vh;
+  font-size: 100%;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0px;
+}
+
 .app-footer {
   margin-top: 5vh;
   height: 10vh;
@@ -771,10 +789,6 @@ margin-top: 0% !important
 .delete-button {
   float: right;
   background: none !important;
-}
-.delete-button ::before {
-  /* float: right; */
-  /* display:inline !important; */
 }
 
 .delete-button i {
