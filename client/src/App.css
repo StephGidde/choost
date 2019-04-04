@@ -1,5 +1,26 @@
 .buttons {
   font-family: "Nunito", sans-serif;
+  margin-right: 2vw;
+}
+
+.button {
+  height: 2.5vw !important;
+}
+
+.button strong,
+a {
+  font-size: 1vw !important;
+}
+
+@media (max-width: 700px) {
+  .button {
+    height: 5vw !important;
+  }
+
+  .button strong,
+  a {
+    font-size: 3vw !important;
+  }
 }
 
 .navbar {
@@ -14,6 +35,11 @@
 .navbar-menu {
   background-color: #66ccfe;
   position: fixed;
+}
+
+.navbar-item {
+  padding: 0 !important;
+  margin: 1vh;
 }
 
 .navbar-end {
@@ -405,11 +431,6 @@
   display: flex;
   justify-content: center;
   color: black;
-}
-
-.home-image {
-  width: 28px;
-  height: 18px;
 }
 
 .wrapperVideo {

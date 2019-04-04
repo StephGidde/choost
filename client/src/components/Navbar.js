@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
+import "../Header.css";
 import AuthService from "./auth/auth-service";
 // import { Link, Switch, Route } from "react-router-dom";
-import homeimg from "../images/Home-icon.png";
 
 class Navbar extends Component {
   constructor(props) {
@@ -32,17 +32,17 @@ class Navbar extends Component {
               <div className="navbar-start">
                 <div className="navbar-brand">
                   <a className="navbar-item" href="/">
-                    <img src={homeimg} alt="Home" width="30" height="30" />
+                    <span id="choost-name">CHOOST</span>
                   </a>
                 </div>
-                <span className="navbar-item">
-                  Hello {this.state.loggedInUser.username}
-                </span>
               </div>
             </div>
 
             <div className="navbar-end">
               <div className="navbar-item">
+                <span id="hello-username" className="navbar-item">
+                  Hello, {this.state.loggedInUser.username}!
+                </span>
                 <div className="buttons">
                   <a
                     className="button is-light "
@@ -65,14 +65,15 @@ class Navbar extends Component {
               <div className="navbar-start">
                 <div className="navbar-brand">
                   <a className="navbar-item" href="/">
-                    <img src={homeimg} alt="Home" width="30" height="30" />
+                    <span id="choost-name">CHOOST</span>
                   </a>
                 </div>
+                <span id="hello-username" className="navbar-item" />
               </div>
             </div>
 
             <div className="navbar-end">
-              <div className="navbar-item ">
+              <div className="navbar-item">
                 <div className="buttons">
                   <a className="button is-primary " href="/signup">
                     <strong>Sign up</strong>
