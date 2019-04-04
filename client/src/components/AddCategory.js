@@ -47,7 +47,7 @@ class AddCategory extends Component {
     if (q && categoryName) {
       this.props.makeFormAppear();
       axios
-        .post(process.env.REACT_APP_API_URL || "http://localhost:5000/", {
+        .post(process.env.REACT_APP_API_URL || "http://localhost:5000/user-categories", {
           q,
           categoryName,
           categoryIcon,
