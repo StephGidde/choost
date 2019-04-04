@@ -43,6 +43,7 @@ class Signup extends Component {
     console.log("mmmm", this.props);
     return (
       <div className="signup-container">
+        <p className="login-signup-title">Signup, friend!</p>
         <form onSubmit={this.handleFormSubmit}>
           <input
             className="input is-primary is-normal is-warning"
@@ -71,10 +72,12 @@ class Signup extends Component {
             onChange={e => this.handleChange(e)}
           />
 
-          <div className="has-text-danger ">{this.state.errormessage}</div>
+          <div className="has-text-danger less-margin-top">
+            {this.state.errormessage}
+          </div>
 
           <input
-            className="button is-normal is-primary is-outlined "
+            className="button is-normal is-primary  "
             type="submit"
             value="Signup"
           />

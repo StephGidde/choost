@@ -44,12 +44,11 @@
 
 .searchBar-container {
   width: 100%;
-  margin-top: 34em;
+  margin-top: 29em;
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
   font-family: "Nunito", sans-serif;
-  z-index: 3;
 }
 
 .form-search {
@@ -63,18 +62,27 @@
   font-family: "Nunito", sans-serif;
 }
 
-.searchFilter-form-container {
-  margin-top: 10px;
-
-  min-width: 90% !important;
+.filter-container-ontop-categories {
+  width: 100%;
+  margin-bottom: 2%;
   display: flex;
   justify-content: center;
+  flex-wrap: nowrap;
+  font-family: "Nunito", sans-serif;
+}
+
+.searchFilter-form-container {
+  /* margin-left: 0% !important; */
+  margin-top: 10px;
+  min-width: 90% !important;
+  display: flex;
+  justify-content: flex-start;
   flex-wrap: nowrap;
 }
 
 .searchFilter-form-itemLang {
   margin-right: 10px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 .searchBar-container input {
@@ -121,6 +129,7 @@
 @media (max-width: 700px) {
   .searchFilter-form-container {
     margin-top: 10px;
+    margin-bottom: 10px;
 
     min-width: 60% !important;
     display: flex;
@@ -153,7 +162,7 @@
 }
 
 .category-title-container {
-  margin: 2%;
+  margin: 1%;
 }
 
 .categorie-container {
@@ -347,7 +356,6 @@
 
 .signup-container {
   margin-top: 5%;
-
   color: #22beb6;
 }
 
@@ -356,7 +364,7 @@
   height: 2.25rem;
   font-size: 1rem;
   max-width: 350px;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 25%;
   color: #22beb6;
 }
@@ -364,6 +372,29 @@
 .has-text-danger {
   margin-left: 25%;
   margin-top: 5%;
+}
+
+.less-margin-top {
+  margin-top: 15px !important;
+  margin-bottom: -5px !important;
+}
+
+.login-signup-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 5vh;
+  margin-top: 70px;
+  margin-left: 25%;
+  margin-bottom: -15px;
+}
+
+@media (max-width: 700px) {
+  .login-signup-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 4vh;
+    margin-top: 80px;
+    margin-left: 15%;
+    margin-bottom: -35px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -419,22 +450,53 @@
 }
 
 #PlayerBarContainer {
-  width: 80%;
-  height: 70px;
+  width: 70%;
+  height: 50px;
   border: 1px solid #ffcb4f;
   border-radius: 10px;
   background-color: white;
   position: absolute;
-  top: 105%;
-  right: 15%;
+  top: 72%;
+  right: 16%;
+}
+
+@media (max-width: 700px) {
+  #PlayerBarContainer {
+    width: 92%;
+    height: 47px;
+    border: 1px solid #ffcb4f;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 90%;
+    right: 5%;
+  }
 }
 
 #addToPlaylistIMG,
 #sharingIMG,
 #nextVideoIMG,
 #saveSearch {
-  height: 50px;
-  margin: 10px;
+  height: 35px;
+  margin: 7px;
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+  #sharingIMGTwitter {
+    height: 40px !important;
+    margin-top: 2px !important;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+  #addToPlaylistIMG,
+  #sharingIMG,
+  #nextVideoIMG,
+  #saveSearch {
+    height: 28px;
+    margin: 8px;
+    font-size: 13px;
+  }
 }
 
 #addToPlaylistIMG,
@@ -443,7 +505,7 @@
 }
 
 #sharingIMGTwitter {
-  height: 72px;
+  height: 50px;
 }
 
 #nextVideoIMG {
@@ -477,22 +539,33 @@
   width: 100%;
   height: 0;
   position: relative;
-  padding-top: 56.25%; /* 9 / 16 * 100 */
-  margin-top: 70px;
+  padding-top: 56.25%;
+  margin-top: 60px;
 }
 
 .video-player > iframe {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
   top: 1%;
-  padding: 1%;
-  border: 0;
+  margin-left: 14%;
+  margin-right: 5%;
+}
+
+@media (max-width: 700px) {
+  .video-player > iframe {
+    width: 85%;
+    height: 85%;
+    position: absolute;
+    top: 1%;
+    margin-left: 7.5%;
+    margin-right: 5%;
+  }
 }
 
 .spinner-container {
   padding-top: 20%;
-  padding-left: 45%;
+  padding-left: 28%;
 }
 
 /* AddCategory */
