@@ -25,7 +25,7 @@ class UserPlaylist extends Component {
 
   deletePlaylistVideo = event => {
     const user = this.props.userInSession;
-    let videoToDelete = event.target.id;
+    let videoToDelete = event.currentTarget.id;
     let filteredVideos = this.state.playlistvideos.filter(
       e => e !== videoToDelete
     );
@@ -74,15 +74,8 @@ class UserPlaylist extends Component {
                 className="button is-light is-small is-danger deleteVideo"
                 onClick={this.deletePlaylistVideo}
               >
-                Delete
-              </button>
-              {/* <button
-                id={video}
-                className="button is-light is-small is-danger deleteVideo"
-                onClick={this.deletePlaylistVideo}
-              >
                 <i className="fas fa-trash-alt" />
-              </button> */}
+              </button>
             </div>
           ))}
         </div>
