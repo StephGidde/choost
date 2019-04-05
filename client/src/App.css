@@ -199,6 +199,8 @@ a {
   font-size: 25px;
   color: grey;
   font-family: "Nunito", sans-serif;
+  text-shadow: 1px 1px grey;
+ 
 }
 
 .category-title-container {

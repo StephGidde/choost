@@ -70,7 +70,7 @@ class AddCategory extends Component {
       });
     }
   };
-
+  
   closeWindow = event => {
     this.setState({
       show: this.state.show ? false : true
@@ -78,10 +78,10 @@ class AddCategory extends Component {
   };
 
   changeIconColor = event => {
-    // let mir = (event.target.style.color = "grey");
-    // this.setState({
-    //   showIcon: this.state.showIcon ? false : true
-    // });
+    let mir = (event.target.style.color = "grey");
+    this.setState({
+      showIcon: this.state.showIcon ? false : true
+    });
   };
   handleOptionChange = changeEvent => {
     this.setState({
