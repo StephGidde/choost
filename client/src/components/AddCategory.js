@@ -70,7 +70,7 @@ class AddCategory extends Component {
       });
     }
   };
-
+  
   closeWindow = event => {
     this.setState({
       show: this.state.show ? false : true

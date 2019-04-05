@@ -101,7 +101,7 @@ class Home extends Component {
         </div>
         <div className="intro-container">
           <div className="is-divider" data-content="OR" />
-          <div className="category-title-container">Choose a category:</div>
+          <div className="category-title-container">Choose a Category:</div>
         </div>
         <div className="filter-container-ontop-categories">
           <SearchFilter onFilter={this.filterFunction} />

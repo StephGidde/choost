@@ -42,13 +42,14 @@ class Player extends Component {
   
   componentDidMount() {
     this.getNewVideos()
+    window.scrollTo(0, 0)
   }
   
   getNewVideos = () => {
     let alreadyPlayedCopy = this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray
     let maxResults = "";
     {
-      this.props.keyword == "a" ? (maxResults = 50) : (maxResults = 50);
+      this.props.keyword == "a" ? (maxResults = 5) : (maxResults = 50);
     }
     console.log("Die Results:" + maxResults);
 
