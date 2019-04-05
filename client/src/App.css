@@ -140,8 +140,8 @@ a {
   width: 20%;
   max-width: 200px;
   font-family: "Nunito", sans-serif;
-  font-size: 1.3rem !important;
-  height: 4.5rem !important;
+  font-size: 1rem !important;
+  /* height: 2.5rem !important; */
 }
 
 @media (max-width: 700px) {

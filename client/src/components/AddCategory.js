@@ -47,12 +47,16 @@ class AddCategory extends Component {
     if (q && categoryName) {
       this.props.makeFormAppear();
       axios
-        .post(process.env.REACT_APP_API_URL || "http://localhost:5000/user-categories", {
-          q,
-          categoryName,
-          categoryIcon,
-          user
-        })
+        .post(
+          process.env.REACT_APP_API_URL ||
+            "http://localhost:5000/user-categories",
+          {
+            q,
+            categoryName,
+            categoryIcon,
+            user
+          }
+        )
         .then(res => {
           this.props.addCategory(q, categoryName, categoryIcon);
           swal({ title: "Added to Your Categories!", icon: "success" });
@@ -86,7 +90,6 @@ class AddCategory extends Component {
   };
 
   render() {
-    
     return (
       <div
         className={
@@ -117,7 +120,7 @@ class AddCategory extends Component {
               <label className="label is-medium">Search</label>
               <div className="control">
                 <input
-                  value= {this.props.keyword? this.props.keyword:null}
+                  value={this.props.keyword ? this.props.keyword : null}
                   ref={input => (this.searchInput = input)}
                   className="input is-medium is-warning"
                   type="text"
@@ -148,7 +151,7 @@ class AddCategory extends Component {
           </section>
           <footer className="modal-card-foot">
             <button
-              className=" searchbutton button is-primary is-outlined"
+              className=" searchbutton button is-primary solid-green"
               onClick={e => {
                 this.addCategory(e);
               }}
