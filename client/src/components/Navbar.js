@@ -45,7 +45,7 @@ class Navbar extends Component {
                 </span>
                 <div className="buttons">
                   <a
-                    className="button is-light "
+                    className="button is-light logout-button"
                     href="/"
                     onClick={() => this.logoutUser()}
                   >
@@ -75,10 +75,10 @@ class Navbar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <a className="button is-primary " href="/signup">
+                  <a className="button is-primary signup-button" href="/signup">
                     <strong>Sign up</strong>
                   </a>
-                  <a className="button is-light" href="/login">
+                  <a className="button is-light login-button" href="/login">
                     Log in
                   </a>
                 </div>

@@ -1,10 +1,12 @@
 .buttons {
   font-family: "Nunito", sans-serif;
-  margin-right: 2vw;
 }
 
-.button {
+.login-button,
+.signup-button,
+.logout-button {
   height: 2.5vw;
+  margin-right: 2vw;
 }
 
 .button strong,
@@ -12,16 +14,27 @@ a {
   font-size: 1vw !important;
 }
 
-/* @media (max-width: 700px) {
-  .button {
-    height: 15vw !important;
+@media (max-width: 700px) {
+  .login-button,
+  .signup-button,
+  .logout-button {
+    height: 8vw !important;
   }
 
-  .button strong,
+  .login-button strong,
+  .signup-button strong,
+  .logout-button strong,
   a {
     font-size: 3vw !important;
   }
-} */
+}
+@media (max-width: 1024px) {
+  .login-button,
+  .signup-button,
+  .logout-button {
+    margin-right: 4vw;
+  }
+}
 
 .navbar {
   background-color: #66ccfe !important;
@@ -33,8 +46,9 @@ a {
 .navbar nav,
 .navbar-item,
 .navbar-menu {
-  background-color: #66ccfe;
+  background-color: #66ccfe !important;
   position: fixed;
+  display: inline-block;
 }
 
 .navbar-item {
@@ -792,7 +806,7 @@ margin-top: 0% !important
   background: none !important;
 }
 
-.delete-button i{
+.delete-button i {
   text-shadow: 1px 1px grey;
   /* z-index:1; */
   /* display:none !important; */

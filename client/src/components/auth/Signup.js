@@ -43,52 +43,54 @@ class Signup extends Component {
   render() {
     console.log("mmmm", this.props);
     return (
-      <div className="signup-container">
-        <p className="login-signup-title">Signup, friend!</p>
-        <form onSubmit={this.handleFormSubmit}>
-          <input
-            className="input is-primary is-normal is-warning"
-            placeholder="Chose a username"
-            type="text"
-            name="username"
-            value={this.state.username}
-            onChange={e => this.handleChange(e)}
-          />
-          <br />
-          <input
-            className="input is-primary is-normal is-warning"
-            type="email"
-            placeholder="Enter email address"
-            name="email"
-            value={this.state.email}
-            onChange={e => this.handleChange(e)}
-          />
-          <br />
-          <input
-            className="input is-primary is-normal is-warning"
-            name="password"
-            placeholder="Enter password"
-            type="password"
-            value={this.state.password}
-            onChange={e => this.handleChange(e)}
-          />
+      <div>
+        <div className="signup-container">
+          <p className="login-signup-title">Signup, friend!</p>
+          <form onSubmit={this.handleFormSubmit}>
+            <input
+              className="input is-primary is-normal is-warning"
+              placeholder="Chose a username"
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={e => this.handleChange(e)}
+            />
+            <br />
+            <input
+              className="input is-primary is-normal is-warning"
+              type="email"
+              placeholder="Enter email address"
+              name="email"
+              value={this.state.email}
+              onChange={e => this.handleChange(e)}
+            />
+            <br />
+            <input
+              className="input is-primary is-normal is-warning"
+              name="password"
+              placeholder="Enter password"
+              type="password"
+              value={this.state.password}
+              onChange={e => this.handleChange(e)}
+            />
 
-          <div className="has-text-danger less-margin-top">
-            {this.state.errormessage}
-          </div>
+            <div className="has-text-danger less-margin-top">
+              {this.state.errormessage}
+            </div>
 
-          <input
-            className="button is-normal is-primary  "
-            type="submit"
-            value="Signup"
-          />
-        </form>
-        <br />
-        <p className="p-have-account-message">
-          Do you already have an account?
-          <Link to={"/login"}> Login</Link>
-        </p>
-        <Footer />
+            <input
+              className="button is-normal is-primary  "
+              type="submit"
+              value="Signup"
+            />
+          </form>
+          <br />
+          <p className="p-have-account-message">
+            Do you already have an account?
+            <Link to={"/login"}> Login</Link>
+          </p>
+          <Footer />
+        </div>
       </div>
     );
   }

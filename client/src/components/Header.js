@@ -9,20 +9,16 @@ class Header extends Component {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop,
       shrinkOn = 80,
       headerEl = document.getElementById("app-header");
-    const choostName = document.getElementById("choost-name");
     const helloUsername = document.getElementById("hello-username");
     const slogan = document.getElementById("slogan");
 
     if (distanceY > shrinkOn) {
       headerEl.classList.add("smaller");
-      choostName.classList.add("shown");
       helloUsername.classList.add("shown");
       slogan.classList.add("disappear");
     } else {
       headerEl.classList.remove("smaller");
-      // choostName.classList.remove("shown");
-      // helloUsername.classList.remove("shown");
-      // slogan.classList.remove("disappear");
+      slogan.classList.remove("disappear");
     }
   }
 
