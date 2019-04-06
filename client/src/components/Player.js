@@ -46,7 +46,7 @@ class Player extends Component {
       this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray;
     let maxResults = "";
     {
-      this.props.keyword == "a" ? (maxResults = 10) : (maxResults = 50);
+      this.props.keyword == "a" ? (maxResults = 5) : (maxResults = 50);
     }
     console.log("Die Results:" + maxResults);
 
