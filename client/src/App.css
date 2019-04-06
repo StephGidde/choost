@@ -6,7 +6,7 @@
 .signup-button,
 .logout-button {
   height: 2.5vw;
-  margin-right: 2vw;
+  margin-right: 4vw;
 }
 
 .button strong,
@@ -18,14 +18,14 @@ a {
   .login-button,
   .signup-button,
   .logout-button {
-    height: 8vw !important;
+    height: 2.5vw !important;
   }
 
   .login-button strong,
   .signup-button strong,
   .logout-button strong,
   a {
-    font-size: 3vw !important;
+    font-size: 2vw !important;
   }
 }
 @media (max-width: 1024px) {
