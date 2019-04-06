@@ -10,7 +10,6 @@ class CategoryPopup extends Component {
   }
 
   addCategoryDetails = event => {
-    console.log("this is addcategory");
     event.preventDefault();
     let q = this.nameInput.value;
     let categoryName = this.searchInput.value;

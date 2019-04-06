@@ -145,8 +145,6 @@ class Categories extends Component {
 
   deleteCategory = event => {
     event.stopPropagation();
-    console.log(event.currentTarget.id);
-
     const user = this.props.userInSession;
     let categoryToDelete = event.currentTarget.id;
     let filteredCategories = this.state.userCategories.filter(
@@ -213,7 +211,6 @@ class Categories extends Component {
                 key={index}
                 className="box column category"
                 onClick={event => {
-                  // console.log(section._id);
                   this.props.onSearch(section.q, section.categoryName);
                 }}
               >

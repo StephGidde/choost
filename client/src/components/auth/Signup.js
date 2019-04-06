@@ -41,7 +41,6 @@ class Signup extends Component {
   };
 
   render() {
-    console.log("mmmm", this.props);
     return (
       <div>
         <div className="signup-container">

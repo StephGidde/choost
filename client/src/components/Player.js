@@ -48,7 +48,6 @@ class Player extends Component {
     {
       this.props.keyword == "a" ? (maxResults = 5) : (maxResults = 50);
     }
-    console.log("Die Results:" + maxResults);
 
     let randomchannel = undefined;
     let setDuration = this.props.duration;
@@ -112,8 +111,6 @@ class Player extends Component {
       randomchannel = _.shuffle(techChannelsEN)[0];
     }
 
-    console.log("RANDOM CHANNEL", randomchannel);
-
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -142,7 +139,6 @@ class Player extends Component {
         // else {this.props.checkVideo(this.state.videoId)}
       })
       .catch(error => {
-        console.log("error", error);
         this.props.checkVideo(this.state.videoId);
       });
   };
