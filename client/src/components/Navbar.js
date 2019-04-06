@@ -40,17 +40,19 @@ class Navbar extends Component {
 
             <div className="navbar-end">
               <div className="navbar-item">
-                <span id="hello-username" className="navbar-item">
-                  Hello, {this.state.loggedInUser.username}!
-                </span>
-                <div className="buttons">
-                  <a
-                    className="button is-light logout-button"
-                    href="/"
-                    onClick={() => this.logoutUser()}
-                  >
-                    Log out
-                  </a>
+                <div class="field is-grouped">
+                  <span id="hello-username" className="navbar-item">
+                    Hello, {this.state.loggedInUser.username}!
+                  </span>
+                  <div className="buttons">
+                    <a
+                      className="button is-light logout-button"
+                      href="/"
+                      onClick={() => this.logoutUser()}
+                    >
+                      Log out
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
