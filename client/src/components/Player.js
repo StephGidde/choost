@@ -23,7 +23,6 @@ import techChannelsEN from "../categorydata/techChannelsEN.json";
 
 require("dotenv").config();
 
-
 class Player extends Component {
   constructor(props) {
     super(props);
@@ -35,21 +34,19 @@ class Player extends Component {
       isRandom: false,
       isPlaylist: false
     };
-    
   }
-  
-  
-  
+
   componentDidMount() {
-    this.getNewVideos()
-    window.scrollTo(0, 0)
+    this.getNewVideos();
+    window.scrollTo(0, 0);
   }
-  
+
   getNewVideos = () => {
-    let alreadyPlayedCopy = this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray
+    let alreadyPlayedCopy =
+      this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray;
     let maxResults = "";
     {
-      this.props.keyword == "a" ? (maxResults = 5) : (maxResults = 50);
+      this.props.keyword == "a" ? (maxResults = 10) : (maxResults = 50);
     }
     console.log("Die Results:" + maxResults);
 
@@ -133,7 +130,6 @@ class Player extends Component {
         }
       })
       .then(res => {
-
         const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
         alreadyPlayedCopy = alreadyPlayedCopy.filter(
           arrayItems => arrayItems !== randomVideo
@@ -143,16 +139,17 @@ class Player extends Component {
         this.setState({ channelId: randomchannel });
         this.setState({ isloading: false });
 
-        
-
         // else {this.props.checkVideo(this.state.videoId)}
       })
-      .catch(error => { console.log("error", error);this.props.checkVideo(this.state.videoId) })
-      
-  }
-  // this.props.checkVideo(this.state.videoId); 
+      .catch(error => {
+        console.log("error", error);
+        this.props.checkVideo(this.state.videoId);
+      });
+  };
+  // this.props.checkVideo(this.state.videoId);
   getNextVideo = () => {
-    let alreadyPlayedCopy = this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray
+    let alreadyPlayedCopy =
+      this.props.keyword == "a" ? alreadyPlayedArray1 : alreadyPlayedArray;
 
     const randomVideo = _.shuffle(alreadyPlayedCopy)[0];
     alreadyPlayedCopy = alreadyPlayedCopy.filter(item => item !== randomVideo);
@@ -171,7 +168,7 @@ class Player extends Component {
   render() {
     const src = `https://www.youtube.com/embed/${
       this.state.videoId
-      }?modestbranding=1&color=white`;
+    }?modestbranding=1&color=white`;
 
     return (
       <div>

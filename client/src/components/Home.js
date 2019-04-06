@@ -12,8 +12,6 @@ import Header from "./Header";
 import swal from "sweetalert";
 import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
 
-
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -53,16 +51,13 @@ class Home extends Component {
   };
 
   // rename to videoError
-  checkVideo = (videoID) => {
-
-
-    swal({ title: "This is not a valid search", icon: "warning" })
-    this.setState({ q: false })
-
-
-  }
-
-
+  checkVideo = videoID => {
+    swal({
+      title: "Not found enough cool stuff, try s.th. different!",
+      icon: "warning"
+    });
+    this.setState({ q: false });
+  };
 
   // watch videos the choost way
   render() {
@@ -82,7 +77,6 @@ class Home extends Component {
 
     if (this.state.q && this.state.isPlaylist) {
       return (
-       
         <PlaylistPlayer
           videoID={this.state.q}
           userInSession={this.state.user}
@@ -93,7 +87,6 @@ class Home extends Component {
     // key makes sure component is completely rerendered once user is available
     return (
       <div className="App">
-       
         <Header />
 
         <div>

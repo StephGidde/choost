@@ -100,7 +100,7 @@ class Categories extends Component {
           categoryNr: "13",
           categoryIcon: "fas fa-cut",
           categoryName: "DIY",
-          q: "makerist",
+          q: "makerist DIY-eule pattydoo",
           showpopup: false
         }
       ]
@@ -144,7 +144,7 @@ class Categories extends Component {
   };
 
   deleteCategory = event => {
-    event.stopPropagation()
+    event.stopPropagation();
     console.log(event.currentTarget.id);
 
     const user = this.props.userInSession;
@@ -152,17 +152,18 @@ class Categories extends Component {
     let filteredCategories = this.state.userCategories.filter(
       e => e.q !== categoryToDelete
     );
-    axios.post(process.env.REACT_APP_API_URL || "http://localhost:5000/user-categories", {
-      categoryToDelete,
-      user
-    });
+    axios.post(
+      process.env.REACT_APP_API_URL || "http://localhost:5000/user-categories",
+      {
+        categoryToDelete,
+        user
+      }
+    );
     this.setState({
       userCategories: filteredCategories
     });
     swal({ title: "Category Removed", icon: "success" });
   };
-
-
 
   render() {
     return (
@@ -221,7 +222,6 @@ class Categories extends Component {
                   className="button is-light is-small delete-button"
                   onClick={this.deleteCategory}
                 >
-
                   <i className="fas fa-trash-alt" />
                 </button>
                 <i className={section.categoryIcon} />
