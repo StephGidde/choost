@@ -48,8 +48,8 @@ class AddCategory extends Component {
       this.props.makeFormAppear();
       axios
         .post(
-          process.env.REACT_APP_API_URL ||
-            "http://localhost:5000/user-categories",
+          (process.env.REACT_APP_API_URL ||
+            "http://localhost:5000/")+"user-categories",
           {
             q,
             categoryName,
