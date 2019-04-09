@@ -151,7 +151,7 @@ class Categories extends Component {
       e => e.q !== categoryToDelete
     );
     axios.post(
-      process.env.REACT_APP_API_URL || "http://localhost:5000/user-categories",
+      (process.env.REACT_APP_API_URL || "http://localhost:5000/") + "user-categories-delete",
       {
         categoryToDelete,
         user

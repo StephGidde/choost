@@ -10,6 +10,7 @@ import bulmaDivider from "bulma-divider";
 import Footer from "./Footer";
 import Header from "./Header";
 import swal from "sweetalert";
+import { Route, Redirect, Switch } from 'react-router'
 import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
 
 class Home extends Component {
@@ -63,6 +64,8 @@ class Home extends Component {
   render() {
     if (this.state.q && this.state.isRandom) {
       return (
+        
+        
         <Player
           keyword={this.state.q}
           language={this.state.relevanceLanguage}
@@ -72,6 +75,7 @@ class Home extends Component {
           userInSession={this.props.userInSession}
           checkVideo={this.checkVideo}
         />
+
       );
     }
 
