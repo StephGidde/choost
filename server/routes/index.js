@@ -54,15 +54,12 @@ router.post("/user-categories", (req, res, next) => {
   });
 });
 
-router.post("/user-categories", (req, res, next) => {
+router.post("/user-categories-delete", (req, res, next) => {
   let user = req.body.user;
-  // let video = req.body.videoToDelete;
   let categoryQuery = req.body.categoryToDelete
 
   User.findById(user._id).then(FoundUser => {
-    // FoundUser.deleteVideo(video);
     FoundUser.deleteCategory(categoryQuery);
-    // TODO: this should wait for the deleteVideo & deleteCategoryList methods to finish
     res.json(user)
   });
 });

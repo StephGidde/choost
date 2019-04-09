@@ -182,7 +182,6 @@ class Player extends Component {
             {this.state.videoId && (
               <iframe title="Video-Player" src={src} allowFullScreen />
             )}
-            <button onClick={this.getNewVideos}>test</button>
             <PlayerBar
               keyword={this.props.keyword}
               videoID={this.state.videoId}
