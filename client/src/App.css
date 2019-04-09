@@ -14,20 +14,6 @@ a {
   font-size: 1vw !important;
 }
 
-@media (max-width: 700px) {
-  .login-button,
-  .signup-button,
-  .logout-button {
-    height: 2.5vw !important;
-  }
-
-  .login-button strong,
-  .signup-button strong,
-  .logout-button strong,
-  a {
-    font-size: 2vw !important;
-  }
-}
 @media (max-width: 1024px) {
   .login-button,
   .signup-button,
@@ -154,9 +140,6 @@ a {
     font-size: 0.8em !important;
     height: 3.5rem !important;
   }
-}
-
-@media (max-width: 700px) {
   .searchbutton {
     margin-top: 0% !important;
     width: 20%;
@@ -164,9 +147,6 @@ a {
     font-size: 0.9rem !important;
     height: 3.5rem !important;
   }
-}
-
-@media (max-width: 700px) {
   .searchFilter-form-container {
     margin-top: 10px;
     margin-bottom: 10px;

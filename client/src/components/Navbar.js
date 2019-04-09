@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "../App.css";
+// import "../App.css";
+import "../Navbar.css";
 import "../Header.css";
 import AuthService from "./auth/auth-service";
 // import { Link, Switch, Route } from "react-router-dom";
@@ -23,72 +24,42 @@ class Navbar extends Component {
   };
 
   render() {
-    if (this.state.loggedInUser) {
-      return (
-        <div>
-          <nav className="navbar">
-            <div id="navbarBasicExample" className="navbar-menu">
-              <div className="navbar-start">
-                <div className="navbar-brand">
-                  <a className="navbar-item" href="/">
-                    <span id="choost-name">CHOOST</span>
+    return (
+      <div>
+        <div className="navbar">
+          <div id="choost-name">
+            <a href="/">
+              <span id="logo">CHOOST</span>
+            </a>
+          </div>
+          <div className="wrapper">
+            {/* conditional rendering for logged in user */}
+            {this.state.loggedInUser && (
+              <div>
+                <div id="hello-username" className="navbar-item">
+                  Hello, {this.state.loggedInUser.username}!
+                </div>
+                <div className="logout-button button is-light">
+                  <a href="/" onClick={() => this.logoutUser()}>
+                    Log out
                   </a>
                 </div>
               </div>
-            </div>
-
-            <div className="navbar-end">
-              <div className="navbar-item">
-                <div class="field is-grouped">
-                  <span id="hello-username" className="navbar-item">
-                    Hello, {this.state.loggedInUser.username}!
-                  </span>
-                  <div className="buttons">
-                    <a
-                      className="button is-light logout-button"
-                      href="/"
-                      onClick={() => this.logoutUser()}
-                    >
-                      Log out
-                    </a>
-                  </div>
+            )}
+            {!this.state.loggedInUser && (
+              <div>
+                <div className="button is-light login-button">
+                  <a href="/login">Log in</a>
+                </div>
+                <div className="button is-primary signup-button">
+                  <a href="/signup">Sign up</a>
                 </div>
               </div>
-            </div>
-          </nav>
+            )}
+          </div>
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <nav className="navbar">
-            <div id="navbarBasicExample" className="navbar-menu">
-              <div className="navbar-start">
-                <div className="navbar-brand">
-                  <a className="navbar-item" href="/">
-                    <span id="choost-name">CHOOST</span>
-                  </a>
-                </div>
-                <span id="hello-username" className="navbar-item" />
-              </div>
-            </div>
-
-            <div className="navbar-end">
-              <div className="navbar-item">
-                <div className="buttons">
-                  <a className="button is-primary signup-button" href="/signup">
-                    <strong>Sign up</strong>
-                  </a>
-                  <a className="button is-light login-button" href="/login">
-                    Log in
-                  </a>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

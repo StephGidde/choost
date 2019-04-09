@@ -4,8 +4,8 @@ import "../App.css";
 import axios from "axios";
 import Spinner from "./Spinner";
 import PlayerBar from "./PlayerBar";
-import Navbar from "./Navbar";
 
+//import one JSON file with all channel IDs
 import alreadyPlayedArray from "../categorydata/alreadyPlayedArray.json";
 import alreadyPlayedArray1 from "../categorydata/alreadyPlayedArray.1.json";
 import docuChannelsDE from "../categorydata/docuChannelsDE.json";
@@ -20,6 +20,7 @@ import carChannelsDE from "../categorydata/carChannelsDE.json";
 import carChannelsEN from "../categorydata/carChannelsEN.json";
 import techChannelsDE from "../categorydata/techChannelsDE.json";
 import techChannelsEN from "../categorydata/techChannelsEN.json";
+import channels from "../categorydata/channels";
 
 require("dotenv").config();
 
@@ -39,6 +40,13 @@ class Player extends Component {
   componentDidMount() {
     this.getNewVideos();
     window.scrollTo(0, 0);
+    console.log(channels);
+    for (let ch in channels) {
+      if (channels[ch][this.props.language]) {
+        //then shuffle video-IDs
+      }
+      console.log(channels[ch][this.props.language]);
+    }
   }
 
   getNewVideos = () => {

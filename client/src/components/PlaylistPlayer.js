@@ -17,6 +17,9 @@ class PlaylistPlayer extends Component {
 
   componentDidMount(props) {
     this.setState({ isloading: false });
+    // this.getNewVideos();
+    //   window.scrollTo(0, 0);
+    // }
   }
 
   nextVideo = () => {

@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.logout-button,
+.login-button,
+.signup-button {
+  font-family: "Nunito", sans-serif;
+  height: 2.5vw;
+  margin-right: 1vw;
+  margin-top: 0.5vw;
+}
+
+.button a {
+  color: black !important;
+  font-size: 80% !important;
+}
+.navbar {
+  background-color: #66ccfe !important;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+}
+
+#choost-name {
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 0.3vw;
+  text-shadow: 1px 1px grey;
+  margin-top: 15px;
+}
+
+#logo {
+  color: #ffcb4f !important;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+#hello-username {
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.5vh;
+  margin-top: 1vw;
+  margin-right: 2.5vh;
+  color: white;
+  float: left;
+}
