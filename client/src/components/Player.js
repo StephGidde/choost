@@ -188,6 +188,7 @@ class Player extends Component {
               randomVideo={this.getNextVideo}
               newVideo={this.getNewVideos}
               userInSession={this.props.userInSession}
+              goBackFunction = {this.props.goBackFunction}
             />
           </div>
         </div>
