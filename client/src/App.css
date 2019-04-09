@@ -516,7 +516,8 @@ a {
 #addToPlaylistIMG,
 #sharingIMG,
 #nextVideoIMG,
-#saveSearch {
+#saveSearch,
+#goBack {
   height: 35px;
   margin: 7px;
 }

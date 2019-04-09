@@ -60,7 +60,11 @@ class Home extends Component {
     this.setState({ q: false });
   };
 
+  goBack = (props) =>
+  {this.setState({ q: false });}
   // watch videos the choost way
+
+  
   render() {
     if (this.state.q && this.state.isRandom) {
       return (
@@ -74,6 +78,7 @@ class Home extends Component {
           // channelId={this.state.channelId}
           userInSession={this.props.userInSession}
           checkVideo={this.checkVideo}
+          goBackFunction = {this.goBack}
         />
 
       );
