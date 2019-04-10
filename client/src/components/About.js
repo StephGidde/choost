@@ -3,6 +3,7 @@ import React from "react";
 import linkedin from "../images/linkedin.png";
 
 const About = () => {
+  
   return (
     <div className="about">
       <h1 className="about-heading">About Choost</h1>

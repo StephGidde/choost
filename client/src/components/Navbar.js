@@ -36,9 +36,9 @@ class Navbar extends Component {
             {/* conditional rendering for logged in user */}
             {this.state.loggedInUser && (
               <div>
-                <div id="hello-username" className="navbar-item">
+                {/* <div id="hello-username" className="navbar-item">
                   Hello, {this.state.loggedInUser.username}!
-                </div>
+                </div> */}
                 <div className="logout-button button is-light">
                   <a href="/" onClick={() => this.logoutUser()}>
                     Log out
