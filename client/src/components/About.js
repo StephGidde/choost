@@ -52,6 +52,18 @@ const About = () => {
           </p>
         </div>
       </div>
+      <div>
+        <h1 className="about-heading">Our Techstack</h1>
+        <div className="wrapper-about">
+          <i id="technology" className="devicon-react-original-wordmark" />
+          <i id="technology" className="devicon-html5-plain-wordmark" />
+          <i id="technology" className="devicon-css3-plain-wordmark" />
+          <i id="technology" className="devicon-javascript-plain" />
+          <i id="technology" className="devicon-nodejs-plain-wordmark" />
+          <i id="technology" className="devicon-mongodb-plain-wordmark" />
+          <i id="technology" className="fab fa-youtube-square" />
+        </div>
+      </div>
     </div>
   );
 };

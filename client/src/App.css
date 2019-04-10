@@ -723,6 +723,7 @@ a {
   font-weight: bold;
   font-size: 3vw;
   margin-bottom: 3vh;
+  margin-top: 6vw;
 }
 
 .about-descr {
@@ -732,7 +733,6 @@ a {
 
 .wrapper-about {
   width: 90vw;
-  height: 40vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -741,10 +741,10 @@ a {
 
 .team-member {
   width: 30%;
+  height: 20vw;
+  min-height: 120px;
   margin-right: 2%;
-  height: 100%;
   background-color: #66ccfe;
-  /* opacity: 0.5; */
   box-shadow: 4px 4px #d3d3d3;
   border-radius: 3px;
 }
@@ -752,8 +752,8 @@ a {
 .team-name,
 .team-name > a {
   text-align: center;
-  margin-top: 18vh;
-  font-size: 5vh;
+  margin-top: 10vw;
+  font-size: 20vw;
   color: #ffcb4f;
   text-shadow: 1px 1px grey;
   letter-spacing: 2px;
@@ -777,6 +777,12 @@ a {
 .steph:hover {
   background-image: url("./images/steph.png");
   background-size: cover;
+}
+
+.wrapper-about > i {
+  font-size: 10vw;
+  color: #66ccfe;
+  padding: 20px;
 }
 
 /* .user-category section{
