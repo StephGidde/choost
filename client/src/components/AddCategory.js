@@ -151,7 +151,7 @@ class AddCategory extends Component {
           </section>
           <footer className="modal-card-foot">
             <button
-              className=" searchbutton button is-primary solid-green"
+              className=" searchbutton2 button is-primary solid-green"
               onClick={e => {
                 this.addCategory(e);
               }}

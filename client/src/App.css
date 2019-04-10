@@ -129,6 +129,13 @@ a {
   font-size: 1rem !important;
   height: 4.5rem !important;
 }
+.searchbutton2{
+  margin-top: 0% !important;
+  width: 20%;
+  max-width: 200px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem !important;
+}
 
 @media (max-width: 700px) {
   .searchBar-container input {
