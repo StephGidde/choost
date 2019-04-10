@@ -7,6 +7,8 @@ import addToPlaylistIMG from "../images/add.png";
 import axios from "axios";
 import swal from "sweetalert";
 import AddCategory from "./AddCategory";
+import { Link, withRouter } from "react-router-dom"; // withRouter erlaubt, dass Route-Daten (zB browser history) mit-exportiert werden; das ist bei Choost zB wichtig für den redirect zu "/" nach signup und login mit this.props.history.push("/");
+
 
 class PlayerBar extends Component {
   constructor(props) {
@@ -124,6 +126,14 @@ class PlayerBar extends Component {
             Save Search
           </button>)}
 
+          <button
+            id="goBack"
+            className=" pointer button is-rounded"
+            onClick={this.props.goBackFunction}
+          >
+            Go back
+          </button>
+          
           <img
             src={nextVideoIMG}
             alt="next Video Button"
