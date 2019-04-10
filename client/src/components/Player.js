@@ -110,6 +110,14 @@ class Player extends Component {
     ) {
       randomchannel = _.shuffle(techChannelsEN)[0];
     }
+    if (this.props.language === "de" && this.props.categoryName === "Movie Trailer") {
+      randomchannel = "UCOL10n-as9dXO2qtjjFUQbQ";
+    } else if (
+      this.props.language === "en" &&
+      this.props.categoryName === "Movie Trailer"
+    ) {
+      randomchannel = "UCi8e0iOVk1fEOogdfu4YgfA";
+    }
 
     axios
       .get(`https://www.googleapis.com/youtube/v3/search`, {
