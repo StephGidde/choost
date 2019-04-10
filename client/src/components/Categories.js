@@ -41,7 +41,7 @@ class Categories extends Component {
           categoryNr: "4",
           categoryIcon: "fas fa-film",
           categoryName: "Movie Trailer",
-          q: "kinockeck trailer"
+          q: "trailer"
         },
         {
           categoryNr: "5",
@@ -100,7 +100,7 @@ class Categories extends Component {
           categoryNr: "13",
           categoryIcon: "fas fa-cut",
           categoryName: "DIY",
-          q: "makerist DIY-eule pattydoo",
+          q: "pattydoo makerist DIY-eule",
           showpopup: false
         }
       ]
